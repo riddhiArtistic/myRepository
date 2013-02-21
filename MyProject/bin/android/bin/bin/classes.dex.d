@@ -1,0 +1,27 @@
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes.dex : \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\com\velVetArts\MyProject\BuildConfig.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\com\velVetArts\MyProject\MainActivity.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\com\velVetArts\MyProject\R$attr.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\com\velVetArts\MyProject\R$drawable.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\com\velVetArts\MyProject\R.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\HXCPP.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\GameActivity$1.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\GameActivity.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\HaxeObject.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$1.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$2.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$3.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$4.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$5.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$6.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$7.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$8.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$9.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView$Renderer.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\MainView.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\ManagedMediaPlayer$1.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\ManagedMediaPlayer.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\NME.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\Sound.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\classes\org\haxe\nme\Value.class \
+D:\Classes\CS587\Projects\MyProject\bin\android\bin\bin\dexedLibs\annotations-c6cdcf2537b84c53cb70cab370d4946d.jar \
