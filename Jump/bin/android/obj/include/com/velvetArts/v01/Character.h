@@ -43,6 +43,15 @@ class Character_obj : public ::native::display::Sprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Character"); }
 
+		virtual Void stopMove( ::native::events::MouseEvent e);
+		Dynamic stopMove_dyn();
+
+		virtual Void Move( ::native::events::MouseEvent e);
+		Dynamic Move_dyn();
+
+		virtual Void en_Move( ::native::events::MouseEvent e);
+		Dynamic en_Move_dyn();
+
 		virtual Void stopDragging( ::native::events::TouchEvent e);
 		Dynamic stopDragging_dyn();
 
@@ -61,6 +70,7 @@ class Character_obj : public ::native::display::Sprite_obj{
 		virtual Void resize( );
 		Dynamic resize_dyn();
 
+		bool mouseMove; /* REM */ 
 		::native::geom::Matrix matriX; /* REM */ 
 		::native::display::Sprite actor; /* REM */ 
 };

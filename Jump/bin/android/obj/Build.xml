@@ -709,6 +709,7 @@
   </file>
   <file name="src/com/velvetArts/v01/Character.cpp">
    <depend name="include/com/velvetArts/v01/Character.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
    <depend name="include/native/display/DisplayObjectContainer.h"/>
    <depend name="include/native/display/Graphics.h"/>
@@ -724,6 +725,7 @@
    <depend name="include/native/events/TouchEvent.h"/>
    <depend name="include/native/geom/Matrix.h"/>
    <depend name="include/nme/Lib.h"/>
+   <depend name="include/nme/installer/Assets.h"/>
   </file>
   <file name="src/native/display/Sprite.cpp">
    <depend name="include/Type.h"/>
