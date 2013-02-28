@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- NMML reference: https://gist.github.com/1763850 -->
+	
+	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
+	<meta title="playJump" package="com.velvetArts.v01.playJump" version="1.0.0" company="Riddhi" />
+	
+	<!-- output -->
+	<app main="com.velvetArts.v01.Main" file="playJump" path="bin" />
+	
+	<window background="#ffffff" fps="60" resizable="true" />
+	<window width="800" height="480" unless="mobile" />
+	<window width="0" height="0" if="target_android"/>
+	<window orientation="auto" vsync="true" antialiasing="0" if="cpp" />
+	
+	<!-- classpath, haxe libs -->
+	<source path="src" />
+	<haxelib name="nme" />
+	
+	<!-- assets -->
+	<icon path="assets/nme.svg" />
+	<assets path="assets/img" rename="img" />
+	
+	<!-- DLLs -->
+	<ndll name="std" />
+	<ndll name="regexp" />
+	<ndll name="zlib" />
+	<ndll name="nme" haxelib="nme" />
+
+	<!-- optimize JS output -->
+	<haxeflag name="--dead-code-elimination" if="html5" />
+	<haxeflag name="--js-modern" if="html5" />
+	
+</project>
