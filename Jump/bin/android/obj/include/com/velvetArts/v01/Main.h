@@ -6,14 +6,14 @@
 #endif
 
 #include <native/display/Sprite.h>
-HX_DECLARE_CLASS3(com,velvetArts,v01,Game)
+HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Main)
+HX_DECLARE_CLASS3(com,velvetArts,v01,MovingBG)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(native,display,IBitmapDrawable)
 HX_DECLARE_CLASS2(native,display,InteractiveObject)
 HX_DECLARE_CLASS2(native,display,Sprite)
-HX_DECLARE_CLASS2(native,display,Tilesheet)
 HX_DECLARE_CLASS2(native,events,EventDispatcher)
 HX_DECLARE_CLASS2(native,events,IEventDispatcher)
 namespace com{
@@ -44,8 +44,8 @@ class Main_obj : public ::native::display::Sprite_obj{
 		virtual Void init( Dynamic e);
 		Dynamic init_dyn();
 
-		::native::display::Tilesheet tilesheet; /* REM */ 
-		::com::velvetArts::v01::Game game; /* REM */ 
+		::com::velvetArts::v01::Character Actor; /* REM */ 
+		::com::velvetArts::v01::MovingBG bgImg; /* REM */ 
 		static Void main( );
 		static Dynamic main_dyn();
 

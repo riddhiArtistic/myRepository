@@ -104,11 +104,7 @@ Void Assets_obj::initialize( ){
 			::nme::installer::Assets_obj::resourceNames->set(HX_CSTRING("img/movingBG.png"),HX_CSTRING("img_movingbg_png"));
 			HX_STACK_LINE(46)
 			::nme::installer::Assets_obj::resourceTypes->set(HX_CSTRING("img/movingBG.png"),HX_CSTRING("image"));
-			HX_STACK_LINE(47)
-			::nme::installer::Assets_obj::resourceNames->set(HX_CSTRING("img/tiles.png"),HX_CSTRING("img_tiles_png"));
-			HX_STACK_LINE(48)
-			::nme::installer::Assets_obj::resourceTypes->set(HX_CSTRING("img/tiles.png"),HX_CSTRING("image"));
-			HX_STACK_LINE(51)
+			HX_STACK_LINE(49)
 			::nme::installer::Assets_obj::initialized = true;
 		}
 	}
@@ -120,52 +116,52 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC0(Assets_obj,initialize,(void))
 
 ::native::display::BitmapData Assets_obj::getBitmapData( ::String id,hx::Null< bool >  __o_useCache){
 bool useCache = __o_useCache.Default(true);
-	HX_STACK_PUSH("Assets::getBitmapData","nme/installer/Assets.hx",58);
+	HX_STACK_PUSH("Assets::getBitmapData","nme/installer/Assets.hx",56);
 	HX_STACK_ARG(id,"id");
 	HX_STACK_ARG(useCache,"useCache");
 {
-		HX_STACK_LINE(60)
+		HX_STACK_LINE(58)
 		::nme::installer::Assets_obj::initialize();
-		HX_STACK_LINE(62)
+		HX_STACK_LINE(60)
 		if (((bool(::nme::installer::Assets_obj::resourceTypes->exists(id)) && bool((::nme::installer::Assets_obj::resourceTypes->get(id)->__Field(HX_CSTRING("toLowerCase"),true)() == HX_CSTRING("image")))))){
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(60)
 			if (((bool(useCache) && bool(::nme::installer::Assets_obj::cachedBitmapData->exists(id))))){
-				HX_STACK_LINE(64)
+				HX_STACK_LINE(62)
 				return ::nme::installer::Assets_obj::cachedBitmapData->get(id);
 			}
 			else{
-				HX_STACK_LINE(70)
+				HX_STACK_LINE(68)
 				::native::display::BitmapData data = ::native::display::BitmapData_obj::load(::nme::installer::Assets_obj::resourceNames->get(id),null());		HX_STACK_VAR(data,"data");
-				HX_STACK_LINE(72)
+				HX_STACK_LINE(70)
 				if ((useCache)){
-					HX_STACK_LINE(72)
+					HX_STACK_LINE(70)
 					::nme::installer::Assets_obj::cachedBitmapData->set(id,data);
 				}
-				HX_STACK_LINE(78)
+				HX_STACK_LINE(76)
 				return data;
 			}
 		}
 		else{
-			HX_STACK_LINE(82)
+			HX_STACK_LINE(80)
 			if (((id.indexOf(HX_CSTRING(":"),null()) > (int)-1))){
-				HX_STACK_LINE(84)
+				HX_STACK_LINE(82)
 				::String libraryName = id.substr((int)0,id.indexOf(HX_CSTRING(":"),null()));		HX_STACK_VAR(libraryName,"libraryName");
-				HX_STACK_LINE(85)
+				HX_STACK_LINE(83)
 				::String symbolName = id.substr((id.indexOf(HX_CSTRING(":"),null()) + (int)1),null());		HX_STACK_VAR(symbolName,"symbolName");
-				HX_STACK_LINE(87)
+				HX_STACK_LINE(85)
 				if ((::nme::installer::Assets_obj::libraryTypes->exists(libraryName))){
 				}
 				else{
-					HX_STACK_LINE(121)
-					::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no asset library named \"") + libraryName) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),123,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBitmapData")));
+					HX_STACK_LINE(119)
+					::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no asset library named \"") + libraryName) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),121,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBitmapData")));
 				}
 			}
 			else{
-				HX_STACK_LINE(127)
-				::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no BitmapData asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),129,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBitmapData")));
+				HX_STACK_LINE(125)
+				::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no BitmapData asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),127,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBitmapData")));
 			}
 		}
-		HX_STACK_LINE(133)
+		HX_STACK_LINE(131)
 		return null();
 	}
 }
@@ -174,22 +170,22 @@ bool useCache = __o_useCache.Default(true);
 STATIC_HX_DEFINE_DYNAMIC_FUNC2(Assets_obj,getBitmapData,return )
 
 ::native::utils::ByteArray Assets_obj::getBytes( ::String id){
-	HX_STACK_PUSH("Assets::getBytes","nme/installer/Assets.hx",138);
+	HX_STACK_PUSH("Assets::getBytes","nme/installer/Assets.hx",136);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(140)
+	HX_STACK_LINE(138)
 	::nme::installer::Assets_obj::initialize();
-	HX_STACK_LINE(142)
+	HX_STACK_LINE(140)
 	if ((::nme::installer::Assets_obj::resourceNames->exists(id))){
-		HX_STACK_LINE(142)
+		HX_STACK_LINE(140)
 		return ::native::utils::ByteArray_obj::readFile(::nme::installer::Assets_obj::resourceNames->get(id));
 	}
 	else{
+		HX_STACK_LINE(146)
+		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no String or ByteArray asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),146,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBytes")));
 		HX_STACK_LINE(148)
-		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no String or ByteArray asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),148,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getBytes")));
-		HX_STACK_LINE(150)
 		return null();
 	}
-	HX_STACK_LINE(142)
+	HX_STACK_LINE(140)
 	return null();
 }
 
@@ -197,22 +193,22 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC2(Assets_obj,getBitmapData,return )
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getBytes,return )
 
 ::native::text::Font Assets_obj::getFont( ::String id){
-	HX_STACK_PUSH("Assets::getFont","nme/installer/Assets.hx",157);
+	HX_STACK_PUSH("Assets::getFont","nme/installer/Assets.hx",155);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(159)
+	HX_STACK_LINE(157)
 	::nme::installer::Assets_obj::initialize();
-	HX_STACK_LINE(161)
+	HX_STACK_LINE(159)
 	if (((bool(::nme::installer::Assets_obj::resourceTypes->exists(id)) && bool((::nme::installer::Assets_obj::resourceTypes->get(id)->__Field(HX_CSTRING("toLowerCase"),true)() == HX_CSTRING("font")))))){
-		HX_STACK_LINE(161)
+		HX_STACK_LINE(159)
 		return ::native::text::Font_obj::__new(::nme::installer::Assets_obj::resourceNames->get(id));
 	}
 	else{
+		HX_STACK_LINE(165)
+		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no Font asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),165,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getFont")));
 		HX_STACK_LINE(167)
-		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no Font asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),167,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getFont")));
-		HX_STACK_LINE(169)
 		return null();
 	}
-	HX_STACK_LINE(161)
+	HX_STACK_LINE(159)
 	return null();
 }
 
@@ -220,22 +216,22 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getBytes,return )
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getFont,return )
 
 ::format::display::MovieClip Assets_obj::getMovieClip( ::String id){
-	HX_STACK_PUSH("Assets::getMovieClip","nme/installer/Assets.hx",176);
+	HX_STACK_PUSH("Assets::getMovieClip","nme/installer/Assets.hx",174);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(178)
+	HX_STACK_LINE(176)
 	::nme::installer::Assets_obj::initialize();
-	HX_STACK_LINE(180)
+	HX_STACK_LINE(178)
 	::String libraryName = id.substr((int)0,id.indexOf(HX_CSTRING(":"),null()));		HX_STACK_VAR(libraryName,"libraryName");
-	HX_STACK_LINE(181)
+	HX_STACK_LINE(179)
 	::String symbolName = id.substr((id.indexOf(HX_CSTRING(":"),null()) + (int)1),null());		HX_STACK_VAR(symbolName,"symbolName");
-	HX_STACK_LINE(183)
+	HX_STACK_LINE(181)
 	if ((::nme::installer::Assets_obj::libraryTypes->exists(libraryName))){
 	}
 	else{
-		HX_STACK_LINE(217)
-		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no asset library named \"") + libraryName) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),219,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getMovieClip")));
+		HX_STACK_LINE(215)
+		::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no asset library named \"") + libraryName) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),217,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getMovieClip")));
 	}
-	HX_STACK_LINE(223)
+	HX_STACK_LINE(221)
 	return null();
 }
 
@@ -243,11 +239,11 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getFont,return )
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getMovieClip,return )
 
 ::String Assets_obj::getResourceName( ::String id){
-	HX_STACK_PUSH("Assets::getResourceName","nme/installer/Assets.hx",228);
+	HX_STACK_PUSH("Assets::getResourceName","nme/installer/Assets.hx",226);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(230)
+	HX_STACK_LINE(228)
 	::nme::installer::Assets_obj::initialize();
-	HX_STACK_LINE(232)
+	HX_STACK_LINE(230)
 	return ::nme::installer::Assets_obj::resourceNames->get(id);
 }
 
@@ -255,28 +251,28 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getMovieClip,return )
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getResourceName,return )
 
 ::native::media::Sound Assets_obj::getSound( ::String id){
-	HX_STACK_PUSH("Assets::getSound","nme/installer/Assets.hx",237);
+	HX_STACK_PUSH("Assets::getSound","nme/installer/Assets.hx",235);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(239)
+	HX_STACK_LINE(237)
 	::nme::installer::Assets_obj::initialize();
-	HX_STACK_LINE(241)
+	HX_STACK_LINE(239)
 	if ((::nme::installer::Assets_obj::resourceTypes->exists(id))){
-		HX_STACK_LINE(241)
+		HX_STACK_LINE(239)
 		if (((::nme::installer::Assets_obj::resourceTypes->get(id)->__Field(HX_CSTRING("toLowerCase"),true)() == HX_CSTRING("sound")))){
-			HX_STACK_LINE(243)
+			HX_STACK_LINE(241)
 			return ::native::media::Sound_obj::__new(::native::net::URLRequest_obj::__new(::nme::installer::Assets_obj::resourceNames->get(id)),null(),false);
 		}
 		else{
-			HX_STACK_LINE(247)
+			HX_STACK_LINE(245)
 			if (((::nme::installer::Assets_obj::resourceTypes->get(id)->__Field(HX_CSTRING("toLowerCase"),true)() == HX_CSTRING("music")))){
-				HX_STACK_LINE(247)
+				HX_STACK_LINE(245)
 				return ::native::media::Sound_obj::__new(::native::net::URLRequest_obj::__new(::nme::installer::Assets_obj::resourceNames->get(id)),null(),true);
 			}
 		}
 	}
+	HX_STACK_LINE(253)
+	::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no Sound asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),253,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getSound")));
 	HX_STACK_LINE(255)
-	::haxe::Log_obj::trace(((HX_CSTRING("[nme.Assets] There is no Sound asset with an ID of \"") + id) + HX_CSTRING("\"")),hx::SourceInfo(HX_CSTRING("Assets.hx"),255,HX_CSTRING("nme.installer.Assets"),HX_CSTRING("getSound")));
-	HX_STACK_LINE(257)
 	return null();
 }
 
@@ -284,20 +280,20 @@ STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getResourceName,return )
 STATIC_HX_DEFINE_DYNAMIC_FUNC1(Assets_obj,getSound,return )
 
 ::String Assets_obj::getText( ::String id){
-	HX_STACK_PUSH("Assets::getText","nme/installer/Assets.hx",262);
+	HX_STACK_PUSH("Assets::getText","nme/installer/Assets.hx",260);
 	HX_STACK_ARG(id,"id");
-	HX_STACK_LINE(264)
+	HX_STACK_LINE(262)
 	::native::utils::ByteArray bytes = ::nme::installer::Assets_obj::getBytes(id);		HX_STACK_VAR(bytes,"bytes");
-	HX_STACK_LINE(266)
+	HX_STACK_LINE(264)
 	if (((bytes == null()))){
-		HX_STACK_LINE(266)
+		HX_STACK_LINE(264)
 		return null();
 	}
 	else{
-		HX_STACK_LINE(270)
+		HX_STACK_LINE(268)
 		return bytes->readUTFBytes(bytes->length);
 	}
-	HX_STACK_LINE(266)
+	HX_STACK_LINE(264)
 	return null();
 }
 

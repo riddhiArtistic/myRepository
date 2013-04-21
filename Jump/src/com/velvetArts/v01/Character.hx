@@ -1,14 +1,11 @@
 package com.velvetArts.v01;
 import nme.Assets;
 import nme.display.Bitmap;
-import nme.display.BitmapData;
 import nme.display.Sprite;
 import nme.events.Event;
 import nme.events.MouseEvent;
 import nme.events.TouchEvent;
 import nme.geom.Matrix;
-import nme.geom.Point;
-import nme.geom.Rectangle;
 import nme.Lib;
 import nme.ui.Multitouch;
 
@@ -17,56 +14,112 @@ import nme.ui.Multitouch;
  * @author Riddhi
  */
 
-class Character
+class Character extends Sprite
 {
-    var tile_ID:Int;
-    var mPoint:Point;
-    var curr_Game: Game;
-	var x:Float;
-	var y:Float;
+	private var actor:Sprite;
+	private var matriX:Matrix;
+	private var mouseMove:Bool;
+
+	public function new() 
+	{
+		super();
 		
-    public function new(tileID:Int, game:Game): Void
-    {		
-		mPoint = new Point(0, 0);
+		actor = new Sprite();
+		matriX = new Matrix();
 		
-		tile_ID = tileID;
-		x = Lib.current.stage.stageWidth / 2;
-		y = 30;
-		curr_Game = game;
+		matriX.identity();
+		//matriX.translate( -30, -30);
+		
+		actor.graphics.beginBitmapFill(Assets.getBitmapData("img/baby.png"), matriX, false, true);
+		//actor.graphics.beginFill(0xffcc99, 0.8);
+		//actor.graphics.drawCircle(0, 0, 30);
+		actor.graphics.drawRect(0, 0, 60, 60);
+		
+		resize();
+		
+		actor.x = -(actor.width) / 2.0;
+		actor.y = -(actor.height) / 2.0;
+		
+		this.addChild(actor);
+		
+		addEventListener(Event.RESIZE, resizeHandler);
+		addEventListener(Event.ENTER_FRAME, update);
 	}
 	
-	/*private function resize():Void 
+	private function resize():Void 
 	{
 		//this.width = 60;
 		//this.height = 60;
-		x = 10;
-		y = (Lib.current.stage.stageHeight) / 2;
+		this.x = 10;
+		this.y = (Lib.current.stage.stageHeight) / 2;
 	}
 	
 	private function resizeHandler(e:Event):Void
 	{
 		resize();
-	}*/
-		
-	public function update(pos_X: Float, pos_Y: Float): Void
+	}
+	
+	private function update(e:Event):Void
 	{
-		x = pos_X;
-		y = pos_Y;
-		/*if (tile_ID != 4)
+		Lib.current.stage.addEventListener(TouchEvent.TOUCH_BEGIN, startDragging);
+		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, en_Move);
+		
+		if (this.x == Lib.current.stage.stageWidth)
 		{
-			x = Std.random(740) + 30;
-			y = Std.random(405) + 15;
+			this.x = 10;
+		}else
+		{
+		    this.x += 2.0;
 		}
-		else
+	}
+	
+	private function startDragging(e:TouchEvent):Void 
+	{
+		Lib.current.stage.addEventListener(TouchEvent.TOUCH_END, stopDragging);
+        Lib.current.stage.addEventListener(TouchEvent.TOUCH_MOVE, jump);
+	}
+	
+	private function jump (e:TouchEvent):Void
+	{
+		if (e.touchPointID == 0)
 		{
-			x = Lib.current.stage.stageWidth / 2;
-			y = Lib.current.stage.stageHeight / 2;
 			
-			Lib.current.stage.addEventListener(TouchEvent.TOUCH_BEGIN, startDragging);
-		    Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, en_Move);
-		}*/
-		curr_Game.renderList.push(x);
-		curr_Game.renderList.push(y);
-		curr_Game.renderList.push(tile_ID);
+			    if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
+		        {
+			        this.y = e.stageY;
+					this.x = e.stageX;
+			    }
+			
+		}
+		e.updateAfterEvent();
+	}
+	
+	private function stopDragging(e:TouchEvent):Void
+	{
+        Lib.current.stage.removeEventListener(TouchEvent.TOUCH_END, stopDragging);
+        Lib.current.stage.removeEventListener(TouchEvent.TOUCH_MOVE, jump);
+    }
+	
+	private function en_Move(e:MouseEvent):Void 
+	{
+		Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, Move);
+		Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, stopMove);
+		
+		e.updateAfterEvent();
+	}
+	
+	private function Move(e:MouseEvent):Void 
+	{
+		if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
+		{
+		    this.y = e.stageY;
+			this.x = e.stageX;
+		}
+	}
+	
+	private function stopMove(e:MouseEvent):Void
+	{
+		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, Move);
+		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, en_Move);
 	}
 }

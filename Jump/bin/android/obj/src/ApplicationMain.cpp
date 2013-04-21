@@ -153,12 +153,7 @@ Dynamic ApplicationMain_obj::getAsset( ::String inName){
 		HX_STACK_LINE(115)
 		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/movingBG.png"),null());
 	}
-	HX_STACK_LINE(121)
-	if (((inName == HX_CSTRING("img/tiles.png")))){
-		HX_STACK_LINE(122)
-		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/tiles.png"),null());
-	}
-	HX_STACK_LINE(129)
+	HX_STACK_LINE(122)
 	return null();
 }
 

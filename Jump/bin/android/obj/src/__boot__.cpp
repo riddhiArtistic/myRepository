@@ -29,6 +29,7 @@
 #include <native/net/URLRequestHeader.h>
 #include <native/net/URLRequest.h>
 #include <native/net/URLLoaderDataFormat.h>
+#include <native/net/URLLoader.h>
 #include <native/media/SoundTransform.h>
 #include <native/media/SoundLoaderContext.h>
 #include <native/media/SoundChannel.h>
@@ -63,7 +64,6 @@
 #include <native/display/StageAlign.h>
 #include <native/display/TouchInfo.h>
 #include <native/display/SpreadMethod.h>
-#include <native/display/Shape.h>
 #include <native/display/PixelSnapping.h>
 #include <native/display/MovieClip.h>
 #include <native/display/ManagedStage.h>
@@ -71,9 +71,6 @@
 #include <native/events/TouchEvent.h>
 #include <native/events/MouseEvent.h>
 #include <native/events/Event.h>
-#include <native/display/LoaderInfo.h>
-#include <native/net/URLLoader.h>
-#include <native/display/Loader.h>
 #include <native/display/LineScaleMode.h>
 #include <native/display/JointStyle.h>
 #include <native/display/InterpolationMethod.h>
@@ -102,8 +99,9 @@
 #include <cpp/zip/Flush.h>
 #include <cpp/zip/Compress.h>
 #include <cpp/rtti/FieldNumericIntegerLookup.h>
+#include <com/velvetArts/v01/MovingBG.h>
 #include <com/velvetArts/v01/Main.h>
-#include <com/velvetArts/v01/Game.h>
+#include <com/velvetArts/v01/Character.h>
 #include <native/display/Sprite.h>
 #include <native/display/DisplayObjectContainer.h>
 #include <native/display/InteractiveObject.h>
@@ -112,7 +110,6 @@
 #include <native/display/IBitmapDrawable.h>
 #include <native/events/EventDispatcher.h>
 #include <native/events/IEventDispatcher.h>
-#include <com/velvetArts/v01/Character.h>
 #include <Type.h>
 #include <ValueType.h>
 #include <Sys.h>
@@ -160,6 +157,7 @@ hx::RegisterResources( hx::GetResources() );
 ::native::net::URLRequestHeader_obj::__register();
 ::native::net::URLRequest_obj::__register();
 ::native::net::URLLoaderDataFormat_obj::__register();
+::native::net::URLLoader_obj::__register();
 ::native::media::SoundTransform_obj::__register();
 ::native::media::SoundLoaderContext_obj::__register();
 ::native::media::SoundChannel_obj::__register();
@@ -194,7 +192,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::StageAlign_obj::__register();
 ::native::display::TouchInfo_obj::__register();
 ::native::display::SpreadMethod_obj::__register();
-::native::display::Shape_obj::__register();
 ::native::display::PixelSnapping_obj::__register();
 ::native::display::MovieClip_obj::__register();
 ::native::display::ManagedStage_obj::__register();
@@ -202,9 +199,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::events::TouchEvent_obj::__register();
 ::native::events::MouseEvent_obj::__register();
 ::native::events::Event_obj::__register();
-::native::display::LoaderInfo_obj::__register();
-::native::net::URLLoader_obj::__register();
-::native::display::Loader_obj::__register();
 ::native::display::LineScaleMode_obj::__register();
 ::native::display::JointStyle_obj::__register();
 ::native::display::InterpolationMethod_obj::__register();
@@ -233,8 +227,9 @@ hx::RegisterResources( hx::GetResources() );
 ::cpp::zip::Flush_obj::__register();
 ::cpp::zip::Compress_obj::__register();
 ::cpp::rtti::FieldNumericIntegerLookup_obj::__register();
+::com::velvetArts::v01::MovingBG_obj::__register();
 ::com::velvetArts::v01::Main_obj::__register();
-::com::velvetArts::v01::Game_obj::__register();
+::com::velvetArts::v01::Character_obj::__register();
 ::native::display::Sprite_obj::__register();
 ::native::display::DisplayObjectContainer_obj::__register();
 ::native::display::InteractiveObject_obj::__register();
@@ -243,7 +238,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::IBitmapDrawable_obj::__register();
 ::native::events::EventDispatcher_obj::__register();
 ::native::events::IEventDispatcher_obj::__register();
-::com::velvetArts::v01::Character_obj::__register();
 ::Type_obj::__register();
 ::ValueType_obj::__register();
 ::Sys_obj::__register();
@@ -279,7 +273,6 @@ hx::RegisterResources( hx::GetResources() );
 ::Sys_obj::__boot();
 ::ValueType_obj::__boot();
 ::Type_obj::__boot();
-::com::velvetArts::v01::Character_obj::__boot();
 ::native::events::IEventDispatcher_obj::__boot();
 ::native::events::EventDispatcher_obj::__boot();
 ::native::display::IBitmapDrawable_obj::__boot();
@@ -288,8 +281,9 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::InteractiveObject_obj::__boot();
 ::native::display::DisplayObjectContainer_obj::__boot();
 ::native::display::Sprite_obj::__boot();
-::com::velvetArts::v01::Game_obj::__boot();
+::com::velvetArts::v01::Character_obj::__boot();
 ::com::velvetArts::v01::Main_obj::__boot();
+::com::velvetArts::v01::MovingBG_obj::__boot();
 ::format::display::FrameLabel_obj::__boot();
 ::format::display::MovieClip_obj::__boot();
 ::haxe::Timer_obj::__boot();
@@ -313,9 +307,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::InterpolationMethod_obj::__boot();
 ::native::display::JointStyle_obj::__boot();
 ::native::display::LineScaleMode_obj::__boot();
-::native::display::Loader_obj::__boot();
-::native::net::URLLoader_obj::__boot();
-::native::display::LoaderInfo_obj::__boot();
 ::native::events::Event_obj::__boot();
 ::native::events::MouseEvent_obj::__boot();
 ::native::events::TouchEvent_obj::__boot();
@@ -323,7 +314,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::ManagedStage_obj::__boot();
 ::native::display::MovieClip_obj::__boot();
 ::native::display::PixelSnapping_obj::__boot();
-::native::display::Shape_obj::__boot();
 ::native::display::SpreadMethod_obj::__boot();
 ::native::display::TouchInfo_obj::__boot();
 ::native::display::StageAlign_obj::__boot();
@@ -358,6 +348,7 @@ hx::RegisterResources( hx::GetResources() );
 ::native::media::SoundChannel_obj::__boot();
 ::native::media::SoundLoaderContext_obj::__boot();
 ::native::media::SoundTransform_obj::__boot();
+::native::net::URLLoader_obj::__boot();
 ::native::net::URLLoaderDataFormat_obj::__boot();
 ::native::net::URLRequest_obj::__boot();
 ::native::net::URLRequestHeader_obj::__boot();

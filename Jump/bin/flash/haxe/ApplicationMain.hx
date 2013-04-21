@@ -97,19 +97,14 @@ class ApplicationMain {
 	public static function getAsset (inName:String):Dynamic {
 		
 		
-		if (inName=="img/movingBG_small.png")
+		if (inName=="img/baby.png")
 			 
-            return Assets.getBitmapData ("img/movingBG_small.png");
+            return Assets.getBitmapData ("img/baby.png");
          
 		
-		if (inName=="img/nTILES.png")
+		if (inName=="img/movingBG.png")
 			 
-            return Assets.getBitmapData ("img/nTILES.png");
-         
-		
-		if (inName=="img/tiles.png")
-			 
-            return Assets.getBitmapData ("img/tiles.png");
+            return Assets.getBitmapData ("img/movingBG.png");
          
 		
 		
@@ -131,9 +126,8 @@ class ApplicationMain {
 	
 }
 
-class NME_img_movingbg_small_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_img_ntiles_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
-class NME_img_tiles_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_baby_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_movingbg_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 
 
 #else

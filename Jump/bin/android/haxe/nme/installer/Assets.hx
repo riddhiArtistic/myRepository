@@ -44,8 +44,6 @@ class Assets {
 			resourceTypes.set ("img/baby.png", "image");
 			resourceNames.set ("img/movingBG.png", "img_movingbg_png");
 			resourceTypes.set ("img/movingBG.png", "image");
-			resourceNames.set ("img/tiles.png", "img_tiles_png");
-			resourceTypes.set ("img/tiles.png", "image");
 			
 			
 			initialized = true;
