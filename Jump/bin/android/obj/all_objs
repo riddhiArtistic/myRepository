@@ -27,7 +27,6 @@ obj/android/src/native/net/URLRequestMethod.obj
 obj/android/src/native/net/URLRequestHeader.obj
 obj/android/src/native/net/URLRequest.obj
 obj/android/src/native/net/URLLoaderDataFormat.obj
-obj/android/src/native/net/URLLoader.obj
 obj/android/src/native/media/SoundTransform.obj
 obj/android/src/native/media/SoundLoaderContext.obj
 obj/android/src/native/media/SoundChannel.obj
@@ -62,6 +61,7 @@ obj/android/src/native/display/StageDisplayState.obj
 obj/android/src/native/display/StageAlign.obj
 obj/android/src/native/display/TouchInfo.obj
 obj/android/src/native/display/SpreadMethod.obj
+obj/android/src/native/display/Shape.obj
 obj/android/src/native/display/PixelSnapping.obj
 obj/android/src/native/display/MovieClip.obj
 obj/android/src/native/display/ManagedStage.obj
@@ -69,6 +69,9 @@ obj/android/src/native/display/Stage.obj
 obj/android/src/native/events/TouchEvent.obj
 obj/android/src/native/events/MouseEvent.obj
 obj/android/src/native/events/Event.obj
+obj/android/src/native/display/LoaderInfo.obj
+obj/android/src/native/net/URLLoader.obj
+obj/android/src/native/display/Loader.obj
 obj/android/src/native/display/LineScaleMode.obj
 obj/android/src/native/display/JointStyle.obj
 obj/android/src/native/display/InterpolationMethod.obj
@@ -97,9 +100,8 @@ obj/android/src/cpp/zip/Uncompress.obj
 obj/android/src/cpp/zip/Flush.obj
 obj/android/src/cpp/zip/Compress.obj
 obj/android/src/cpp/rtti/FieldNumericIntegerLookup.obj
-obj/android/src/com/velvetArts/v01/MovingBG.obj
 obj/android/src/com/velvetArts/v01/Main.obj
-obj/android/src/com/velvetArts/v01/Character.obj
+obj/android/src/com/velvetArts/v01/Game.obj
 obj/android/src/native/display/Sprite.obj
 obj/android/src/native/display/DisplayObjectContainer.obj
 obj/android/src/native/display/InteractiveObject.obj
@@ -108,6 +110,7 @@ obj/android/src/native/Loader.obj
 obj/android/src/native/display/IBitmapDrawable.obj
 obj/android/src/native/events/EventDispatcher.obj
 obj/android/src/native/events/IEventDispatcher.obj
+obj/android/src/com/velvetArts/v01/Character.obj
 obj/android/src/Type.obj
 obj/android/src/ValueType.obj
 obj/android/src/Sys.obj

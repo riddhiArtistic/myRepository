@@ -6,53 +6,14 @@
 #ifndef INCLUDED_native_display_BitmapData
 #include <native/display/BitmapData.h>
 #endif
-#ifndef INCLUDED_native_display_DisplayObject
-#include <native/display/DisplayObject.h>
-#endif
-#ifndef INCLUDED_native_display_DisplayObjectContainer
-#include <native/display/DisplayObjectContainer.h>
-#endif
-#ifndef INCLUDED_native_display_Graphics
-#include <native/display/Graphics.h>
-#endif
 #ifndef INCLUDED_native_display_IBitmapDrawable
 #include <native/display/IBitmapDrawable.h>
 #endif
-#ifndef INCLUDED_native_display_InteractiveObject
-#include <native/display/InteractiveObject.h>
+#ifndef INCLUDED_native_geom_Point
+#include <native/geom/Point.h>
 #endif
-#ifndef INCLUDED_native_display_MovieClip
-#include <native/display/MovieClip.h>
-#endif
-#ifndef INCLUDED_native_display_Sprite
-#include <native/display/Sprite.h>
-#endif
-#ifndef INCLUDED_native_display_Stage
-#include <native/display/Stage.h>
-#endif
-#ifndef INCLUDED_native_events_Event
-#include <native/events/Event.h>
-#endif
-#ifndef INCLUDED_native_events_EventDispatcher
-#include <native/events/EventDispatcher.h>
-#endif
-#ifndef INCLUDED_native_events_IEventDispatcher
-#include <native/events/IEventDispatcher.h>
-#endif
-#ifndef INCLUDED_native_events_MouseEvent
-#include <native/events/MouseEvent.h>
-#endif
-#ifndef INCLUDED_native_events_TouchEvent
-#include <native/events/TouchEvent.h>
-#endif
-#ifndef INCLUDED_native_geom_Matrix
-#include <native/geom/Matrix.h>
-#endif
-#ifndef INCLUDED_nme_Lib
-#include <nme/Lib.h>
-#endif
-#ifndef INCLUDED_nme_installer_Assets
-#include <nme/installer/Assets.h>
+#ifndef INCLUDED_native_geom_Rectangle
+#include <native/geom/Rectangle.h>
 #endif
 namespace com{
 namespace velvetArts{
@@ -60,32 +21,10 @@ namespace v01{
 
 Void Character_obj::__construct()
 {
-HX_STACK_PUSH("Character::new","com/velvetArts/v01/Character.hx",24);
+HX_STACK_PUSH("Character::new","com/velvetArts/v01/Character.hx",32);
 {
-	HX_STACK_LINE(25)
-	super::__construct();
-	HX_STACK_LINE(27)
-	this->actor = ::native::display::Sprite_obj::__new();
-	HX_STACK_LINE(28)
-	this->matriX = ::native::geom::Matrix_obj::__new(null(),null(),null(),null(),null(),null());
-	HX_STACK_LINE(30)
-	this->matriX->identity();
-	HX_STACK_LINE(33)
-	this->actor->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/baby.png"),null()),this->matriX,false,true);
-	HX_STACK_LINE(36)
-	this->actor->get_graphics()->drawRect((int)0,(int)0,(int)60,(int)60);
-	HX_STACK_LINE(38)
-	this->resize();
-	HX_STACK_LINE(40)
-	this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
-	HX_STACK_LINE(41)
-	this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
-	HX_STACK_LINE(43)
-	this->addChild(this->actor);
-	HX_STACK_LINE(45)
-	this->addEventListener(::native::events::Event_obj::RESIZE,this->resizeHandler_dyn(),null(),null(),null());
-	HX_STACK_LINE(46)
-	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
+	HX_STACK_LINE(32)
+	this->mPoint = ::native::geom::Point_obj::__new((int)0,(int)0);
 }
 ;
 	return null();
@@ -104,170 +43,22 @@ Dynamic Character_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
-Void Character_obj::stopMove( ::native::events::MouseEvent e){
+Void Character_obj::draw( Float inX,Float inY){
 {
-		HX_STACK_PUSH("Character::stopMove","com/velvetArts/v01/Character.hx",121);
+		HX_STACK_PUSH("Character::draw","com/velvetArts/v01/Character.hx",43);
 		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(122)
-		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null());
-		HX_STACK_LINE(123)
-		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null());
+		HX_STACK_ARG(inX,"inX");
+		HX_STACK_ARG(inY,"inY");
+		HX_STACK_LINE(44)
+		this->mPoint->x = (inX - this->mOffX);
+		HX_STACK_LINE(45)
+		this->mPoint->y = (inY - this->mOffY);
 	}
 return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,stopMove,(void))
-
-Void Character_obj::Move( ::native::events::MouseEvent e){
-{
-		HX_STACK_PUSH("Character::Move","com/velvetArts/v01/Character.hx",112);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(112)
-		if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-			HX_STACK_LINE(115)
-			this->set_y(e->stageY);
-			HX_STACK_LINE(116)
-			this->set_x(e->stageX);
-		}
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,Move,(void))
-
-Void Character_obj::en_Move( ::native::events::MouseEvent e){
-{
-		HX_STACK_PUSH("Character::en_Move","com/velvetArts/v01/Character.hx",104);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(105)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null(),null(),null());
-		HX_STACK_LINE(106)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_UP,this->stopMove_dyn(),null(),null(),null());
-		HX_STACK_LINE(108)
-		e->updateAfterEvent();
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,en_Move,(void))
-
-Void Character_obj::stopDragging( ::native::events::TouchEvent e){
-{
-		HX_STACK_PUSH("Character::stopDragging","com/velvetArts/v01/Character.hx",98);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(99)
-		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null());
-		HX_STACK_LINE(100)
-		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null());
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,stopDragging,(void))
-
-Void Character_obj::jump( ::native::events::TouchEvent e){
-{
-		HX_STACK_PUSH("Character::jump","com/velvetArts/v01/Character.hx",83);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(84)
-		if (((e->touchPointID == (int)0))){
-			HX_STACK_LINE(85)
-			if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-				HX_STACK_LINE(89)
-				this->set_y(e->stageY);
-				HX_STACK_LINE(90)
-				this->set_x(e->stageX);
-			}
-		}
-		HX_STACK_LINE(94)
-		e->updateAfterEvent();
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,jump,(void))
-
-Void Character_obj::startDragging( ::native::events::TouchEvent e){
-{
-		HX_STACK_PUSH("Character::startDragging","com/velvetArts/v01/Character.hx",77);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(78)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null(),null(),null());
-		HX_STACK_LINE(79)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null(),null(),null());
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,startDragging,(void))
-
-Void Character_obj::update( ::native::events::Event e){
-{
-		HX_STACK_PUSH("Character::update","com/velvetArts/v01/Character.hx",63);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(64)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_BEGIN,this->startDragging_dyn(),null(),null(),null());
-		HX_STACK_LINE(65)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null(),null(),null());
-		HX_STACK_LINE(67)
-		if (((this->get_x() == ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()))){
-			HX_STACK_LINE(68)
-			this->set_x((int)10);
-		}
-		else{
-			HX_STACK_LINE(72)
-			::com::velvetArts::v01::Character _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(72)
-			_g->set_x((_g->get_x() + 2.0));
-		}
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,update,(void))
-
-Void Character_obj::resizeHandler( ::native::events::Event e){
-{
-		HX_STACK_PUSH("Character::resizeHandler","com/velvetArts/v01/Character.hx",58);
-		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(58)
-		this->resize();
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(Character_obj,resizeHandler,(void))
-
-Void Character_obj::resize( ){
-{
-		HX_STACK_PUSH("Character::resize","com/velvetArts/v01/Character.hx",50);
-		HX_STACK_THIS(this);
-		HX_STACK_LINE(53)
-		this->set_x((int)10);
-		HX_STACK_LINE(54)
-		this->set_y((Float(::nme::Lib_obj::get_current()->get_stage()->get_stageHeight()) / Float((int)2)));
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC0(Character_obj,resize,(void))
+HX_DEFINE_DYNAMIC_FUNC2(Character_obj,draw,(void))
 
 
 Character_obj::Character_obj()
@@ -277,51 +68,40 @@ Character_obj::Character_obj()
 void Character_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Character);
-	HX_MARK_MEMBER_NAME(mouseMove,"mouseMove");
-	HX_MARK_MEMBER_NAME(matriX,"matriX");
-	HX_MARK_MEMBER_NAME(actor,"actor");
-	super::__Mark(HX_MARK_ARG);
+	HX_MARK_MEMBER_NAME(mOffY,"mOffY");
+	HX_MARK_MEMBER_NAME(mOffX,"mOffX");
+	HX_MARK_MEMBER_NAME(mPoint,"mPoint");
+	HX_MARK_MEMBER_NAME(mRect,"mRect");
+	HX_MARK_MEMBER_NAME(mBits,"mBits");
+	HX_MARK_MEMBER_NAME(mGame,"mGame");
 	HX_MARK_END_CLASS();
 }
 
 void Character_obj::__Visit(HX_VISIT_PARAMS)
 {
-	HX_VISIT_MEMBER_NAME(mouseMove,"mouseMove");
-	HX_VISIT_MEMBER_NAME(matriX,"matriX");
-	HX_VISIT_MEMBER_NAME(actor,"actor");
-	super::__Visit(HX_VISIT_ARG);
+	HX_VISIT_MEMBER_NAME(mOffY,"mOffY");
+	HX_VISIT_MEMBER_NAME(mOffX,"mOffX");
+	HX_VISIT_MEMBER_NAME(mPoint,"mPoint");
+	HX_VISIT_MEMBER_NAME(mRect,"mRect");
+	HX_VISIT_MEMBER_NAME(mBits,"mBits");
+	HX_VISIT_MEMBER_NAME(mGame,"mGame");
 }
 
 Dynamic Character_obj::__Field(const ::String &inName,bool inCallProp)
 {
 	switch(inName.length) {
 	case 4:
-		if (HX_FIELD_EQ(inName,"Move") ) { return Move_dyn(); }
-		if (HX_FIELD_EQ(inName,"jump") ) { return jump_dyn(); }
+		if (HX_FIELD_EQ(inName,"draw") ) { return draw_dyn(); }
 		break;
 	case 5:
-		if (HX_FIELD_EQ(inName,"actor") ) { return actor; }
+		if (HX_FIELD_EQ(inName,"mOffY") ) { return mOffY; }
+		if (HX_FIELD_EQ(inName,"mOffX") ) { return mOffX; }
+		if (HX_FIELD_EQ(inName,"mRect") ) { return mRect; }
+		if (HX_FIELD_EQ(inName,"mBits") ) { return mBits; }
+		if (HX_FIELD_EQ(inName,"mGame") ) { return mGame; }
 		break;
 	case 6:
-		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
-		if (HX_FIELD_EQ(inName,"resize") ) { return resize_dyn(); }
-		if (HX_FIELD_EQ(inName,"matriX") ) { return matriX; }
-		break;
-	case 7:
-		if (HX_FIELD_EQ(inName,"en_Move") ) { return en_Move_dyn(); }
-		break;
-	case 8:
-		if (HX_FIELD_EQ(inName,"stopMove") ) { return stopMove_dyn(); }
-		break;
-	case 9:
-		if (HX_FIELD_EQ(inName,"mouseMove") ) { return mouseMove; }
-		break;
-	case 12:
-		if (HX_FIELD_EQ(inName,"stopDragging") ) { return stopDragging_dyn(); }
-		break;
-	case 13:
-		if (HX_FIELD_EQ(inName,"startDragging") ) { return startDragging_dyn(); }
-		if (HX_FIELD_EQ(inName,"resizeHandler") ) { return resizeHandler_dyn(); }
+		if (HX_FIELD_EQ(inName,"mPoint") ) { return mPoint; }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -330,22 +110,26 @@ Dynamic Character_obj::__SetField(const ::String &inName,const Dynamic &inValue,
 {
 	switch(inName.length) {
 	case 5:
-		if (HX_FIELD_EQ(inName,"actor") ) { actor=inValue.Cast< ::native::display::Sprite >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mOffY") ) { mOffY=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mOffX") ) { mOffX=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mRect") ) { mRect=inValue.Cast< ::native::geom::Rectangle >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mBits") ) { mBits=inValue.Cast< ::native::display::BitmapData >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mGame") ) { mGame=inValue.Cast< ::native::display::BitmapData >(); return inValue; }
 		break;
 	case 6:
-		if (HX_FIELD_EQ(inName,"matriX") ) { matriX=inValue.Cast< ::native::geom::Matrix >(); return inValue; }
-		break;
-	case 9:
-		if (HX_FIELD_EQ(inName,"mouseMove") ) { mouseMove=inValue.Cast< bool >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"mPoint") ) { mPoint=inValue.Cast< ::native::geom::Point >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
 
 void Character_obj::__GetFields(Array< ::String> &outFields)
 {
-	outFields->push(HX_CSTRING("mouseMove"));
-	outFields->push(HX_CSTRING("matriX"));
-	outFields->push(HX_CSTRING("actor"));
+	outFields->push(HX_CSTRING("mOffY"));
+	outFields->push(HX_CSTRING("mOffX"));
+	outFields->push(HX_CSTRING("mPoint"));
+	outFields->push(HX_CSTRING("mRect"));
+	outFields->push(HX_CSTRING("mBits"));
+	outFields->push(HX_CSTRING("mGame"));
 	super::__GetFields(outFields);
 };
 
@@ -353,18 +137,13 @@ static ::String sStaticFields[] = {
 	String(null()) };
 
 static ::String sMemberFields[] = {
-	HX_CSTRING("stopMove"),
-	HX_CSTRING("Move"),
-	HX_CSTRING("en_Move"),
-	HX_CSTRING("stopDragging"),
-	HX_CSTRING("jump"),
-	HX_CSTRING("startDragging"),
-	HX_CSTRING("update"),
-	HX_CSTRING("resizeHandler"),
-	HX_CSTRING("resize"),
-	HX_CSTRING("mouseMove"),
-	HX_CSTRING("matriX"),
-	HX_CSTRING("actor"),
+	HX_CSTRING("draw"),
+	HX_CSTRING("mOffY"),
+	HX_CSTRING("mOffX"),
+	HX_CSTRING("mPoint"),
+	HX_CSTRING("mRect"),
+	HX_CSTRING("mBits"),
+	HX_CSTRING("mGame"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

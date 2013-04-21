@@ -1,6 +1,9 @@
 package com.velvetArts.v01;
 
+import nme.Assets;
+import nme.display.Bitmap;
 import nme.display.Sprite;
+import nme.display.Tilesheet;
 import nme.events.Event;
 import nme.Lib;
 
@@ -11,8 +14,8 @@ import nme.Lib;
 
 class Main extends Sprite 
 {
-	private var bgImg: MovingBG;
-	private var Actor: Character;
+	var game:Game;
+	var tilesheet:Tilesheet;
 	
 	public function new() 
 	{
@@ -27,11 +30,10 @@ class Main extends Sprite
 	private function init(e) 
 	{
 		// entry point
-		bgImg = new MovingBG();
-		Actor = new Character();
 		
-		addChild(bgImg);
-		addChild(Actor);
+		tilesheet = new Tilesheet(Assets.getBitmapData("img/nTILES.png"));
+		game = new Game(tilesheet);
+		
 		// new to Haxe NME? please read *carefully* the readme.txt file!
 	}
 	
