@@ -41,10 +41,12 @@ class Assets {
 		
 		if (!initialized) {
 			
-			resourceClasses.set ("img/baby.png", NME_img_baby_png);
-			resourceTypes.set ("img/baby.png", "image");
-			resourceClasses.set ("img/movingBG.png", NME_img_movingbg_png);
-			resourceTypes.set ("img/movingBG.png", "image");
+			resourceClasses.set ("img/movingBG_small.png", NME_img_movingbg_small_png);
+			resourceTypes.set ("img/movingBG_small.png", "image");
+			resourceClasses.set ("img/nTILES.png", NME_img_ntiles_png);
+			resourceTypes.set ("img/nTILES.png", "image");
+			resourceClasses.set ("img/tiles.png", NME_img_tiles_png);
+			resourceTypes.set ("img/tiles.png", "image");
 			
 			
 			initialized = true;

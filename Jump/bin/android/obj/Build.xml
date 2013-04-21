@@ -198,27 +198,6 @@
   <file name="src/native/net/URLLoaderDataFormat.cpp">
    <depend name="include/native/net/URLLoaderDataFormat.h"/>
   </file>
-  <file name="src/native/net/URLLoader.cpp">
-   <depend name="include/List.h"/>
-   <depend name="include/Std.h"/>
-   <depend name="include/haxe/io/Bytes.h"/>
-   <depend name="include/native/Loader.h"/>
-   <depend name="include/native/events/ErrorEvent.h"/>
-   <depend name="include/native/events/Event.h"/>
-   <depend name="include/native/events/EventDispatcher.h"/>
-   <depend name="include/native/events/HTTPStatusEvent.h"/>
-   <depend name="include/native/events/IEventDispatcher.h"/>
-   <depend name="include/native/events/IOErrorEvent.h"/>
-   <depend name="include/native/events/ProgressEvent.h"/>
-   <depend name="include/native/events/TextEvent.h"/>
-   <depend name="include/native/net/URLLoader.h"/>
-   <depend name="include/native/net/URLLoaderDataFormat.h"/>
-   <depend name="include/native/net/URLRequest.h"/>
-   <depend name="include/native/net/URLVariables.h"/>
-   <depend name="include/native/utils/ByteArray.h"/>
-   <depend name="include/native/utils/IDataInput.h"/>
-   <depend name="include/native/utils/IMemoryRange.h"/>
-  </file>
   <file name="src/native/media/SoundTransform.cpp">
    <depend name="include/native/media/SoundTransform.h"/>
   </file>
@@ -407,6 +386,13 @@
   <file name="src/native/display/SpreadMethod.cpp">
    <depend name="include/native/display/SpreadMethod.h"/>
   </file>
+  <file name="src/native/display/Shape.cpp">
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/Shape.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+  </file>
   <file name="src/native/display/PixelSnapping.cpp">
    <depend name="include/native/display/PixelSnapping.h"/>
   </file>
@@ -489,6 +475,68 @@
    <depend name="include/Std.h"/>
    <depend name="include/native/events/Event.h"/>
    <depend name="include/native/events/EventPhase.h"/>
+  </file>
+  <file name="src/native/display/LoaderInfo.cpp">
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/DisplayObjectContainer.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/display/Loader.h"/>
+   <depend name="include/native/display/LoaderInfo.h"/>
+   <depend name="include/native/display/Sprite.h"/>
+   <depend name="include/native/events/Event.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/net/URLLoader.h"/>
+   <depend name="include/native/net/URLLoaderDataFormat.h"/>
+   <depend name="include/native/net/URLRequest.h"/>
+   <depend name="include/native/utils/ByteArray.h"/>
+   <depend name="include/native/utils/IDataInput.h"/>
+   <depend name="include/native/utils/IMemoryRange.h"/>
+  </file>
+  <file name="src/native/net/URLLoader.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/native/Loader.h"/>
+   <depend name="include/native/events/ErrorEvent.h"/>
+   <depend name="include/native/events/Event.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/HTTPStatusEvent.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/events/IOErrorEvent.h"/>
+   <depend name="include/native/events/ProgressEvent.h"/>
+   <depend name="include/native/events/TextEvent.h"/>
+   <depend name="include/native/net/URLLoader.h"/>
+   <depend name="include/native/net/URLLoaderDataFormat.h"/>
+   <depend name="include/native/net/URLRequest.h"/>
+   <depend name="include/native/net/URLVariables.h"/>
+   <depend name="include/native/utils/ByteArray.h"/>
+   <depend name="include/native/utils/IDataInput.h"/>
+   <depend name="include/native/utils/IMemoryRange.h"/>
+  </file>
+  <file name="src/native/display/Loader.cpp">
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/native/display/Bitmap.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/DisplayObjectContainer.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/display/Loader.h"/>
+   <depend name="include/native/display/LoaderInfo.h"/>
+   <depend name="include/native/display/MovieClip.h"/>
+   <depend name="include/native/display/PixelSnapping.h"/>
+   <depend name="include/native/display/Sprite.h"/>
+   <depend name="include/native/events/Event.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/net/URLLoader.h"/>
+   <depend name="include/native/net/URLRequest.h"/>
+   <depend name="include/native/utils/ByteArray.h"/>
+   <depend name="include/native/utils/IDataInput.h"/>
+   <depend name="include/native/utils/IMemoryRange.h"/>
   </file>
   <file name="src/native/display/LineScaleMode.cpp">
    <depend name="include/native/display/LineScaleMode.h"/>
@@ -671,28 +719,10 @@
   <file name="src/cpp/rtti/FieldNumericIntegerLookup.cpp">
    <depend name="include/cpp/rtti/FieldNumericIntegerLookup.h"/>
   </file>
-  <file name="src/com/velvetArts/v01/MovingBG.cpp">
-   <depend name="include/com/velvetArts/v01/MovingBG.h"/>
-   <depend name="include/native/display/Bitmap.h"/>
-   <depend name="include/native/display/BitmapData.h"/>
-   <depend name="include/native/display/DisplayObject.h"/>
-   <depend name="include/native/display/DisplayObjectContainer.h"/>
-   <depend name="include/native/display/IBitmapDrawable.h"/>
-   <depend name="include/native/display/InteractiveObject.h"/>
-   <depend name="include/native/display/MovieClip.h"/>
-   <depend name="include/native/display/PixelSnapping.h"/>
-   <depend name="include/native/display/Sprite.h"/>
-   <depend name="include/native/display/Stage.h"/>
-   <depend name="include/native/events/Event.h"/>
-   <depend name="include/native/events/EventDispatcher.h"/>
-   <depend name="include/native/events/IEventDispatcher.h"/>
-   <depend name="include/nme/Lib.h"/>
-   <depend name="include/nme/installer/Assets.h"/>
-  </file>
   <file name="src/com/velvetArts/v01/Main.cpp">
-   <depend name="include/com/velvetArts/v01/Character.h"/>
+   <depend name="include/com/velvetArts/v01/Game.h"/>
    <depend name="include/com/velvetArts/v01/Main.h"/>
-   <depend name="include/com/velvetArts/v01/MovingBG.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
    <depend name="include/native/display/DisplayObjectContainer.h"/>
    <depend name="include/native/display/IBitmapDrawable.h"/>
@@ -702,14 +732,16 @@
    <depend name="include/native/display/Stage.h"/>
    <depend name="include/native/display/StageAlign.h"/>
    <depend name="include/native/display/StageScaleMode.h"/>
+   <depend name="include/native/display/Tilesheet.h"/>
    <depend name="include/native/events/Event.h"/>
    <depend name="include/native/events/EventDispatcher.h"/>
    <depend name="include/native/events/IEventDispatcher.h"/>
    <depend name="include/nme/Lib.h"/>
+   <depend name="include/nme/installer/Assets.h"/>
   </file>
-  <file name="src/com/velvetArts/v01/Character.cpp">
+  <file name="src/com/velvetArts/v01/Game.cpp">
    <depend name="include/com/velvetArts/v01/Character.h"/>
-   <depend name="include/native/display/BitmapData.h"/>
+   <depend name="include/com/velvetArts/v01/Game.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
    <depend name="include/native/display/DisplayObjectContainer.h"/>
    <depend name="include/native/display/Graphics.h"/>
@@ -718,14 +750,13 @@
    <depend name="include/native/display/MovieClip.h"/>
    <depend name="include/native/display/Sprite.h"/>
    <depend name="include/native/display/Stage.h"/>
+   <depend name="include/native/display/Tilesheet.h"/>
    <depend name="include/native/events/Event.h"/>
    <depend name="include/native/events/EventDispatcher.h"/>
    <depend name="include/native/events/IEventDispatcher.h"/>
-   <depend name="include/native/events/MouseEvent.h"/>
-   <depend name="include/native/events/TouchEvent.h"/>
-   <depend name="include/native/geom/Matrix.h"/>
+   <depend name="include/native/geom/Point.h"/>
+   <depend name="include/native/geom/Rectangle.h"/>
    <depend name="include/nme/Lib.h"/>
-   <depend name="include/nme/installer/Assets.h"/>
   </file>
   <file name="src/native/display/Sprite.cpp">
    <depend name="include/Type.h"/>
@@ -809,6 +840,13 @@
   <file name="src/native/events/IEventDispatcher.cpp">
    <depend name="include/native/events/Event.h"/>
    <depend name="include/native/events/IEventDispatcher.h"/>
+  </file>
+  <file name="src/com/velvetArts/v01/Character.cpp">
+   <depend name="include/com/velvetArts/v01/Character.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/geom/Point.h"/>
+   <depend name="include/native/geom/Rectangle.h"/>
   </file>
   <file name="src/Type.cpp">
    <depend name="include/Reflect.h"/>

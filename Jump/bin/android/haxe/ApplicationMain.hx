@@ -118,6 +118,13 @@ class ApplicationMain
 			
 		}
 		
+		if (inName == "img/tiles.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/tiles.png");
+			
+		}
+		
 		#end
 		return null;
 	}
