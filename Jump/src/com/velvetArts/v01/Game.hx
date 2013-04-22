@@ -3,6 +3,9 @@ import nme.display.Sprite;
 import nme.events.Event;
 import nme.geom.Point;
 import nme.Lib;
+import nme.text.TextField;
+import nme.text.TextFormat;
+import nme.text.TextFormatAlign;
 
 /**
  * ...
@@ -64,6 +67,7 @@ class Game extends Sprite
 		var stgHeight = Lib.current.stage.stageHeight;
 		
 		check_Collision();
+		
 		if (!cloudHit)
 		{
 		    if (baby.x > stgWidth)
@@ -71,7 +75,28 @@ class Game extends Sprite
 		    else
 		        baby.x += 0.5;
 				
+			if (baby.y > stgHeight)
+			{
+				var mText = new TextField();
+			    mText.x = 0;
+			    mText.y = stgHeight/2;
+			    var format:TextFormat =  new TextFormat();
+			
+			    format.font = "Arial";
+			    format.bold = true;
+			    format.color = 0x0000ff;
+			    format.size = 30;
+			    format.align = TextFormatAlign.CENTER;
+			    mText.defaultTextFormat = format;
+				mText.background = false;
+			    mText.text = "YOU DIED! :(";
+			    mText.width = 800;
+			    mText.height =  40;
+			    addChild(mText);
+			}
 			baby.y += 0.5;
+			
+			
 		}
 		else
 		{
@@ -81,6 +106,7 @@ class Game extends Sprite
 		        baby.x += 1;
 			cloudHit = !cloudHit; 
 		}
+		
 	}
 	
 	private function check_Collision(): Void 
