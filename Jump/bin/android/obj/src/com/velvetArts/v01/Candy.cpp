@@ -124,7 +124,7 @@ Void Candy_obj::update( ::native::events::Event e){
 		HX_STACK_LINE(56)
 		if ((!(this->get_visible()))){
 			HX_STACK_LINE(58)
-			if (((this->framedelay > (int)300))){
+			if (((this->framedelay > (int)180))){
 				HX_STACK_LINE(60)
 				this->set_visible(true);
 				HX_STACK_LINE(61)

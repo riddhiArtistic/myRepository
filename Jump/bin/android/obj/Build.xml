@@ -757,12 +757,16 @@
    <depend name="include/native/events/IEventDispatcher.h"/>
    <depend name="include/nme/Lib.h"/>
   </file>
+  <file name="src/com/velvetArts/v01/GameStates.cpp">
+   <depend name="include/com/velvetArts/v01/GameStates.h"/>
+  </file>
   <file name="src/com/velvetArts/v01/Game.cpp">
    <depend name="include/com/velvetArts/v01/Actor.h"/>
    <depend name="include/com/velvetArts/v01/Candy.h"/>
    <depend name="include/com/velvetArts/v01/Character.h"/>
    <depend name="include/com/velvetArts/v01/Clouds.h"/>
    <depend name="include/com/velvetArts/v01/Game.h"/>
+   <depend name="include/com/velvetArts/v01/GameStates.h"/>
    <depend name="include/com/velvetArts/v01/MovingBG.h"/>
    <depend name="include/com/velvetArts/v01/PixelPerfectCollision.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
@@ -775,6 +779,8 @@
    <depend name="include/native/events/Event.h"/>
    <depend name="include/native/events/EventDispatcher.h"/>
    <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/events/MouseEvent.h"/>
+   <depend name="include/native/events/TouchEvent.h"/>
    <depend name="include/native/geom/Point.h"/>
    <depend name="include/native/text/TextField.h"/>
    <depend name="include/native/text/TextFormat.h"/>

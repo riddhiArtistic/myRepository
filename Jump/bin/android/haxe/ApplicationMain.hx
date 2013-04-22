@@ -70,7 +70,7 @@ class ApplicationMain
 				}
 			},
 			0, 0, 
-			30, 
+			60, 
 			16777215,
 			(true ? nme.Lib.HARDWARE : 0) |
 			(false ? nme.Lib.ALLOW_SHADERS : 0) |

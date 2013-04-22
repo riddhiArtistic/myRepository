@@ -107,6 +107,7 @@ obj/android/src/cpp/rtti/FieldNumericIntegerLookup.obj
 obj/android/src/com/velvetArts/v01/PixelPerfectCollision.obj
 obj/android/src/com/velvetArts/v01/MovingBG.obj
 obj/android/src/com/velvetArts/v01/Main.obj
+obj/android/src/com/velvetArts/v01/GameStates.obj
 obj/android/src/com/velvetArts/v01/Game.obj
 obj/android/src/com/velvetArts/v01/Clouds.obj
 obj/android/src/com/velvetArts/v01/Candy.obj

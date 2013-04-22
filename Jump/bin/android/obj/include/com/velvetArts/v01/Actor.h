@@ -64,6 +64,7 @@ class Actor_obj : public ::com::velvetArts::v01::Character_obj{
 		virtual Void update( ::native::events::Event e);
 		Dynamic update_dyn();
 
+		bool IsActive; /* REM */ 
 };
 
 } // end namespace com

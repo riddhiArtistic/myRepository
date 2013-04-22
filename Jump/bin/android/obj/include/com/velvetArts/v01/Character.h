@@ -47,7 +47,6 @@ class Character_obj : public ::native::display::Sprite_obj{
 		virtual Void resize( );
 		Dynamic resize_dyn();
 
-		bool mouseMove; /* REM */ 
 		::native::geom::Matrix matriX; /* REM */ 
 		::native::display::Sprite actor; /* REM */ 
 };

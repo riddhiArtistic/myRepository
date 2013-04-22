@@ -35,6 +35,7 @@ const char *__hxcpp_all_files[] = {
 	"com/velvetArts/v01/Character.hx",
 	"com/velvetArts/v01/Clouds.hx",
 	"com/velvetArts/v01/Game.hx",
+	"com/velvetArts/v01/GameStates.hx",
 	"com/velvetArts/v01/Main.hx",
 	"com/velvetArts/v01/MovingBG.hx",
 	"com/velvetArts/v01/PixelPerfectCollision.hx",

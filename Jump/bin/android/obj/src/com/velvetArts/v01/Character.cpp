@@ -45,13 +45,13 @@ namespace v01{
 
 Void Character_obj::__construct()
 {
-HX_STACK_PUSH("Character::new","com/velvetArts/v01/Character.hx",24);
+HX_STACK_PUSH("Character::new","com/velvetArts/v01/Character.hx",23);
 {
-	HX_STACK_LINE(25)
+	HX_STACK_LINE(24)
 	super::__construct();
-	HX_STACK_LINE(27)
+	HX_STACK_LINE(26)
 	this->resize();
-	HX_STACK_LINE(29)
+	HX_STACK_LINE(28)
 	this->addEventListener(::native::events::Event_obj::RESIZE,this->resizeHandler_dyn(),null(),null(),null());
 }
 ;
@@ -73,10 +73,10 @@ Dynamic Character_obj::__Create(hx::DynamicArray inArgs)
 
 Void Character_obj::resizeHandler( ::native::events::Event e){
 {
-		HX_STACK_PUSH("Character::resizeHandler","com/velvetArts/v01/Character.hx",40);
+		HX_STACK_PUSH("Character::resizeHandler","com/velvetArts/v01/Character.hx",39);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(40)
+		HX_STACK_LINE(39)
 		this->resize();
 	}
 return null();
@@ -87,11 +87,11 @@ HX_DEFINE_DYNAMIC_FUNC1(Character_obj,resizeHandler,(void))
 
 Void Character_obj::resize( ){
 {
-		HX_STACK_PUSH("Character::resize","com/velvetArts/v01/Character.hx",33);
+		HX_STACK_PUSH("Character::resize","com/velvetArts/v01/Character.hx",32);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(35)
+		HX_STACK_LINE(34)
 		this->set_x((Float(::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()) / Float((int)2)));
-		HX_STACK_LINE(36)
+		HX_STACK_LINE(35)
 		this->set_y((Float(::nme::Lib_obj::get_current()->get_stage()->get_stageHeight()) / Float((int)2)));
 	}
 return null();
@@ -108,7 +108,6 @@ Character_obj::Character_obj()
 void Character_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Character);
-	HX_MARK_MEMBER_NAME(mouseMove,"mouseMove");
 	HX_MARK_MEMBER_NAME(matriX,"matriX");
 	HX_MARK_MEMBER_NAME(actor,"actor");
 	super::__Mark(HX_MARK_ARG);
@@ -117,7 +116,6 @@ void Character_obj::__Mark(HX_MARK_PARAMS)
 
 void Character_obj::__Visit(HX_VISIT_PARAMS)
 {
-	HX_VISIT_MEMBER_NAME(mouseMove,"mouseMove");
 	HX_VISIT_MEMBER_NAME(matriX,"matriX");
 	HX_VISIT_MEMBER_NAME(actor,"actor");
 	super::__Visit(HX_VISIT_ARG);
@@ -133,9 +131,6 @@ Dynamic Character_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"resize") ) { return resize_dyn(); }
 		if (HX_FIELD_EQ(inName,"matriX") ) { return matriX; }
 		break;
-	case 9:
-		if (HX_FIELD_EQ(inName,"mouseMove") ) { return mouseMove; }
-		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"resizeHandler") ) { return resizeHandler_dyn(); }
 	}
@@ -150,16 +145,12 @@ Dynamic Character_obj::__SetField(const ::String &inName,const Dynamic &inValue,
 		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"matriX") ) { matriX=inValue.Cast< ::native::geom::Matrix >(); return inValue; }
-		break;
-	case 9:
-		if (HX_FIELD_EQ(inName,"mouseMove") ) { mouseMove=inValue.Cast< bool >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
 
 void Character_obj::__GetFields(Array< ::String> &outFields)
 {
-	outFields->push(HX_CSTRING("mouseMove"));
 	outFields->push(HX_CSTRING("matriX"));
 	outFields->push(HX_CSTRING("actor"));
 	super::__GetFields(outFields);
@@ -171,7 +162,6 @@ static ::String sStaticFields[] = {
 static ::String sMemberFields[] = {
 	HX_CSTRING("resizeHandler"),
 	HX_CSTRING("resize"),
-	HX_CSTRING("mouseMove"),
 	HX_CSTRING("matriX"),
 	HX_CSTRING("actor"),
 	String(null()) };

@@ -96,7 +96,7 @@ class Game extends Sprite
 					states.Active = false;
 					states.Play = false;
 				}
-				baby.y += 0.5;	
+				baby.y += 2;	
 			}
 			else
 			{
@@ -228,12 +228,12 @@ class Game extends Sprite
 		{
 			if (!cloudHit)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mClouds[i], this, false, 0))
+			    if (PixelPerfectCollision.IsColliding(baby, mClouds[i], this, true, 0))
 			    {
 					cloudHit = true;
 					baby.x = mClouds[i].x;
 					baby.y = mClouds[i].y - 30;
-					hitPoint = PixelPerfectCollision.getCollisionPoint(baby, mClouds[i], this, false, 0);			        
+					hitPoint = PixelPerfectCollision.getCollisionPoint(baby, mClouds[i], this, true, 0);			        
 				}
 				
 			}
@@ -243,7 +243,7 @@ class Game extends Sprite
 		{
 			if (mCandies[i].visible)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mCandies[i], this, false, 0))
+			    if (PixelPerfectCollision.IsColliding(baby, mCandies[i], this, true, 0))
 			    {
 					//rewardHit = true;
 					mScore += 10;
@@ -259,8 +259,6 @@ class Game extends Sprite
 		states.Active = true;
 		states.Play = false;
 		states.Inactive = false;
-		
-		//mScoreText.removeEventListener(MouseEvent.MOUSE_DOWN, endClick);
 	}
 	
 	private function endClick(e:MouseEvent): Void
@@ -275,8 +273,6 @@ class Game extends Sprite
 			states.Active = true;
 			states.Play = false;
 			states.Inactive = false;
-			
-			//mScoreText.removeEventListener(TouchEvent.TOUCH_TAP, endTap);
 		}
 	}
 	

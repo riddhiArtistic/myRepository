@@ -11,6 +11,7 @@ HX_DECLARE_CLASS3(com,velvetArts,v01,Candy)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Clouds)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Game)
+HX_DECLARE_CLASS3(com,velvetArts,v01,GameStates)
 HX_DECLARE_CLASS3(com,velvetArts,v01,MovingBG)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
@@ -20,6 +21,8 @@ HX_DECLARE_CLASS2(native,display,Sprite)
 HX_DECLARE_CLASS2(native,events,Event)
 HX_DECLARE_CLASS2(native,events,EventDispatcher)
 HX_DECLARE_CLASS2(native,events,IEventDispatcher)
+HX_DECLARE_CLASS2(native,events,MouseEvent)
+HX_DECLARE_CLASS2(native,events,TouchEvent)
 HX_DECLARE_CLASS2(native,geom,Point)
 namespace com{
 namespace velvetArts{
@@ -46,12 +49,25 @@ class Game_obj : public ::native::display::Sprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Game"); }
 
+		virtual Void endTap( ::native::events::TouchEvent e);
+		Dynamic endTap_dyn();
+
+		virtual Void startTouchGame( ::native::events::TouchEvent e);
+		Dynamic startTouchGame_dyn();
+
+		virtual Void endClick( ::native::events::MouseEvent e);
+		Dynamic endClick_dyn();
+
+		virtual Void startClickGame( ::native::events::MouseEvent e);
+		Dynamic startClickGame_dyn();
+
 		virtual Void check_Collision( );
 		Dynamic check_Collision_dyn();
 
 		virtual Void update( ::native::events::Event e);
 		Dynamic update_dyn();
 
+		::com::velvetArts::v01::GameStates states; /* REM */ 
 		int topScore; /* REM */ 
 		int mScore; /* REM */ 
 		::native::geom::Point hitPoint; /* REM */ 

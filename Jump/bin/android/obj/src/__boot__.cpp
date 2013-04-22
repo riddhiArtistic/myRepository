@@ -109,6 +109,7 @@
 #include <com/velvetArts/v01/PixelPerfectCollision.h>
 #include <com/velvetArts/v01/MovingBG.h>
 #include <com/velvetArts/v01/Main.h>
+#include <com/velvetArts/v01/GameStates.h>
 #include <com/velvetArts/v01/Game.h>
 #include <com/velvetArts/v01/Clouds.h>
 #include <com/velvetArts/v01/Candy.h>
@@ -249,6 +250,7 @@ hx::RegisterResources( hx::GetResources() );
 ::com::velvetArts::v01::PixelPerfectCollision_obj::__register();
 ::com::velvetArts::v01::MovingBG_obj::__register();
 ::com::velvetArts::v01::Main_obj::__register();
+::com::velvetArts::v01::GameStates_obj::__register();
 ::com::velvetArts::v01::Game_obj::__register();
 ::com::velvetArts::v01::Clouds_obj::__register();
 ::com::velvetArts::v01::Candy_obj::__register();
@@ -310,6 +312,7 @@ hx::RegisterResources( hx::GetResources() );
 ::com::velvetArts::v01::Candy_obj::__boot();
 ::com::velvetArts::v01::Clouds_obj::__boot();
 ::com::velvetArts::v01::Game_obj::__boot();
+::com::velvetArts::v01::GameStates_obj::__boot();
 ::com::velvetArts::v01::Main_obj::__boot();
 ::com::velvetArts::v01::MovingBG_obj::__boot();
 ::com::velvetArts::v01::PixelPerfectCollision_obj::__boot();
