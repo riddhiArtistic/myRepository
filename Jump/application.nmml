@@ -8,7 +8,7 @@
 	<!-- output -->
 	<app main="com.velvetArts.v01.Main" file="playJump" path="bin" />
 	
-	<window background="#ffffff" fps="30" resizable="true" />
+	<window background="#ffffff" fps="60" resizable="true" />
 	<window width="800" height="480" unless="mobile" />
 	<window width="0" height="0" if="target_android"/>
 	<window orientation="auto" vsync="true" antialiasing="0" if="cpp" />

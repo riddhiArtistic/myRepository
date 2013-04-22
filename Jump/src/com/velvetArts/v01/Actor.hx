@@ -15,6 +15,7 @@ import nme.Lib;
 
 class Actor extends Character
 {
+	public var IsActive: Bool = false;
 
 	public function new(): Void
 	{
@@ -22,6 +23,7 @@ class Actor extends Character
 		
 		actor = new Sprite();
 		matriX = new Matrix();
+		
 		
 		actor.graphics.beginBitmapFill(Assets.getBitmapData("img/baby.png"), matriX, false, true);
 		//actor.graphics.beginFill(0xffcc99, 0.8);
@@ -41,8 +43,11 @@ class Actor extends Character
 	
 	private function update(e:Event):Void
 	{
-		Lib.current.stage.addEventListener(TouchEvent.TOUCH_BEGIN, startDragging);
-		Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, en_Move);
+		if (IsActive)
+		{
+			Lib.current.stage.addEventListener(TouchEvent.TOUCH_BEGIN, startDragging);
+			Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, en_Move);
+		}
 		
 		/*if (this.x == Lib.current.stage.stageWidth)
 		{
@@ -55,20 +60,25 @@ class Actor extends Character
 	
 	private function startDragging(e:TouchEvent):Void 
 	{
-		Lib.current.stage.addEventListener(TouchEvent.TOUCH_END, stopDragging);
-        Lib.current.stage.addEventListener(TouchEvent.TOUCH_MOVE, jump);
+		if (IsActive)
+		{
+			Lib.current.stage.addEventListener(TouchEvent.TOUCH_END, stopDragging);
+			Lib.current.stage.addEventListener(TouchEvent.TOUCH_MOVE, jump);
+		}
 	}
 	
 	private function jump (e:TouchEvent):Void
 	{
-		if (e.touchPointID == 0)
+		if (IsActive)
 		{
-			
-			    if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
+			if (e.touchPointID == 0)
+			{
+				if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
 		        {
 			        this.y = e.stageY;
 					this.x = e.stageX;
 			    }
+			}
 			
 		}
 		//e.updateAfterEvent();

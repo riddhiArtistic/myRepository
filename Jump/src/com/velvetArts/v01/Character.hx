@@ -18,7 +18,6 @@ class Character extends Sprite
 {
 	private var actor:Sprite;
 	private var matriX:Matrix;
-	private var mouseMove:Bool;
 
 	public function new() : Void
 	{

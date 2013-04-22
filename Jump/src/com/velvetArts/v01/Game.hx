@@ -1,6 +1,8 @@
 package com.velvetArts.v01;
 import nme.display.Sprite;
 import nme.events.Event;
+import nme.events.MouseEvent;
+import nme.events.TouchEvent;
 import nme.geom.Point;
 import nme.Lib;
 import nme.text.TextField;
@@ -27,6 +29,8 @@ class Game extends Sprite
 	
 	private var mScore: Int;
 	private var topScore: Int;
+	
+	var states:GameStates;
 
 	public function new() : Void
 	{
@@ -63,7 +67,10 @@ class Game extends Sprite
 		addChild(baby);
 		mScore = 0;
 		topScore = 1000;
-		addEventListener(Event.ENTER_FRAME, update);
+		
+		states = new GameStates();
+		
+	    addEventListener(Event.ENTER_FRAME, update);
 	}
 	
 	private function update(e:Event) : Void
@@ -71,82 +78,147 @@ class Game extends Sprite
 		var stgWidth = Lib.current.stage.stageWidth;
 		var stgHeight = Lib.current.stage.stageHeight;
 		
-		check_Collision();
-		
-		if (!cloudHit)
+		if (states.Active)
 		{
-		    if (baby.x > stgWidth)
-		        baby.x = 0;
-		    else
-		        baby.x += 0.5;
-				
-			if (baby.y > stgHeight)
+			baby.IsActive = true;
+			check_Collision();
+		
+			if (!cloudHit)
 			{
-				var mText = new TextField();
-			    mText.x = 0;
-			    mText.y = stgHeight/2;
-			    var format:TextFormat =  new TextFormat();
-			
-			    format.font = "Arial";
-			    format.bold = true;
-			    format.color = 0x0000ff;
-			    format.size = 30;
-			    format.align = TextFormatAlign.CENTER;
-			    mText.defaultTextFormat = format;
-				mText.background = false;
-			    mText.text = "YOU DIED! :(";
-			    mText.width = 800;
-			    mText.height =  40;
-			    addChild(mText);
+				if (baby.x > stgWidth)
+					baby.x = 0;
+				else
+					baby.x += 0.5;
+				
+				if (baby.y > stgHeight)
+				{
+					states.Inactive = true;     //Scope for pausing, not yet implemented
+					states.Active = false;
+					states.Play = false;
+				}
+				baby.y += 0.5;	
 			}
-			baby.y += 0.5;	
+			else
+			{
+				if (baby.x > stgWidth)
+		        baby.x = 0;
+				else
+		        baby.x += 1;
+				cloudHit = !cloudHit; 
+			}
 		}
 		else
 		{
-			if (baby.x > stgWidth)
-		        baby.x = 0;
-		    else
-		        baby.x += 1;
-			cloudHit = !cloudHit; 
+			if (states.Inactive)
+			{
+				baby.IsActive = false;
+				
+				var format:TextFormat =  new TextFormat();
+				var terminalText:TextField;
+				terminalText = new TextField();
+				format.font = "Arial";
+				format.bold = true;
+				format.color = 0x008822;
+				format.size = 40;
+				format.align = TextFormatAlign.CENTER;
+		
+				terminalText.background = false;
+				terminalText.defaultTextFormat = format;
+				terminalText.x = 10;
+				terminalText.y = (stgHeight / 2) - 25;
+				terminalText.width = (stgWidth - 20);
+				terminalText.height = 50;
+				terminalText.text = "YOU DIED! :(";
+				addChild(terminalText);
+			}
 		}
 		
-		var mScoreText: TextField = new TextField();
+		
+		/*var format:TextFormat =  new TextFormat();
+	    clickToPLay = new TextField();
+		format.font = "Arial";
+		format.bold = true;
+		format.color = 0x008822;
+		format.size = 40;
+		format.align = TextFormatAlign.CENTER;
+		
+		clickToPLay.background = false;
+		clickToPLay.defaultTextFormat = format;
+		clickToPLay.x = 10;
+		clickToPLay.y = (stgHeight / 2) - 25;
+		clickToPLay.width = (stgWidth - 20);
+		clickToPLay.height = 50;
+		
+		if (states.Play)
+		{
+			clickToPLay.text = "Touch to Play";
+			clickToPLay.text = "Click to Play!";
+			clickToPLay.addEventListener(TouchEvent.TOUCH_TAP, startTouchGame);
+			clickToPLay.addEventListener(MouseEvent.MOUSE_DOWN, startClickGame);
+			clickToPLay.visible = true;
+		}
+		else
+		{
+			clickToPLay.visible = false;
+		}
+		addChild(clickToPLay);*/
+		
 		var format:TextFormat =  new TextFormat();
-			
-	    format.font = "Arial";
+		var mScoreText:TextField;
+		mScoreText = new TextField();
+		format.font = "Arial";
 		format.bold = true;
 		format.color = 0x008822;
 		format.size = 20;
 		format.align = TextFormatAlign.LEFT;
-		
+	
 		mScoreText.x = 10;
 		mScoreText.y = 20;
 		mScoreText.width = 200;
 		mScoreText.height = 30;
 		mScoreText.defaultTextFormat = format;
 		mScoreText.background = false;
-		mScoreText.text = "Score: " + mScore;
+		if(states.Active)
+			mScoreText.text = "Score: " + mScore;
+		else if (states.Inactive)
+		    mScoreText.text = "Your Score: " + mScore;
+		else if (states.Play)
+		{
+		    mScoreText.text = "Click To Play!";
+			mScoreText.addEventListener(TouchEvent.TOUCH_TAP, startTouchGame);
+			mScoreText.addEventListener(MouseEvent.MOUSE_DOWN, startClickGame);
+		}
 		addChild(mScoreText);
 		
-		var mTopScoreText: TextField = new TextField();
 		var format:TextFormat =  new TextFormat();
-			
-	    format.font = "Arial";
+		var mTopScoreText:TextField;
+		mTopScoreText = new TextField();
+		format.font = "Arial";
 		format.bold = true;
 		format.color = 0x008822;
 		format.size = 20;
 		format.align = TextFormatAlign.RIGHT;
-		
-		mTopScoreText.x = stgWidth - 210;
+	
+		mTopScoreText.x = stgWidth - 310;
 		mTopScoreText.y = 20;
-		mTopScoreText.width = 200;
+		mTopScoreText.width = 300;
 		mTopScoreText.height = 30;
 		mTopScoreText.defaultTextFormat = format;
 		mTopScoreText.background = false;
 		if (topScore < mScore)
-		    mTopScoreText.text = "Top Score: " + mScore;
+		{
+			if(states.Active)
+				mTopScoreText.text = "Top Score: " + mScore;
+			else if(states.Inactive)
+			    mTopScoreText.text = "Your Top Score: " + mScore;
+		}
 		else
-		    mTopScoreText.text = "Top Score: " + topScore;
+		{
+			if(states.Active)
+				mTopScoreText.text = "Top Score: " + topScore;
+			else if(states.Inactive)
+			    mTopScoreText.text = "Your Top Score: " + topScore;
+		}
 		addChild(mTopScoreText);
 	}
 	
@@ -180,5 +252,36 @@ class Game extends Sprite
 				
 			}
 		}
+	}
+	
+	private function startClickGame(e: MouseEvent): Void
+	{
+		states.Active = true;
+		states.Play = false;
+		states.Inactive = false;
+		
+		//mScoreText.removeEventListener(MouseEvent.MOUSE_DOWN, endClick);
+	}
+	
+	private function endClick(e:MouseEvent): Void
+	{
+		
+	}
+	
+	private function startTouchGame(e:TouchEvent) : Void
+	{
+		if (e.isPrimaryTouchPoint)
+		{
+			states.Active = true;
+			states.Play = false;
+			states.Inactive = false;
+			
+			//mScoreText.removeEventListener(TouchEvent.TOUCH_TAP, endTap);
+		}
+	}
+	
+	private function endTap(e:TouchEvent): Void
+	{
+        
 	}
 }

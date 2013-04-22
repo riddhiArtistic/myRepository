@@ -55,7 +55,7 @@ class Candy extends Character
 		
 		if (!this.visible)
 		{
-			if (framedelay > 300)
+			if (framedelay > 180)
 			{
 			    this.visible = true;
 				framedelay = 0;
