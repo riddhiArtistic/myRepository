@@ -4,6 +4,7 @@ import nme.display.Bitmap;
 import nme.Assets;
 import nme.display.Sprite;
 import nme.events.Event;
+import nme.geom.Matrix;
 import nme.Lib;
 
 /**
@@ -15,27 +16,39 @@ class MovingBG extends Sprite
 {
 
 	private var BG:Bitmap;
+	var matriX: Matrix;
 	
-	public function new() 
+	public function new() : Void
 	{
 		super();
 		BG = new Bitmap(Assets.getBitmapData("img/movingBG.png"));
+		matriX = new Matrix();
 		
 		resize();
-		addChild(BG);
+		Lib.current.stage.addChild(this);
 		
 		addEventListener(Event.RESIZE, resizeHandler);
+		addEventListener(Event.ENTER_FRAME, scrollBG);
 	}
 	
 	private function resize():Void 
 	{
-	    BG.x = (Lib.current.stage.stageWidth - BG.width) / 2;
-		BG.y = (Lib.current.stage.stageHeight - BG.height) / 2;	
+	    this.x = 0; 
+		this.y = 0; 	
 	}
 	
 	private function resizeHandler(e:Event):Void
 	{
 		resize();
+	}
+	
+	private function scrollBG(e:Event): Void
+	{
+		matriX.translate( -1, 0);
+		
+		this.graphics.clear();
+		this.graphics.beginBitmapFill(BG.bitmapData, matriX);
+		this.graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 	}
 	
 }

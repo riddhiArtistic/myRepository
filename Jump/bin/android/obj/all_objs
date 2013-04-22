@@ -78,6 +78,7 @@ obj/android/src/native/display/Graphics.obj
 obj/android/src/native/display/GradientType.obj
 obj/android/src/native/display/CapsStyle.obj
 obj/android/src/native/display/BlendMode.obj
+obj/android/src/native/display/BitmapDataChannel.obj
 obj/android/src/native/display/OptimizedPerlin.obj
 obj/android/src/native/display/BitmapData.obj
 obj/android/src/native/display/Bitmap.obj
@@ -97,8 +98,13 @@ obj/android/src/cpp/zip/Uncompress.obj
 obj/android/src/cpp/zip/Flush.obj
 obj/android/src/cpp/zip/Compress.obj
 obj/android/src/cpp/rtti/FieldNumericIntegerLookup.obj
+obj/android/src/com/velvetArts/v01/PixelPerfectCollision.obj
 obj/android/src/com/velvetArts/v01/MovingBG.obj
 obj/android/src/com/velvetArts/v01/Main.obj
+obj/android/src/com/velvetArts/v01/Game.obj
+obj/android/src/com/velvetArts/v01/Clouds.obj
+obj/android/src/com/velvetArts/v01/Candy.obj
+obj/android/src/com/velvetArts/v01/Actor.obj
 obj/android/src/com/velvetArts/v01/Character.obj
 obj/android/src/native/display/Sprite.obj
 obj/android/src/native/display/DisplayObjectContainer.obj

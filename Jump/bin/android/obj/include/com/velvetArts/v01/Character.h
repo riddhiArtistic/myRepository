@@ -15,8 +15,6 @@ HX_DECLARE_CLASS2(native,display,Sprite)
 HX_DECLARE_CLASS2(native,events,Event)
 HX_DECLARE_CLASS2(native,events,EventDispatcher)
 HX_DECLARE_CLASS2(native,events,IEventDispatcher)
-HX_DECLARE_CLASS2(native,events,MouseEvent)
-HX_DECLARE_CLASS2(native,events,TouchEvent)
 HX_DECLARE_CLASS2(native,geom,Matrix)
 namespace com{
 namespace velvetArts{
@@ -42,27 +40,6 @@ class Character_obj : public ::native::display::Sprite_obj{
 		void __Mark(HX_MARK_PARAMS);
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Character"); }
-
-		virtual Void stopMove( ::native::events::MouseEvent e);
-		Dynamic stopMove_dyn();
-
-		virtual Void Move( ::native::events::MouseEvent e);
-		Dynamic Move_dyn();
-
-		virtual Void en_Move( ::native::events::MouseEvent e);
-		Dynamic en_Move_dyn();
-
-		virtual Void stopDragging( ::native::events::TouchEvent e);
-		Dynamic stopDragging_dyn();
-
-		virtual Void jump( ::native::events::TouchEvent e);
-		Dynamic jump_dyn();
-
-		virtual Void startDragging( ::native::events::TouchEvent e);
-		Dynamic startDragging_dyn();
-
-		virtual Void update( ::native::events::Event e);
-		Dynamic update_dyn();
 
 		virtual Void resizeHandler( ::native::events::Event e);
 		Dynamic resizeHandler_dyn();

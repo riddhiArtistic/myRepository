@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" android:versionCode="66" android:versionName="1.0.0" package="com.velvetArts.v01.playJump">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" android:versionCode="88" android:versionName="1.0.0" package="com.velvetArts.v01.playJump">
 
 	<application android:label="playJump" android:debuggable="true" android:icon="@drawable/icon">
 		

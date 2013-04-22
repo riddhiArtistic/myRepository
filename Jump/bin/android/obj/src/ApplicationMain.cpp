@@ -149,11 +149,31 @@ Dynamic ApplicationMain_obj::getAsset( ::String inName){
 		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/baby.png"),null());
 	}
 	HX_STACK_LINE(114)
-	if (((inName == HX_CSTRING("img/movingBG.png")))){
+	if (((inName == HX_CSTRING("img/candy.png")))){
 		HX_STACK_LINE(115)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/candy.png"),null());
+	}
+	HX_STACK_LINE(121)
+	if (((inName == HX_CSTRING("img/clouds1.png")))){
+		HX_STACK_LINE(122)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds1.png"),null());
+	}
+	HX_STACK_LINE(128)
+	if (((inName == HX_CSTRING("img/clouds2.png")))){
+		HX_STACK_LINE(129)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds2.png"),null());
+	}
+	HX_STACK_LINE(135)
+	if (((inName == HX_CSTRING("img/clouds3.png")))){
+		HX_STACK_LINE(136)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds3.png"),null());
+	}
+	HX_STACK_LINE(142)
+	if (((inName == HX_CSTRING("img/movingBG.png")))){
+		HX_STACK_LINE(143)
 		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/movingBG.png"),null());
 	}
-	HX_STACK_LINE(122)
+	HX_STACK_LINE(150)
 	return null();
 }
 

@@ -11,9 +11,7 @@ import nme.Lib;
 
 class Main extends Sprite 
 {
-	private var bgImg: MovingBG;
-	private var Actor: Character;
-	
+		
 	public function new() 
 	{
 		super();
@@ -27,11 +25,8 @@ class Main extends Sprite
 	private function init(e) 
 	{
 		// entry point
-		bgImg = new MovingBG();
-		Actor = new Character();
-		
-		addChild(bgImg);
-		addChild(Actor);
+		var game:Game;
+		game = new Game();
 		// new to Haxe NME? please read *carefully* the readme.txt file!
 	}
 	

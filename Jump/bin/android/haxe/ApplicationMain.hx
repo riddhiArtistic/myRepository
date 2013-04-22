@@ -111,6 +111,34 @@ class ApplicationMain
 			
 		}
 		
+		if (inName == "img/candy.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/candy.png");
+			
+		}
+		
+		if (inName == "img/clouds1.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds1.png");
+			
+		}
+		
+		if (inName == "img/clouds2.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds2.png");
+			
+		}
+		
+		if (inName == "img/clouds3.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds3.png");
+			
+		}
+		
 		if (inName == "img/movingBG.png")
 		{
 			

@@ -102,6 +102,26 @@ class ApplicationMain {
             return Assets.getBitmapData ("img/baby.png");
          
 		
+		if (inName=="img/candy.png")
+			 
+            return Assets.getBitmapData ("img/candy.png");
+         
+		
+		if (inName=="img/clouds1.png")
+			 
+            return Assets.getBitmapData ("img/clouds1.png");
+         
+		
+		if (inName=="img/clouds2.png")
+			 
+            return Assets.getBitmapData ("img/clouds2.png");
+         
+		
+		if (inName=="img/clouds3.png")
+			 
+            return Assets.getBitmapData ("img/clouds3.png");
+         
+		
 		if (inName=="img/movingBG.png")
 			 
             return Assets.getBitmapData ("img/movingBG.png");
@@ -127,6 +147,10 @@ class ApplicationMain {
 }
 
 class NME_img_baby_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_candy_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_clouds1_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_clouds2_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
+class NME_img_clouds3_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 class NME_img_movingbg_png extends nme.display.BitmapData { public function new () { super (0, 0); } }
 
 
