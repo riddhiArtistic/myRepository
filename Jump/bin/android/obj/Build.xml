@@ -161,6 +161,33 @@
   <file name="src/native/ui/Keyboard.cpp">
    <depend name="include/native/ui/Keyboard.h"/>
   </file>
+  <file name="src/native/text/TextFormatAlign.cpp">
+   <depend name="include/native/text/TextFormatAlign.h"/>
+  </file>
+  <file name="src/native/text/TextFormat.cpp">
+   <depend name="include/native/text/TextFormat.h"/>
+  </file>
+  <file name="src/native/text/TextFieldType.cpp">
+   <depend name="include/native/text/TextFieldType.h"/>
+  </file>
+  <file name="src/native/text/TextFieldAutoSize.cpp">
+   <depend name="include/native/text/TextFieldAutoSize.h"/>
+  </file>
+  <file name="src/native/text/TextField.cpp">
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/native/Loader.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/text/AntiAliasType.h"/>
+   <depend name="include/native/text/TextField.h"/>
+   <depend name="include/native/text/TextFieldAutoSize.h"/>
+   <depend name="include/native/text/TextFieldType.h"/>
+   <depend name="include/native/text/TextFormat.h"/>
+  </file>
   <file name="src/native/text/FontType.cpp">
    <depend name="include/native/text/FontType.h"/>
   </file>
@@ -172,6 +199,9 @@
    <depend name="include/native/text/Font.h"/>
    <depend name="include/native/text/FontStyle.h"/>
    <depend name="include/native/text/FontType.h"/>
+  </file>
+  <file name="src/native/text/AntiAliasType.cpp">
+   <depend name="include/native/text/AntiAliasType.h"/>
   </file>
   <file name="src/native/net/URLVariables.cpp">
    <depend name="include/Reflect.h"/>
@@ -746,6 +776,9 @@
    <depend name="include/native/events/EventDispatcher.h"/>
    <depend name="include/native/events/IEventDispatcher.h"/>
    <depend name="include/native/geom/Point.h"/>
+   <depend name="include/native/text/TextField.h"/>
+   <depend name="include/native/text/TextFormat.h"/>
+   <depend name="include/native/text/TextFormatAlign.h"/>
    <depend name="include/nme/Lib.h"/>
   </file>
   <file name="src/com/velvetArts/v01/Clouds.cpp">

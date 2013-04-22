@@ -24,6 +24,9 @@ class Game extends Sprite
 	private var rewardHit: Bool = false;
 	private var cloudHit:Bool = false;
 	private var hitPoint:Point;
+	
+	private var mScore: Int;
+	private var topScore: Int;
 
 	public function new() : Void
 	{
@@ -37,7 +40,7 @@ class Game extends Sprite
 		addChild(bgImg);
 		
 		mCandies = [];
-		for (i in 0...7)
+		for (i in 0...10)
 		{
 			var x_pos:Float = Math.random() * stgWidth;
 			var y_pos:Float = Math.random() * stgHeight;
@@ -58,6 +61,8 @@ class Game extends Sprite
 		
 		baby = new Actor();
 		addChild(baby);
+		mScore = 0;
+		topScore = 1000;
 		addEventListener(Event.ENTER_FRAME, update);
 	}
 	
@@ -94,9 +99,7 @@ class Game extends Sprite
 			    mText.height =  40;
 			    addChild(mText);
 			}
-			baby.y += 0.5;
-			
-			
+			baby.y += 0.5;	
 		}
 		else
 		{
@@ -107,6 +110,44 @@ class Game extends Sprite
 			cloudHit = !cloudHit; 
 		}
 		
+		var mScoreText: TextField = new TextField();
+		var format:TextFormat =  new TextFormat();
+			
+	    format.font = "Arial";
+		format.bold = true;
+		format.color = 0x008822;
+		format.size = 20;
+		format.align = TextFormatAlign.LEFT;
+		
+		mScoreText.x = 10;
+		mScoreText.y = 20;
+		mScoreText.width = 200;
+		mScoreText.height = 30;
+		mScoreText.defaultTextFormat = format;
+		mScoreText.background = false;
+		mScoreText.text = "Score: " + mScore;
+		addChild(mScoreText);
+		
+		var mTopScoreText: TextField = new TextField();
+		var format:TextFormat =  new TextFormat();
+			
+	    format.font = "Arial";
+		format.bold = true;
+		format.color = 0x008822;
+		format.size = 20;
+		format.align = TextFormatAlign.RIGHT;
+		
+		mTopScoreText.x = stgWidth - 210;
+		mTopScoreText.y = 20;
+		mTopScoreText.width = 200;
+		mTopScoreText.height = 30;
+		mTopScoreText.defaultTextFormat = format;
+		mTopScoreText.background = false;
+		if (topScore < mScore)
+		    mTopScoreText.text = "Top Score: " + mScore;
+		else
+		    mTopScoreText.text = "Top Score: " + topScore;
+		addChild(mTopScoreText);
 	}
 	
 	private function check_Collision(): Void 
@@ -115,29 +156,29 @@ class Game extends Sprite
 		{
 			if (!cloudHit)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mClouds[i], this, true, 0))
+			    if (PixelPerfectCollision.IsColliding(baby, mClouds[i], this, false, 0))
 			    {
 					cloudHit = true;
 					baby.x = mClouds[i].x;
 					baby.y = mClouds[i].y - 30;
-					hitPoint = PixelPerfectCollision.getCollisionPoint(baby, mClouds[i], this, true, 0);			        
+					hitPoint = PixelPerfectCollision.getCollisionPoint(baby, mClouds[i], this, false, 0);			        
 				}
 				
 			}
 		}
 		
-		for (i in 0...7)
+		for (i in 0...10)
 		{
 			if (mCandies[i].visible)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mCandies[i], this, true, 0))
+			    if (PixelPerfectCollision.IsColliding(baby, mCandies[i], this, false, 0))
 			    {
 					//rewardHit = true;
+					mScore += 10;
 					mCandies[i].visible = false;			        
 				}
 				
 			}
 		}
 	}
-	
 }

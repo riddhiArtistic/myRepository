@@ -52,6 +52,8 @@ class Game_obj : public ::native::display::Sprite_obj{
 		virtual Void update( ::native::events::Event e);
 		Dynamic update_dyn();
 
+		int topScore; /* REM */ 
+		int mScore; /* REM */ 
 		::native::geom::Point hitPoint; /* REM */ 
 		bool cloudHit; /* REM */ 
 		bool rewardHit; /* REM */ 

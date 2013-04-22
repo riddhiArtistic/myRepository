@@ -88,6 +88,8 @@ const char *__hxcpp_all_files[] = {
 	"native/net/URLRequestHeader.hx",
 	"native/net/URLVariables.hx",
 	"native/text/Font.hx",
+	"native/text/TextField.hx",
+	"native/text/TextFormat.hx",
 	"native/ui/Multitouch.hx",
 	"native/utils/ByteArray.hx",
 	"native/utils/WeakRef.hx",

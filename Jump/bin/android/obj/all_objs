@@ -19,9 +19,15 @@ obj/android/src/native/utils/IMemoryRange.obj
 obj/android/src/native/ui/MultitouchInputMode.obj
 obj/android/src/native/ui/Multitouch.obj
 obj/android/src/native/ui/Keyboard.obj
+obj/android/src/native/text/TextFormatAlign.obj
+obj/android/src/native/text/TextFormat.obj
+obj/android/src/native/text/TextFieldType.obj
+obj/android/src/native/text/TextFieldAutoSize.obj
+obj/android/src/native/text/TextField.obj
 obj/android/src/native/text/FontType.obj
 obj/android/src/native/text/FontStyle.obj
 obj/android/src/native/text/Font.obj
+obj/android/src/native/text/AntiAliasType.obj
 obj/android/src/native/net/URLVariables.obj
 obj/android/src/native/net/URLRequestMethod.obj
 obj/android/src/native/net/URLRequestHeader.obj

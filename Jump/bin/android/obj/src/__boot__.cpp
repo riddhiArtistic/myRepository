@@ -21,9 +21,15 @@
 #include <native/ui/MultitouchInputMode.h>
 #include <native/ui/Multitouch.h>
 #include <native/ui/Keyboard.h>
+#include <native/text/TextFormatAlign.h>
+#include <native/text/TextFormat.h>
+#include <native/text/TextFieldType.h>
+#include <native/text/TextFieldAutoSize.h>
+#include <native/text/TextField.h>
 #include <native/text/FontType.h>
 #include <native/text/FontStyle.h>
 #include <native/text/Font.h>
+#include <native/text/AntiAliasType.h>
 #include <native/net/URLVariables.h>
 #include <native/net/URLRequestMethod.h>
 #include <native/net/URLRequestHeader.h>
@@ -155,9 +161,15 @@ hx::RegisterResources( hx::GetResources() );
 ::native::ui::MultitouchInputMode_obj::__register();
 ::native::ui::Multitouch_obj::__register();
 ::native::ui::Keyboard_obj::__register();
+::native::text::TextFormatAlign_obj::__register();
+::native::text::TextFormat_obj::__register();
+::native::text::TextFieldType_obj::__register();
+::native::text::TextFieldAutoSize_obj::__register();
+::native::text::TextField_obj::__register();
 ::native::text::FontType_obj::__register();
 ::native::text::FontStyle_obj::__register();
 ::native::text::Font_obj::__register();
+::native::text::AntiAliasType_obj::__register();
 ::native::net::URLVariables_obj::__register();
 ::native::net::URLRequestMethod_obj::__register();
 ::native::net::URLRequestHeader_obj::__register();
@@ -372,9 +384,15 @@ hx::RegisterResources( hx::GetResources() );
 ::native::net::URLRequestHeader_obj::__boot();
 ::native::net::URLRequestMethod_obj::__boot();
 ::native::net::URLVariables_obj::__boot();
+::native::text::AntiAliasType_obj::__boot();
 ::native::text::Font_obj::__boot();
 ::native::text::FontStyle_obj::__boot();
 ::native::text::FontType_obj::__boot();
+::native::text::TextField_obj::__boot();
+::native::text::TextFieldAutoSize_obj::__boot();
+::native::text::TextFieldType_obj::__boot();
+::native::text::TextFormat_obj::__boot();
+::native::text::TextFormatAlign_obj::__boot();
 ::native::ui::Keyboard_obj::__boot();
 ::native::ui::Multitouch_obj::__boot();
 ::native::ui::MultitouchInputMode_obj::__boot();

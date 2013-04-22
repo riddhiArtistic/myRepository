@@ -82,6 +82,10 @@ HX_STACK_PUSH("Actor::new","com/velvetArts/v01/Actor.hx",20);
 	HX_STACK_LINE(34)
 	this->addChild(this->actor);
 	HX_STACK_LINE(36)
+	this->set_width((int)60);
+	HX_STACK_LINE(37)
+	this->set_height((int)60);
+	HX_STACK_LINE(39)
 	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
 }
 ;
@@ -103,12 +107,12 @@ Dynamic Actor_obj::__Create(hx::DynamicArray inArgs)
 
 Void Actor_obj::stopMove( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::stopMove","com/velvetArts/v01/Actor.hx",98);
+		HX_STACK_PUSH("Actor::stopMove","com/velvetArts/v01/Actor.hx",101);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(99)
+		HX_STACK_LINE(102)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null());
-		HX_STACK_LINE(100)
+		HX_STACK_LINE(103)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null());
 	}
 return null();
@@ -119,14 +123,14 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,stopMove,(void))
 
 Void Actor_obj::Move( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::Move","com/velvetArts/v01/Actor.hx",89);
+		HX_STACK_PUSH("Actor::Move","com/velvetArts/v01/Actor.hx",92);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(89)
+		HX_STACK_LINE(92)
 		if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-			HX_STACK_LINE(92)
+			HX_STACK_LINE(95)
 			this->set_y(e->stageY);
-			HX_STACK_LINE(93)
+			HX_STACK_LINE(96)
 			this->set_x(e->stageX);
 		}
 	}
@@ -138,14 +142,14 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,Move,(void))
 
 Void Actor_obj::en_Move( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::en_Move","com/velvetArts/v01/Actor.hx",81);
+		HX_STACK_PUSH("Actor::en_Move","com/velvetArts/v01/Actor.hx",84);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(82)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null(),null(),null());
-		HX_STACK_LINE(83)
-		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_UP,this->stopMove_dyn(),null(),null(),null());
 		HX_STACK_LINE(85)
+		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null(),null(),null());
+		HX_STACK_LINE(86)
+		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_UP,this->stopMove_dyn(),null(),null(),null());
+		HX_STACK_LINE(88)
 		e->updateAfterEvent();
 	}
 return null();
@@ -156,12 +160,12 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,en_Move,(void))
 
 Void Actor_obj::stopDragging( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::stopDragging","com/velvetArts/v01/Actor.hx",75);
+		HX_STACK_PUSH("Actor::stopDragging","com/velvetArts/v01/Actor.hx",78);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(76)
+		HX_STACK_LINE(79)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null());
-		HX_STACK_LINE(77)
+		HX_STACK_LINE(80)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null());
 	}
 return null();
@@ -172,16 +176,16 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,stopDragging,(void))
 
 Void Actor_obj::jump( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::jump","com/velvetArts/v01/Actor.hx",60);
+		HX_STACK_PUSH("Actor::jump","com/velvetArts/v01/Actor.hx",63);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(60)
+		HX_STACK_LINE(63)
 		if (((e->touchPointID == (int)0))){
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(65)
 			if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-				HX_STACK_LINE(66)
+				HX_STACK_LINE(69)
 				this->set_y(e->stageY);
-				HX_STACK_LINE(67)
+				HX_STACK_LINE(70)
 				this->set_x(e->stageX);
 			}
 		}
@@ -194,12 +198,12 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,jump,(void))
 
 Void Actor_obj::startDragging( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::startDragging","com/velvetArts/v01/Actor.hx",54);
+		HX_STACK_PUSH("Actor::startDragging","com/velvetArts/v01/Actor.hx",57);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(55)
+		HX_STACK_LINE(58)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null(),null(),null());
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(59)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null(),null(),null());
 	}
 return null();
@@ -210,12 +214,12 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,startDragging,(void))
 
 Void Actor_obj::update( ::native::events::Event e){
 {
-		HX_STACK_PUSH("Actor::update","com/velvetArts/v01/Actor.hx",40);
+		HX_STACK_PUSH("Actor::update","com/velvetArts/v01/Actor.hx",43);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(41)
+		HX_STACK_LINE(44)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_BEGIN,this->startDragging_dyn(),null(),null(),null());
-		HX_STACK_LINE(42)
+		HX_STACK_LINE(45)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null(),null(),null());
 	}
 return null();

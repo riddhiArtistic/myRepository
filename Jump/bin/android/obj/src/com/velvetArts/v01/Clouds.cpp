@@ -152,17 +152,21 @@ Void Clouds_obj::update( ::native::events::Event e){
 		HX_STACK_LINE(82)
 		this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
 		HX_STACK_LINE(84)
+		this->set_width((int)70);
+		HX_STACK_LINE(85)
+		this->set_height((int)20);
+		HX_STACK_LINE(87)
 		if (((this->get_x() > ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()))){
-			HX_STACK_LINE(85)
+			HX_STACK_LINE(88)
 			this->set_x((int)0);
 		}
 		else{
-			HX_STACK_LINE(87)
+			HX_STACK_LINE(90)
 			::com::velvetArts::v01::Clouds _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(87)
+			HX_STACK_LINE(90)
 			_g->set_x((_g->get_x() + (int)1));
 		}
-		HX_STACK_LINE(88)
+		HX_STACK_LINE(91)
 		(this->frames)++;
 	}
 return null();

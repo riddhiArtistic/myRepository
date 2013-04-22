@@ -6,5 +6,5 @@
 -D web
 -swf-version 11
 -swf9 bin/flash/bin/playJump.swf
--swf-header 800:480:60:FFFFFF
+-swf-header 800:480:30:FFFFFF
 -cp bin/flash/haxe
