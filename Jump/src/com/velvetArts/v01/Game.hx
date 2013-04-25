@@ -1,4 +1,5 @@
 package com.velvetArts.v01;
+import haxe.Timer;
 import nme.display.Sprite;
 import nme.events.Event;
 import nme.events.MouseEvent;
@@ -28,6 +29,10 @@ class Game extends Sprite
 	
 	private var mScore: Int;
 	private var topScore: Int;
+	
+	private static var fps_data:Dynamic = 1000/60;
+	
+	var timer:Timer;
 	
 	var states:GameStates;
 
@@ -69,11 +74,18 @@ class Game extends Sprite
 		
 		states = new GameStates();
 		
-	    addEventListener(Event.ENTER_FRAME, update);
+		timer = new Timer(fps_data);
+		
+		timer.run = function() {
+			update();
+		}
+		
+	    //addEventListener(Event.ENTER_FRAME, update);
 	}
 	
-	private function update(e:Event) : Void
+	private function update() : Void
 	{
+		graphics.clear();
 		var stgWidth = Lib.current.stage.stageWidth;
 		var stgHeight = Lib.current.stage.stageHeight;
 		bgImg.update();
@@ -93,11 +105,6 @@ class Game extends Sprite
 				  cloudHit = false;
 				if(baby.y > 0)
 					baby.y -= 2;
-				
-				if (baby.jumpFWD)
-					baby.x += 0.5;
-				if (baby.jumpBKW)
-				    baby.x -= 1;					
 			}
 			else
 			{
@@ -236,7 +243,6 @@ class Game extends Sprite
 			{
 				if(baby.hitTestObject(mCandies[i]))
 			    {
-					//rewardHit = true;
 					mScore += 10;
 					mCandies[i].visible = false;			        
 				}

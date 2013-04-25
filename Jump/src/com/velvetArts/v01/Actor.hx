@@ -40,6 +40,8 @@ class Actor extends Sprite
 		this.addChild(actor);
 		
 		jumpFlag = false;
+		jumpBKW = false;
+		jumpFWD = false;
 	}
 	
 	public function update():Void
@@ -65,25 +67,12 @@ class Actor extends Sprite
 	{
 		if (IsActive)
 		{
-			/*if (e.touchPointID == 0)
+			if (e.touchPointID == 0)
 			{
 				if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
 		        {
-			        this.y = e.stageY;
-					this.x = e.stageX;
+			        jumpFlag = true;
 			    }
-			}*/
-			
-			jumpFlag = true;
-			if (e.stageX - mouse_X > 0)
-			{
-				jumpFWD = true;
-				jumpBKW = false;
-			}
-			else
-			{
-				jumpBKW = true;
-				jumpFWD = false;
 			}
 		}
 		//e.updateAfterEvent();
@@ -92,8 +81,6 @@ class Actor extends Sprite
 	private function stopDragging(e:TouchEvent):Void
 	{
 		jumpFlag = false;
-		jumpBKW = false;
-		jumpFWD = false;
         Lib.current.stage.removeEventListener(TouchEvent.TOUCH_END, stopDragging);
         Lib.current.stage.removeEventListener(TouchEvent.TOUCH_MOVE, jump);
     }
@@ -111,24 +98,12 @@ class Actor extends Sprite
 		if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
 		{
 			jumpFlag = true;
-			if (mouse_X - e.stageX > 0)
-			{
-				jumpFWD = true;
-				jumpBKW = false;
-			}
-			else
-			{
-				jumpBKW = true;
-				jumpFWD = false;
-			}
 		}
 	}
 	
 	private function stopMove(e:MouseEvent):Void
 	{
 		jumpFlag = false;
-		jumpBKW = false;
-		jumpFWD = false;
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, Move);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, en_Move);
 	}
