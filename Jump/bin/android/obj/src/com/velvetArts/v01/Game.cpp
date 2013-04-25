@@ -9,9 +9,6 @@
 #ifndef INCLUDED_com_velvetArts_v01_Candy
 #include <com/velvetArts/v01/Candy.h>
 #endif
-#ifndef INCLUDED_com_velvetArts_v01_Character
-#include <com/velvetArts/v01/Character.h>
-#endif
 #ifndef INCLUDED_com_velvetArts_v01_Clouds
 #include <com/velvetArts/v01/Clouds.h>
 #endif
@@ -24,11 +21,17 @@
 #ifndef INCLUDED_com_velvetArts_v01_MovingBG
 #include <com/velvetArts/v01/MovingBG.h>
 #endif
+#ifndef INCLUDED_haxe_Timer
+#include <haxe/Timer.h>
+#endif
 #ifndef INCLUDED_native_display_DisplayObject
 #include <native/display/DisplayObject.h>
 #endif
 #ifndef INCLUDED_native_display_DisplayObjectContainer
 #include <native/display/DisplayObjectContainer.h>
+#endif
+#ifndef INCLUDED_native_display_Graphics
+#include <native/display/Graphics.h>
 #endif
 #ifndef INCLUDED_native_display_IBitmapDrawable
 #include <native/display/IBitmapDrawable.h>
@@ -78,76 +81,94 @@ namespace v01{
 
 Void Game_obj::__construct()
 {
-HX_STACK_PUSH("Game::new","com/velvetArts/v01/Game.hx",17);
+HX_STACK_PUSH("Game::new","com/velvetArts/v01/Game.hx",18);
 {
-	HX_STACK_LINE(27)
+	HX_STACK_LINE(28)
 	this->cloudHit = false;
-	HX_STACK_LINE(26)
+	HX_STACK_LINE(27)
 	this->rewardHit = false;
-	HX_STACK_LINE(36)
-	super::__construct();
-	HX_STACK_LINE(37)
-	::nme::Lib_obj::get_current()->get_stage()->addChild(hx::ObjectPtr<OBJ_>(this));
 	HX_STACK_LINE(39)
-	this->stgWidth = ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth();
-	HX_STACK_LINE(40)
-	this->stgHeight = ::nme::Lib_obj::get_current()->get_stage()->get_stageHeight();
+	Array< ::com::velvetArts::v01::Game > _g = Array_obj< ::com::velvetArts::v01::Game >::__new().Add(hx::ObjectPtr<OBJ_>(this));		HX_STACK_VAR(_g,"_g");
+	HX_STACK_LINE(41)
+	super::__construct();
 	HX_STACK_LINE(42)
-	this->bgImg = ::com::velvetArts::v01::MovingBG_obj::__new();
-	HX_STACK_LINE(43)
-	this->addChild(this->bgImg);
+	::nme::Lib_obj::get_current()->get_stage()->addChild(hx::ObjectPtr<OBJ_>(this));
+	HX_STACK_LINE(44)
+	this->stgWidth = ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth();
 	HX_STACK_LINE(45)
+	this->stgHeight = ::nme::Lib_obj::get_current()->get_stage()->get_stageHeight();
+	HX_STACK_LINE(47)
+	this->bgImg = ::com::velvetArts::v01::MovingBG_obj::__new();
+	HX_STACK_LINE(48)
+	this->addChild(this->bgImg);
+	HX_STACK_LINE(50)
 	this->mCandies = Array_obj< ::com::velvetArts::v01::Candy >::__new();
-	HX_STACK_LINE(46)
+	HX_STACK_LINE(51)
 	{
-		HX_STACK_LINE(46)
-		int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(46)
-		while(((_g < (int)10))){
-			HX_STACK_LINE(46)
-			int i = (_g)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(48)
-			Float x_pos = (::Math_obj::random() * this->stgWidth);		HX_STACK_VAR(x_pos,"x_pos");
-			HX_STACK_LINE(49)
-			Float y_pos = (::Math_obj::random() * this->stgHeight);		HX_STACK_VAR(y_pos,"y_pos");
+		HX_STACK_LINE(51)
+		int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(51)
+		while(((_g1 < (int)10))){
 			HX_STACK_LINE(51)
+			int i = (_g1)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(53)
+			Float x_pos = (::Math_obj::random() * this->stgWidth);		HX_STACK_VAR(x_pos,"x_pos");
+			HX_STACK_LINE(54)
+			Float y_pos = (::Math_obj::random() * this->stgHeight);		HX_STACK_VAR(y_pos,"y_pos");
+			HX_STACK_LINE(56)
 			this->mCandies[i] = ::com::velvetArts::v01::Candy_obj::__new(x_pos,y_pos);
-			HX_STACK_LINE(52)
+			HX_STACK_LINE(57)
 			this->addChild(this->mCandies->__get(i));
 		}
 	}
-	HX_STACK_LINE(55)
+	HX_STACK_LINE(60)
 	this->mClouds = Array_obj< ::com::velvetArts::v01::Clouds >::__new();
-	HX_STACK_LINE(56)
+	HX_STACK_LINE(61)
 	{
-		HX_STACK_LINE(56)
-		int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(56)
-		while(((_g < (int)20))){
-			HX_STACK_LINE(56)
-			int i = (_g)++;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(58)
-			Float x_pos = (::Math_obj::random() * this->stgWidth);		HX_STACK_VAR(x_pos,"x_pos");
-			HX_STACK_LINE(59)
-			Float y_pos = (::Math_obj::random() * this->stgHeight);		HX_STACK_VAR(y_pos,"y_pos");
+		HX_STACK_LINE(61)
+		int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
+		HX_STACK_LINE(61)
+		while(((_g1 < (int)20))){
 			HX_STACK_LINE(61)
+			int i = (_g1)++;		HX_STACK_VAR(i,"i");
+			HX_STACK_LINE(63)
+			Float x_pos = (::Math_obj::random() * this->stgWidth);		HX_STACK_VAR(x_pos,"x_pos");
+			HX_STACK_LINE(64)
+			Float y_pos = (::Math_obj::random() * this->stgHeight);		HX_STACK_VAR(y_pos,"y_pos");
+			HX_STACK_LINE(66)
 			this->mClouds[i] = ::com::velvetArts::v01::Clouds_obj::__new(x_pos,y_pos);
-			HX_STACK_LINE(62)
+			HX_STACK_LINE(67)
 			this->addChild(this->mClouds->__get(i));
 		}
 	}
-	HX_STACK_LINE(65)
-	this->baby = ::com::velvetArts::v01::Actor_obj::__new();
-	HX_STACK_LINE(66)
-	this->addChild(this->baby);
-	HX_STACK_LINE(67)
-	this->mScore = (int)0;
-	HX_STACK_LINE(68)
-	this->topScore = (int)1000;
 	HX_STACK_LINE(70)
-	this->states = ::com::velvetArts::v01::GameStates_obj::__new();
+	this->baby = ::com::velvetArts::v01::Actor_obj::__new();
+	HX_STACK_LINE(71)
+	this->addChild(this->baby);
 	HX_STACK_LINE(72)
-	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
+	this->mScore = (int)0;
+	HX_STACK_LINE(73)
+	this->topScore = (int)1000;
+	HX_STACK_LINE(75)
+	this->states = ::com::velvetArts::v01::GameStates_obj::__new();
+	HX_STACK_LINE(77)
+	this->timer = ::haxe::Timer_obj::__new(::com::velvetArts::v01::Game_obj::fps_data);
+
+	HX_BEGIN_LOCAL_FUNC_S1(hx::LocalFunc,_Function_1_1,Array< ::com::velvetArts::v01::Game >,_g)
+	Void run(){
+		HX_STACK_PUSH("*::_Function_1_1","com/velvetArts/v01/Game.hx",79);
+		{
+			HX_STACK_LINE(80)
+			_g->__get((int)0)->get_graphics()->clear();
+			HX_STACK_LINE(81)
+			_g->__get((int)0)->update();
+		}
+		return null();
+	}
+	HX_END_LOCAL_FUNC0((void))
+
+	HX_STACK_LINE(79)
+	this->timer->run =  Dynamic(new _Function_1_1(_g));
 }
 ;
 	return null();
@@ -168,7 +189,7 @@ Dynamic Game_obj::__Create(hx::DynamicArray inArgs)
 
 Void Game_obj::endTap( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Game::endTap","com/velvetArts/v01/Game.hx",254);
+		HX_STACK_PUSH("Game::endTap","com/velvetArts/v01/Game.hx",277);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
 	}
@@ -180,16 +201,16 @@ HX_DEFINE_DYNAMIC_FUNC1(Game_obj,endTap,(void))
 
 Void Game_obj::startTouchGame( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Game::startTouchGame","com/velvetArts/v01/Game.hx",244);
+		HX_STACK_PUSH("Game::startTouchGame","com/velvetArts/v01/Game.hx",267);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(244)
+		HX_STACK_LINE(267)
 		if ((e->isPrimaryTouchPoint)){
-			HX_STACK_LINE(247)
+			HX_STACK_LINE(270)
 			this->states->Active = true;
-			HX_STACK_LINE(248)
+			HX_STACK_LINE(271)
 			this->states->Play = false;
-			HX_STACK_LINE(249)
+			HX_STACK_LINE(272)
 			this->states->Inactive = false;
 		}
 	}
@@ -201,7 +222,7 @@ HX_DEFINE_DYNAMIC_FUNC1(Game_obj,startTouchGame,(void))
 
 Void Game_obj::endClick( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Game::endClick","com/velvetArts/v01/Game.hx",239);
+		HX_STACK_PUSH("Game::endClick","com/velvetArts/v01/Game.hx",262);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
 	}
@@ -213,14 +234,14 @@ HX_DEFINE_DYNAMIC_FUNC1(Game_obj,endClick,(void))
 
 Void Game_obj::startClickGame( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Game::startClickGame","com/velvetArts/v01/Game.hx",232);
+		HX_STACK_PUSH("Game::startClickGame","com/velvetArts/v01/Game.hx",255);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(233)
+		HX_STACK_LINE(256)
 		this->states->Active = true;
-		HX_STACK_LINE(234)
+		HX_STACK_LINE(257)
 		this->states->Play = false;
-		HX_STACK_LINE(235)
+		HX_STACK_LINE(258)
 		this->states->Inactive = false;
 	}
 return null();
@@ -231,45 +252,45 @@ HX_DEFINE_DYNAMIC_FUNC1(Game_obj,startClickGame,(void))
 
 Void Game_obj::check_Collision( ){
 {
-		HX_STACK_PUSH("Game::check_Collision","com/velvetArts/v01/Game.hx",200);
+		HX_STACK_PUSH("Game::check_Collision","com/velvetArts/v01/Game.hx",224);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(201)
+		HX_STACK_LINE(225)
 		{
-			HX_STACK_LINE(201)
+			HX_STACK_LINE(225)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(201)
+			HX_STACK_LINE(225)
 			while(((_g < (int)20))){
-				HX_STACK_LINE(201)
+				HX_STACK_LINE(225)
 				int i = (_g)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(203)
+				HX_STACK_LINE(227)
 				if ((!(this->cloudHit))){
-					HX_STACK_LINE(204)
+					HX_STACK_LINE(228)
 					if ((this->baby->hitTestObject(this->mClouds->__get(i)))){
-						HX_STACK_LINE(207)
+						HX_STACK_LINE(231)
 						this->cloudHit = true;
-						HX_STACK_LINE(208)
+						HX_STACK_LINE(232)
 						this->baby->set_x(this->mClouds->__get(i)->get_x());
-						HX_STACK_LINE(209)
+						HX_STACK_LINE(233)
 						this->baby->set_y((this->mClouds->__get(i)->get_y() - (int)25));
 					}
 				}
 			}
 		}
-		HX_STACK_LINE(216)
+		HX_STACK_LINE(240)
 		{
-			HX_STACK_LINE(216)
+			HX_STACK_LINE(240)
 			int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(216)
+			HX_STACK_LINE(240)
 			while(((_g < (int)10))){
-				HX_STACK_LINE(216)
+				HX_STACK_LINE(240)
 				int i = (_g)++;		HX_STACK_VAR(i,"i");
-				HX_STACK_LINE(218)
+				HX_STACK_LINE(242)
 				if ((this->mCandies->__get(i)->get_visible())){
-					HX_STACK_LINE(219)
+					HX_STACK_LINE(243)
 					if ((this->baby->hitTestObject(this->mCandies->__get(i)))){
-						HX_STACK_LINE(223)
+						HX_STACK_LINE(246)
 						hx::AddEq(this->mScore,(int)10);
-						HX_STACK_LINE(224)
+						HX_STACK_LINE(247)
 						this->mCandies->__get(i)->set_visible(false);
 					}
 				}
@@ -282,250 +303,270 @@ return null();
 
 HX_DEFINE_DYNAMIC_FUNC0(Game_obj,check_Collision,(void))
 
-Void Game_obj::update( ::native::events::Event e){
+Void Game_obj::update( ){
 {
-		HX_STACK_PUSH("Game::update","com/velvetArts/v01/Game.hx",76);
+		HX_STACK_PUSH("Game::update","com/velvetArts/v01/Game.hx",88);
 		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(77)
+		HX_STACK_LINE(89)
 		int stgWidth = ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth();		HX_STACK_VAR(stgWidth,"stgWidth");
-		HX_STACK_LINE(78)
+		HX_STACK_LINE(90)
 		int stgHeight = ::nme::Lib_obj::get_current()->get_stage()->get_stageHeight();		HX_STACK_VAR(stgHeight,"stgHeight");
-		HX_STACK_LINE(80)
+		HX_STACK_LINE(91)
+		this->bgImg->update();
+		HX_STACK_LINE(93)
 		if ((this->states->Active)){
-			HX_STACK_LINE(82)
+			HX_STACK_LINE(95)
 			this->baby->IsActive = true;
-			HX_STACK_LINE(83)
+			HX_STACK_LINE(96)
 			this->baby->update();
-			HX_STACK_LINE(84)
+			HX_STACK_LINE(97)
 			{
-				HX_STACK_LINE(84)
+				HX_STACK_LINE(97)
 				int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(84)
+				HX_STACK_LINE(97)
 				while(((_g < (int)20))){
-					HX_STACK_LINE(84)
+					HX_STACK_LINE(97)
 					int i = (_g)++;		HX_STACK_VAR(i,"i");
-					HX_STACK_LINE(85)
+					HX_STACK_LINE(98)
 					this->mClouds->__get(i)->update();
 				}
 			}
-			HX_STACK_LINE(86)
+			HX_STACK_LINE(99)
 			{
-				HX_STACK_LINE(86)
+				HX_STACK_LINE(99)
 				int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(86)
+				HX_STACK_LINE(99)
 				while(((_g < (int)10))){
-					HX_STACK_LINE(86)
+					HX_STACK_LINE(99)
 					int i = (_g)++;		HX_STACK_VAR(i,"i");
-					HX_STACK_LINE(87)
+					HX_STACK_LINE(100)
 					this->mCandies->__get(i)->update();
 				}
 			}
-			HX_STACK_LINE(88)
-			this->check_Collision();
-			HX_STACK_LINE(90)
-			if ((!(this->cloudHit))){
-				HX_STACK_LINE(92)
-				if (((this->baby->get_x() > stgWidth))){
-					HX_STACK_LINE(93)
-					this->baby->set_x((int)0);
+			HX_STACK_LINE(102)
+			if ((this->baby->jumpFlag)){
+				HX_STACK_LINE(104)
+				if ((this->cloudHit)){
+					HX_STACK_LINE(105)
+					this->cloudHit = false;
 				}
-				else{
-					HX_STACK_LINE(95)
+				HX_STACK_LINE(106)
+				if (((this->baby->get_y() > (int)0))){
+					HX_STACK_LINE(107)
 					::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
-					HX_STACK_LINE(95)
-					_g->set_x((_g->get_x() + 0.5));
-				}
-				HX_STACK_LINE(97)
-				if (((this->baby->get_y() > stgHeight))){
-					HX_STACK_LINE(99)
-					this->states->Inactive = true;
-					HX_STACK_LINE(100)
-					this->states->Active = false;
-					HX_STACK_LINE(101)
-					this->states->Play = false;
-				}
-				HX_STACK_LINE(103)
-				{
-					HX_STACK_LINE(103)
-					::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
-					HX_STACK_LINE(103)
-					_g->set_y((_g->get_y() + (int)2));
+					HX_STACK_LINE(107)
+					_g->set_y((_g->get_y() - (int)2));
 				}
 			}
 			else{
-				HX_STACK_LINE(107)
-				if (((this->baby->get_x() > stgWidth))){
-					HX_STACK_LINE(108)
-					this->baby->set_x((int)0);
+				HX_STACK_LINE(111)
+				this->check_Collision();
+				HX_STACK_LINE(113)
+				if ((!(this->cloudHit))){
+					HX_STACK_LINE(115)
+					if (((this->baby->get_x() > stgWidth))){
+						HX_STACK_LINE(116)
+						this->baby->set_x((int)0);
+					}
+					else{
+						HX_STACK_LINE(118)
+						::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
+						HX_STACK_LINE(118)
+						_g->set_x((_g->get_x() + 0.5));
+					}
+					HX_STACK_LINE(120)
+					if (((this->baby->get_y() > stgHeight))){
+						HX_STACK_LINE(122)
+						this->states->Inactive = true;
+						HX_STACK_LINE(123)
+						this->states->Active = false;
+						HX_STACK_LINE(124)
+						this->states->Play = false;
+					}
+					HX_STACK_LINE(126)
+					{
+						HX_STACK_LINE(126)
+						::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
+						HX_STACK_LINE(126)
+						_g->set_y((_g->get_y() + (int)2));
+					}
 				}
 				else{
-					HX_STACK_LINE(110)
-					::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
-					HX_STACK_LINE(110)
-					_g->set_x((_g->get_x() + (int)1));
+					HX_STACK_LINE(130)
+					if (((this->baby->get_x() > stgWidth))){
+						HX_STACK_LINE(131)
+						this->baby->set_x((int)0);
+					}
+					else{
+						HX_STACK_LINE(133)
+						::com::velvetArts::v01::Actor _g = this->baby;		HX_STACK_VAR(_g,"_g");
+						HX_STACK_LINE(133)
+						_g->set_x((_g->get_x() + (int)1));
+					}
+					HX_STACK_LINE(134)
+					this->cloudHit = !(this->cloudHit);
 				}
-				HX_STACK_LINE(111)
-				this->cloudHit = !(this->cloudHit);
 			}
 		}
 		else{
-			HX_STACK_LINE(115)
+			HX_STACK_LINE(139)
 			if ((this->states->Inactive)){
-				HX_STACK_LINE(118)
+				HX_STACK_LINE(142)
 				this->baby->IsActive = false;
-				HX_STACK_LINE(120)
+				HX_STACK_LINE(144)
 				::native::text::TextFormat format = ::native::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(format,"format");
-				HX_STACK_LINE(121)
+				HX_STACK_LINE(145)
 				::native::text::TextField terminalText;		HX_STACK_VAR(terminalText,"terminalText");
-				HX_STACK_LINE(122)
+				HX_STACK_LINE(146)
 				terminalText = ::native::text::TextField_obj::__new();
-				HX_STACK_LINE(123)
+				HX_STACK_LINE(147)
 				format->font = HX_CSTRING("Arial");
-				HX_STACK_LINE(124)
+				HX_STACK_LINE(148)
 				format->bold = true;
-				HX_STACK_LINE(125)
+				HX_STACK_LINE(149)
 				format->color = (int)34850;
-				HX_STACK_LINE(126)
+				HX_STACK_LINE(150)
 				format->size = (int)40;
-				HX_STACK_LINE(127)
+				HX_STACK_LINE(151)
 				format->align = ::native::text::TextFormatAlign_obj::CENTER;
-				HX_STACK_LINE(129)
+				HX_STACK_LINE(153)
 				terminalText->set_background(false);
-				HX_STACK_LINE(130)
+				HX_STACK_LINE(154)
 				terminalText->set_defaultTextFormat(format);
-				HX_STACK_LINE(131)
+				HX_STACK_LINE(155)
 				terminalText->set_x((int)10);
-				HX_STACK_LINE(132)
+				HX_STACK_LINE(156)
 				terminalText->set_y(((Float(stgHeight) / Float((int)2)) - (int)25));
-				HX_STACK_LINE(133)
+				HX_STACK_LINE(157)
 				terminalText->set_width((stgWidth - (int)20));
-				HX_STACK_LINE(134)
+				HX_STACK_LINE(158)
 				terminalText->set_height((int)50);
-				HX_STACK_LINE(135)
+				HX_STACK_LINE(159)
 				terminalText->set_text(HX_CSTRING("YOU DIED! :("));
-				HX_STACK_LINE(136)
+				HX_STACK_LINE(160)
 				this->addChild(terminalText);
 			}
 		}
-		HX_STACK_LINE(140)
+		HX_STACK_LINE(164)
 		::native::text::TextFormat format = ::native::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(format,"format");
-		HX_STACK_LINE(141)
+		HX_STACK_LINE(165)
 		::native::text::TextField mScoreText;		HX_STACK_VAR(mScoreText,"mScoreText");
-		HX_STACK_LINE(142)
+		HX_STACK_LINE(166)
 		mScoreText = ::native::text::TextField_obj::__new();
-		HX_STACK_LINE(143)
+		HX_STACK_LINE(167)
 		format->font = HX_CSTRING("Arial");
-		HX_STACK_LINE(144)
+		HX_STACK_LINE(168)
 		format->bold = true;
-		HX_STACK_LINE(145)
+		HX_STACK_LINE(169)
 		format->color = (int)34850;
-		HX_STACK_LINE(146)
+		HX_STACK_LINE(170)
 		format->size = (int)20;
-		HX_STACK_LINE(147)
+		HX_STACK_LINE(171)
 		format->align = ::native::text::TextFormatAlign_obj::LEFT;
-		HX_STACK_LINE(149)
+		HX_STACK_LINE(173)
 		mScoreText->set_x((int)10);
-		HX_STACK_LINE(150)
+		HX_STACK_LINE(174)
 		mScoreText->set_y((int)20);
-		HX_STACK_LINE(151)
+		HX_STACK_LINE(175)
 		mScoreText->set_width((int)200);
-		HX_STACK_LINE(152)
+		HX_STACK_LINE(176)
 		mScoreText->set_height((int)30);
-		HX_STACK_LINE(153)
+		HX_STACK_LINE(177)
 		mScoreText->set_defaultTextFormat(format);
-		HX_STACK_LINE(154)
+		HX_STACK_LINE(178)
 		mScoreText->set_background(false);
-		HX_STACK_LINE(155)
+		HX_STACK_LINE(179)
 		if ((this->states->Active)){
-			HX_STACK_LINE(156)
+			HX_STACK_LINE(180)
 			mScoreText->set_text((HX_CSTRING("Score: ") + this->mScore));
 		}
 		else{
-			HX_STACK_LINE(157)
+			HX_STACK_LINE(181)
 			if ((this->states->Inactive)){
-				HX_STACK_LINE(158)
+				HX_STACK_LINE(182)
 				mScoreText->set_text((HX_CSTRING("Your Score: ") + this->mScore));
 			}
 			else{
-				HX_STACK_LINE(159)
+				HX_STACK_LINE(183)
 				if ((this->states->Play)){
-					HX_STACK_LINE(161)
+					HX_STACK_LINE(185)
 					mScoreText->set_text(HX_CSTRING("Click To Play!"));
-					HX_STACK_LINE(162)
+					HX_STACK_LINE(186)
 					mScoreText->addEventListener(::native::events::TouchEvent_obj::TOUCH_TAP,this->startTouchGame_dyn(),null(),null(),null());
-					HX_STACK_LINE(163)
+					HX_STACK_LINE(187)
 					mScoreText->addEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->startClickGame_dyn(),null(),null(),null());
 				}
 			}
 		}
-		HX_STACK_LINE(165)
+		HX_STACK_LINE(189)
 		this->addChild(mScoreText);
-		HX_STACK_LINE(167)
+		HX_STACK_LINE(191)
 		::native::text::TextFormat format1 = ::native::text::TextFormat_obj::__new(null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null(),null());		HX_STACK_VAR(format1,"format1");
-		HX_STACK_LINE(168)
+		HX_STACK_LINE(192)
 		::native::text::TextField mTopScoreText;		HX_STACK_VAR(mTopScoreText,"mTopScoreText");
-		HX_STACK_LINE(169)
+		HX_STACK_LINE(193)
 		mTopScoreText = ::native::text::TextField_obj::__new();
-		HX_STACK_LINE(170)
+		HX_STACK_LINE(194)
 		format1->font = HX_CSTRING("Arial");
-		HX_STACK_LINE(171)
+		HX_STACK_LINE(195)
 		format1->bold = true;
-		HX_STACK_LINE(172)
+		HX_STACK_LINE(196)
 		format1->color = (int)34850;
-		HX_STACK_LINE(173)
+		HX_STACK_LINE(197)
 		format1->size = (int)20;
-		HX_STACK_LINE(174)
+		HX_STACK_LINE(198)
 		format1->align = ::native::text::TextFormatAlign_obj::RIGHT;
-		HX_STACK_LINE(176)
+		HX_STACK_LINE(200)
 		mTopScoreText->set_x((stgWidth - (int)310));
-		HX_STACK_LINE(177)
+		HX_STACK_LINE(201)
 		mTopScoreText->set_y((int)20);
-		HX_STACK_LINE(178)
+		HX_STACK_LINE(202)
 		mTopScoreText->set_width((int)300);
-		HX_STACK_LINE(179)
+		HX_STACK_LINE(203)
 		mTopScoreText->set_height((int)30);
-		HX_STACK_LINE(180)
+		HX_STACK_LINE(204)
 		mTopScoreText->set_defaultTextFormat(format1);
-		HX_STACK_LINE(181)
+		HX_STACK_LINE(205)
 		mTopScoreText->set_background(false);
-		HX_STACK_LINE(182)
+		HX_STACK_LINE(206)
 		if (((this->topScore < this->mScore))){
-			HX_STACK_LINE(183)
+			HX_STACK_LINE(207)
 			if ((this->states->Active)){
-				HX_STACK_LINE(185)
+				HX_STACK_LINE(209)
 				mTopScoreText->set_text((HX_CSTRING("Top Score: ") + this->mScore));
 			}
 			else{
-				HX_STACK_LINE(186)
+				HX_STACK_LINE(210)
 				if ((this->states->Inactive)){
-					HX_STACK_LINE(187)
+					HX_STACK_LINE(211)
 					mTopScoreText->set_text((HX_CSTRING("Your Top Score: ") + this->mScore));
 				}
 			}
 		}
 		else{
-			HX_STACK_LINE(190)
+			HX_STACK_LINE(214)
 			if ((this->states->Active)){
-				HX_STACK_LINE(192)
+				HX_STACK_LINE(216)
 				mTopScoreText->set_text((HX_CSTRING("Top Score: ") + this->topScore));
 			}
 			else{
-				HX_STACK_LINE(193)
+				HX_STACK_LINE(217)
 				if ((this->states->Inactive)){
-					HX_STACK_LINE(194)
+					HX_STACK_LINE(218)
 					mTopScoreText->set_text((HX_CSTRING("Your Top Score: ") + this->topScore));
 				}
 			}
 		}
-		HX_STACK_LINE(196)
+		HX_STACK_LINE(220)
 		this->addChild(mTopScoreText);
 	}
 return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC1(Game_obj,update,(void))
+HX_DEFINE_DYNAMIC_FUNC0(Game_obj,update,(void))
+
+Dynamic Game_obj::fps_data;
 
 
 Game_obj::Game_obj()
@@ -536,6 +577,7 @@ void Game_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Game);
 	HX_MARK_MEMBER_NAME(states,"states");
+	HX_MARK_MEMBER_NAME(timer,"timer");
 	HX_MARK_MEMBER_NAME(topScore,"topScore");
 	HX_MARK_MEMBER_NAME(mScore,"mScore");
 	HX_MARK_MEMBER_NAME(cloudHit,"cloudHit");
@@ -553,6 +595,7 @@ void Game_obj::__Mark(HX_MARK_PARAMS)
 void Game_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(states,"states");
+	HX_VISIT_MEMBER_NAME(timer,"timer");
 	HX_VISIT_MEMBER_NAME(topScore,"topScore");
 	HX_VISIT_MEMBER_NAME(mScore,"mScore");
 	HX_VISIT_MEMBER_NAME(cloudHit,"cloudHit");
@@ -573,6 +616,7 @@ Dynamic Game_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"baby") ) { return baby; }
 		break;
 	case 5:
+		if (HX_FIELD_EQ(inName,"timer") ) { return timer; }
 		if (HX_FIELD_EQ(inName,"bgImg") ) { return bgImg; }
 		break;
 	case 6:
@@ -585,6 +629,7 @@ Dynamic Game_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"mClouds") ) { return mClouds; }
 		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"fps_data") ) { return fps_data; }
 		if (HX_FIELD_EQ(inName,"endClick") ) { return endClick_dyn(); }
 		if (HX_FIELD_EQ(inName,"topScore") ) { return topScore; }
 		if (HX_FIELD_EQ(inName,"cloudHit") ) { return cloudHit; }
@@ -612,6 +657,7 @@ Dynamic Game_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool 
 		if (HX_FIELD_EQ(inName,"baby") ) { baby=inValue.Cast< ::com::velvetArts::v01::Actor >(); return inValue; }
 		break;
 	case 5:
+		if (HX_FIELD_EQ(inName,"timer") ) { timer=inValue.Cast< ::haxe::Timer >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"bgImg") ) { bgImg=inValue.Cast< ::com::velvetArts::v01::MovingBG >(); return inValue; }
 		break;
 	case 6:
@@ -622,6 +668,7 @@ Dynamic Game_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool 
 		if (HX_FIELD_EQ(inName,"mClouds") ) { mClouds=inValue.Cast< Array< ::com::velvetArts::v01::Clouds > >(); return inValue; }
 		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"fps_data") ) { fps_data=inValue.Cast< Dynamic >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"topScore") ) { topScore=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"cloudHit") ) { cloudHit=inValue.Cast< bool >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"stgWidth") ) { stgWidth=inValue.Cast< Float >(); return inValue; }
@@ -637,6 +684,7 @@ Dynamic Game_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool 
 void Game_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_CSTRING("states"));
+	outFields->push(HX_CSTRING("timer"));
 	outFields->push(HX_CSTRING("topScore"));
 	outFields->push(HX_CSTRING("mScore"));
 	outFields->push(HX_CSTRING("cloudHit"));
@@ -651,6 +699,7 @@ void Game_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
+	HX_CSTRING("fps_data"),
 	String(null()) };
 
 static ::String sMemberFields[] = {
@@ -661,6 +710,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("check_Collision"),
 	HX_CSTRING("update"),
 	HX_CSTRING("states"),
+	HX_CSTRING("timer"),
 	HX_CSTRING("topScore"),
 	HX_CSTRING("mScore"),
 	HX_CSTRING("cloudHit"),
@@ -675,10 +725,12 @@ static ::String sMemberFields[] = {
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(Game_obj::__mClass,"__mClass");
+	HX_MARK_MEMBER_NAME(Game_obj::fps_data,"fps_data");
 };
 
 static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(Game_obj::__mClass,"__mClass");
+	HX_VISIT_MEMBER_NAME(Game_obj::fps_data,"fps_data");
 };
 
 Class Game_obj::__mClass;
@@ -692,6 +744,7 @@ void Game_obj::__register()
 
 void Game_obj::__boot()
 {
+	fps_data= (Float((int)1000) / Float((int)30));
 }
 
 } // end namespace com

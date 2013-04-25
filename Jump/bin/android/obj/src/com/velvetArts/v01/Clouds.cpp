@@ -1,8 +1,5 @@
 #include <hxcpp.h>
 
-#ifndef INCLUDED_com_velvetArts_v01_Character
-#include <com/velvetArts/v01/Character.h>
-#endif
 #ifndef INCLUDED_com_velvetArts_v01_Clouds
 #include <com/velvetArts/v01/Clouds.h>
 #endif
@@ -54,43 +51,43 @@ namespace v01{
 
 Void Clouds_obj::__construct(Float inX,Float inY)
 {
-HX_STACK_PUSH("Clouds::new","com/velvetArts/v01/Clouds.hx",24);
+HX_STACK_PUSH("Clouds::new","com/velvetArts/v01/Clouds.hx",21);
 {
-	HX_STACK_LINE(25)
+	HX_STACK_LINE(22)
 	super::__construct();
-	HX_STACK_LINE(26)
+	HX_STACK_LINE(23)
 	this->set_x(inX);
-	HX_STACK_LINE(27)
+	HX_STACK_LINE(24)
 	this->set_y(inY);
-	HX_STACK_LINE(29)
+	HX_STACK_LINE(26)
 	this->frames = (int)1;
-	HX_STACK_LINE(31)
+	HX_STACK_LINE(28)
 	this->cloud1 = ::native::display::Sprite_obj::__new();
-	HX_STACK_LINE(32)
+	HX_STACK_LINE(29)
 	this->cloud2 = ::native::display::Sprite_obj::__new();
-	HX_STACK_LINE(33)
+	HX_STACK_LINE(30)
 	this->cloud3 = ::native::display::Sprite_obj::__new();
+	HX_STACK_LINE(31)
+	this->actor = ::native::display::Sprite_obj::__new();
+	HX_STACK_LINE(33)
+	this->cloud1->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds1.png"),null()),null(),false,true);
 	HX_STACK_LINE(34)
-	this->matriX = ::native::geom::Matrix_obj::__new(null(),null(),null(),null(),null(),null());
-	HX_STACK_LINE(36)
-	this->cloud1->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds1.png"),null()),this->matriX,false,true);
-	HX_STACK_LINE(37)
 	this->cloud1->get_graphics()->drawRect((int)0,(int)0,(int)70,(int)20);
-	HX_STACK_LINE(39)
-	this->cloud2->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds2.png"),null()),this->matriX,false,true);
-	HX_STACK_LINE(40)
+	HX_STACK_LINE(36)
+	this->cloud2->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds2.png"),null()),null(),false,true);
+	HX_STACK_LINE(37)
 	this->cloud2->get_graphics()->drawRect((int)0,(int)0,(int)70,(int)20);
-	HX_STACK_LINE(42)
-	this->cloud3->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds3.png"),null()),this->matriX,false,true);
-	HX_STACK_LINE(43)
+	HX_STACK_LINE(39)
+	this->cloud3->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds3.png"),null()),null(),false,true);
+	HX_STACK_LINE(40)
 	this->cloud3->get_graphics()->drawRect((int)0,(int)0,(int)70,(int)20);
-	HX_STACK_LINE(45)
+	HX_STACK_LINE(42)
 	this->actor = this->cloud1;
-	HX_STACK_LINE(47)
+	HX_STACK_LINE(44)
 	this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
-	HX_STACK_LINE(48)
+	HX_STACK_LINE(45)
 	this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
-	HX_STACK_LINE(50)
+	HX_STACK_LINE(47)
 	this->addChild(this->actor);
 }
 ;
@@ -112,57 +109,57 @@ Dynamic Clouds_obj::__Create(hx::DynamicArray inArgs)
 
 Void Clouds_obj::update( ){
 {
-		HX_STACK_PUSH("Clouds::update","com/velvetArts/v01/Clouds.hx",56);
+		HX_STACK_PUSH("Clouds::update","com/velvetArts/v01/Clouds.hx",51);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(57)
+		HX_STACK_LINE(52)
 		this->get_graphics()->clear();
-		HX_STACK_LINE(61)
+		HX_STACK_LINE(56)
 		if (((bool((this->frames > (int)60)) && bool((this->frames <= (int)120))))){
-			HX_STACK_LINE(63)
+			HX_STACK_LINE(58)
 			this->actor = this->cloud2;
-			HX_STACK_LINE(64)
+			HX_STACK_LINE(59)
 			this->addChild(this->actor);
 		}
 		else{
-			HX_STACK_LINE(67)
+			HX_STACK_LINE(62)
 			if (((bool((this->frames > (int)120)) && bool((this->frames <= (int)180))))){
-				HX_STACK_LINE(70)
+				HX_STACK_LINE(65)
 				this->actor = this->cloud3;
-				HX_STACK_LINE(71)
+				HX_STACK_LINE(66)
 				this->addChild(this->actor);
 			}
 			else{
-				HX_STACK_LINE(75)
+				HX_STACK_LINE(70)
 				if (((this->frames > (int)180))){
-					HX_STACK_LINE(75)
+					HX_STACK_LINE(70)
 					this->frames = (int)0;
 				}
-				HX_STACK_LINE(76)
+				HX_STACK_LINE(71)
 				this->actor = this->cloud1;
-				HX_STACK_LINE(77)
+				HX_STACK_LINE(72)
 				this->addChild(this->actor);
 			}
 		}
-		HX_STACK_LINE(81)
+		HX_STACK_LINE(76)
 		this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
-		HX_STACK_LINE(82)
+		HX_STACK_LINE(77)
 		this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
-		HX_STACK_LINE(84)
+		HX_STACK_LINE(79)
 		this->set_width((int)70);
-		HX_STACK_LINE(85)
+		HX_STACK_LINE(80)
 		this->set_height((int)20);
-		HX_STACK_LINE(87)
+		HX_STACK_LINE(82)
 		if (((this->get_x() > ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()))){
-			HX_STACK_LINE(88)
+			HX_STACK_LINE(83)
 			this->set_x((int)0);
 		}
 		else{
-			HX_STACK_LINE(90)
+			HX_STACK_LINE(85)
 			::com::velvetArts::v01::Clouds _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(90)
+			HX_STACK_LINE(85)
 			_g->set_x((_g->get_x() + (int)1));
 		}
-		HX_STACK_LINE(91)
+		HX_STACK_LINE(86)
 		(this->frames)++;
 	}
 return null();
@@ -179,6 +176,7 @@ Clouds_obj::Clouds_obj()
 void Clouds_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Clouds);
+	HX_MARK_MEMBER_NAME(actor,"actor");
 	HX_MARK_MEMBER_NAME(cloud3,"cloud3");
 	HX_MARK_MEMBER_NAME(cloud2,"cloud2");
 	HX_MARK_MEMBER_NAME(cloud1,"cloud1");
@@ -189,6 +187,7 @@ void Clouds_obj::__Mark(HX_MARK_PARAMS)
 
 void Clouds_obj::__Visit(HX_VISIT_PARAMS)
 {
+	HX_VISIT_MEMBER_NAME(actor,"actor");
 	HX_VISIT_MEMBER_NAME(cloud3,"cloud3");
 	HX_VISIT_MEMBER_NAME(cloud2,"cloud2");
 	HX_VISIT_MEMBER_NAME(cloud1,"cloud1");
@@ -199,6 +198,9 @@ void Clouds_obj::__Visit(HX_VISIT_PARAMS)
 Dynamic Clouds_obj::__Field(const ::String &inName,bool inCallProp)
 {
 	switch(inName.length) {
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { return actor; }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		if (HX_FIELD_EQ(inName,"cloud3") ) { return cloud3; }
@@ -212,6 +214,9 @@ Dynamic Clouds_obj::__Field(const ::String &inName,bool inCallProp)
 Dynamic Clouds_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool inCallProp)
 {
 	switch(inName.length) {
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { actor=inValue.Cast< ::native::display::Sprite >(); return inValue; }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"cloud3") ) { cloud3=inValue.Cast< ::native::display::Sprite >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"cloud2") ) { cloud2=inValue.Cast< ::native::display::Sprite >(); return inValue; }
@@ -223,6 +228,7 @@ Dynamic Clouds_obj::__SetField(const ::String &inName,const Dynamic &inValue,boo
 
 void Clouds_obj::__GetFields(Array< ::String> &outFields)
 {
+	outFields->push(HX_CSTRING("actor"));
 	outFields->push(HX_CSTRING("cloud3"));
 	outFields->push(HX_CSTRING("cloud2"));
 	outFields->push(HX_CSTRING("cloud1"));
@@ -235,6 +241,7 @@ static ::String sStaticFields[] = {
 
 static ::String sMemberFields[] = {
 	HX_CSTRING("update"),
+	HX_CSTRING("actor"),
 	HX_CSTRING("cloud3"),
 	HX_CSTRING("cloud2"),
 	HX_CSTRING("cloud1"),

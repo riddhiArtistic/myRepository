@@ -5,9 +5,8 @@
 #include <hxcpp.h>
 #endif
 
-#include <com/velvetArts/v01/Character.h>
+#include <native/display/Sprite.h>
 HX_DECLARE_CLASS3(com,velvetArts,v01,Candy)
-HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(native,display,IBitmapDrawable)
@@ -20,9 +19,9 @@ namespace velvetArts{
 namespace v01{
 
 
-class Candy_obj : public ::com::velvetArts::v01::Character_obj{
+class Candy_obj : public ::native::display::Sprite_obj{
 	public:
-		typedef ::com::velvetArts::v01::Character_obj super;
+		typedef ::native::display::Sprite_obj super;
 		typedef Candy_obj OBJ_;
 		Candy_obj();
 		Void __construct(Float inX,Float inY);
@@ -43,6 +42,7 @@ class Candy_obj : public ::com::velvetArts::v01::Character_obj{
 		virtual Void update( );
 		Dynamic update_dyn();
 
+		::native::display::Sprite actor; /* REM */ 
 		int framedelay; /* REM */ 
 };
 

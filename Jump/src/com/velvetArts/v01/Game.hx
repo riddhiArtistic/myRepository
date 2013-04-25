@@ -30,7 +30,7 @@ class Game extends Sprite
 	private var mScore: Int;
 	private var topScore: Int;
 	
-	private static var fps_data:Dynamic = 1000/60;
+	private static var fps_data:Dynamic = 1000/30;
 	
 	var timer:Timer;
 	
@@ -77,6 +77,7 @@ class Game extends Sprite
 		timer = new Timer(fps_data);
 		
 		timer.run = function() {
+			graphics.clear();
 			update();
 		}
 		
@@ -85,7 +86,6 @@ class Game extends Sprite
 	
 	private function update() : Void
 	{
-		graphics.clear();
 		var stgWidth = Lib.current.stage.stageWidth;
 		var stgHeight = Lib.current.stage.stageHeight;
 		bgImg.update();

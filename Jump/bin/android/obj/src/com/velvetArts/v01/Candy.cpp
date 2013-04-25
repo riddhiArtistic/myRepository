@@ -3,9 +3,6 @@
 #ifndef INCLUDED_com_velvetArts_v01_Candy
 #include <com/velvetArts/v01/Candy.h>
 #endif
-#ifndef INCLUDED_com_velvetArts_v01_Character
-#include <com/velvetArts/v01/Character.h>
-#endif
 #ifndef INCLUDED_native_display_BitmapData
 #include <native/display/BitmapData.h>
 #endif
@@ -54,33 +51,31 @@ namespace v01{
 
 Void Candy_obj::__construct(Float inX,Float inY)
 {
-HX_STACK_PUSH("Candy::new","com/velvetArts/v01/Candy.hx",15);
+HX_STACK_PUSH("Candy::new","com/velvetArts/v01/Candy.hx",11);
 {
-	HX_STACK_LINE(17)
+	HX_STACK_LINE(13)
 	this->framedelay = (int)0;
-	HX_STACK_LINE(21)
+	HX_STACK_LINE(18)
 	super::__construct();
-	HX_STACK_LINE(22)
+	HX_STACK_LINE(19)
 	this->set_x(inX);
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(20)
 	this->set_y(inY);
-	HX_STACK_LINE(25)
+	HX_STACK_LINE(22)
 	this->actor = ::native::display::Sprite_obj::__new();
-	HX_STACK_LINE(26)
-	this->matriX = ::native::geom::Matrix_obj::__new(null(),null(),null(),null(),null(),null());
-	HX_STACK_LINE(28)
+	HX_STACK_LINE(24)
 	this->actor->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/candy.png"),null()),null(),null(),null());
-	HX_STACK_LINE(29)
+	HX_STACK_LINE(25)
 	this->actor->get_graphics()->drawRect((int)0,(int)0,(int)36,(int)36);
-	HX_STACK_LINE(31)
+	HX_STACK_LINE(27)
 	this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
-	HX_STACK_LINE(32)
+	HX_STACK_LINE(28)
 	this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
-	HX_STACK_LINE(34)
+	HX_STACK_LINE(30)
 	this->addChild(this->actor);
-	HX_STACK_LINE(36)
+	HX_STACK_LINE(32)
 	this->set_width((int)36);
-	HX_STACK_LINE(37)
+	HX_STACK_LINE(33)
 	this->set_height((int)36);
 }
 ;
@@ -102,29 +97,29 @@ Dynamic Candy_obj::__Create(hx::DynamicArray inArgs)
 
 Void Candy_obj::update( ){
 {
-		HX_STACK_PUSH("Candy::update","com/velvetArts/v01/Candy.hx",41);
+		HX_STACK_PUSH("Candy::update","com/velvetArts/v01/Candy.hx",37);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(42)
+		HX_STACK_LINE(38)
 		if (((this->get_x() > ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()))){
-			HX_STACK_LINE(43)
+			HX_STACK_LINE(39)
 			this->set_x((int)0);
 		}
 		else{
-			HX_STACK_LINE(45)
+			HX_STACK_LINE(41)
 			::com::velvetArts::v01::Candy _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(45)
+			HX_STACK_LINE(41)
 			_g->set_x((_g->get_x() + (int)1));
 		}
-		HX_STACK_LINE(54)
+		HX_STACK_LINE(43)
 		if ((!(this->get_visible()))){
-			HX_STACK_LINE(56)
+			HX_STACK_LINE(45)
 			if (((this->framedelay > (int)180))){
-				HX_STACK_LINE(58)
+				HX_STACK_LINE(47)
 				this->set_visible(true);
-				HX_STACK_LINE(59)
+				HX_STACK_LINE(48)
 				this->framedelay = (int)0;
 			}
-			HX_STACK_LINE(61)
+			HX_STACK_LINE(50)
 			(this->framedelay)++;
 		}
 	}
@@ -142,6 +137,7 @@ Candy_obj::Candy_obj()
 void Candy_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Candy);
+	HX_MARK_MEMBER_NAME(actor,"actor");
 	HX_MARK_MEMBER_NAME(framedelay,"framedelay");
 	super::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
@@ -149,6 +145,7 @@ void Candy_obj::__Mark(HX_MARK_PARAMS)
 
 void Candy_obj::__Visit(HX_VISIT_PARAMS)
 {
+	HX_VISIT_MEMBER_NAME(actor,"actor");
 	HX_VISIT_MEMBER_NAME(framedelay,"framedelay");
 	super::__Visit(HX_VISIT_ARG);
 }
@@ -156,6 +153,9 @@ void Candy_obj::__Visit(HX_VISIT_PARAMS)
 Dynamic Candy_obj::__Field(const ::String &inName,bool inCallProp)
 {
 	switch(inName.length) {
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { return actor; }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		break;
@@ -168,6 +168,9 @@ Dynamic Candy_obj::__Field(const ::String &inName,bool inCallProp)
 Dynamic Candy_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool inCallProp)
 {
 	switch(inName.length) {
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { actor=inValue.Cast< ::native::display::Sprite >(); return inValue; }
+		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"framedelay") ) { framedelay=inValue.Cast< int >(); return inValue; }
 	}
@@ -176,6 +179,7 @@ Dynamic Candy_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool
 
 void Candy_obj::__GetFields(Array< ::String> &outFields)
 {
+	outFields->push(HX_CSTRING("actor"));
 	outFields->push(HX_CSTRING("framedelay"));
 	super::__GetFields(outFields);
 };
@@ -185,6 +189,7 @@ static ::String sStaticFields[] = {
 
 static ::String sMemberFields[] = {
 	HX_CSTRING("update"),
+	HX_CSTRING("actor"),
 	HX_CSTRING("framedelay"),
 	String(null()) };
 

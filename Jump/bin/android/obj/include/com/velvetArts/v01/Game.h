@@ -8,11 +8,11 @@
 #include <native/display/Sprite.h>
 HX_DECLARE_CLASS3(com,velvetArts,v01,Actor)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Candy)
-HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Clouds)
 HX_DECLARE_CLASS3(com,velvetArts,v01,Game)
 HX_DECLARE_CLASS3(com,velvetArts,v01,GameStates)
 HX_DECLARE_CLASS3(com,velvetArts,v01,MovingBG)
+HX_DECLARE_CLASS1(haxe,Timer)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(native,display,IBitmapDrawable)
@@ -63,10 +63,11 @@ class Game_obj : public ::native::display::Sprite_obj{
 		virtual Void check_Collision( );
 		Dynamic check_Collision_dyn();
 
-		virtual Void update( ::native::events::Event e);
+		virtual Void update( );
 		Dynamic update_dyn();
 
 		::com::velvetArts::v01::GameStates states; /* REM */ 
+		::haxe::Timer timer; /* REM */ 
 		int topScore; /* REM */ 
 		int mScore; /* REM */ 
 		bool cloudHit; /* REM */ 
@@ -77,6 +78,7 @@ class Game_obj : public ::native::display::Sprite_obj{
 		Array< ::com::velvetArts::v01::Clouds > mClouds; /* REM */ 
 		::com::velvetArts::v01::Actor baby; /* REM */ 
 		::com::velvetArts::v01::MovingBG bgImg; /* REM */ 
+		static Dynamic fps_data; /* REM */ 
 };
 
 } // end namespace com

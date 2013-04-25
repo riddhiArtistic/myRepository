@@ -18,8 +18,6 @@
 #include <native/utils/ByteArray.h>
 #include <native/utils/IDataInput.h>
 #include <native/utils/IMemoryRange.h>
-#include <native/ui/MultitouchInputMode.h>
-#include <native/ui/Multitouch.h>
 #include <native/ui/Keyboard.h>
 #include <native/text/TextFormatAlign.h>
 #include <native/text/TextFormat.h>
@@ -111,7 +109,6 @@
 #include <com/velvetArts/v01/Game.h>
 #include <com/velvetArts/v01/Clouds.h>
 #include <com/velvetArts/v01/Candy.h>
-#include <com/velvetArts/v01/Character.h>
 #include <com/velvetArts/v01/Actor.h>
 #include <native/display/Sprite.h>
 #include <native/display/DisplayObjectContainer.h>
@@ -157,8 +154,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::utils::ByteArray_obj::__register();
 ::native::utils::IDataInput_obj::__register();
 ::native::utils::IMemoryRange_obj::__register();
-::native::ui::MultitouchInputMode_obj::__register();
-::native::ui::Multitouch_obj::__register();
 ::native::ui::Keyboard_obj::__register();
 ::native::text::TextFormatAlign_obj::__register();
 ::native::text::TextFormat_obj::__register();
@@ -250,7 +245,6 @@ hx::RegisterResources( hx::GetResources() );
 ::com::velvetArts::v01::Game_obj::__register();
 ::com::velvetArts::v01::Clouds_obj::__register();
 ::com::velvetArts::v01::Candy_obj::__register();
-::com::velvetArts::v01::Character_obj::__register();
 ::com::velvetArts::v01::Actor_obj::__register();
 ::native::display::Sprite_obj::__register();
 ::native::display::DisplayObjectContainer_obj::__register();
@@ -274,7 +268,6 @@ hx::RegisterResources( hx::GetResources() );
 ::Hash_obj::__register();
 ::Date_obj::__register();
 ::ApplicationMain_obj::__register();
-::native::ui::Multitouch_obj::__init__();
 ::native::utils::ByteArray_obj::__init__();
 ::cpp::Lib_obj::__boot();
 ::cpp::rtti::FieldNumericIntegerLookup_obj::__boot();
@@ -304,7 +297,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::DisplayObjectContainer_obj::__boot();
 ::native::display::Sprite_obj::__boot();
 ::com::velvetArts::v01::Actor_obj::__boot();
-::com::velvetArts::v01::Character_obj::__boot();
 ::com::velvetArts::v01::Candy_obj::__boot();
 ::com::velvetArts::v01::Clouds_obj::__boot();
 ::com::velvetArts::v01::Game_obj::__boot();
@@ -391,8 +383,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::text::TextFormat_obj::__boot();
 ::native::text::TextFormatAlign_obj::__boot();
 ::native::ui::Keyboard_obj::__boot();
-::native::ui::Multitouch_obj::__boot();
-::native::ui::MultitouchInputMode_obj::__boot();
 ::native::utils::IMemoryRange_obj::__boot();
 ::native::utils::IDataInput_obj::__boot();
 ::native::utils::ByteArray_obj::__boot();

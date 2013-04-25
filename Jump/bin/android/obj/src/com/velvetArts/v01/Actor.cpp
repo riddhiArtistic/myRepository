@@ -60,24 +60,34 @@ namespace v01{
 
 Void Actor_obj::__construct()
 {
-HX_STACK_PUSH("Actor::new","com/velvetArts/v01/Actor.hx",16);
+HX_STACK_PUSH("Actor::new","com/velvetArts/v01/Actor.hx",15);
 {
-	HX_STACK_LINE(18)
+	HX_STACK_LINE(17)
 	this->IsActive = false;
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(26)
 	super::__construct();
-	HX_STACK_LINE(25)
-	this->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/baby.png"),null()),null(),false,true);
-	HX_STACK_LINE(28)
-	this->get_graphics()->drawRect((int)0,(int)0,(int)60,(int)60);
-	HX_STACK_LINE(30)
-	this->set_width((int)60);
-	HX_STACK_LINE(31)
-	this->set_height((int)60);
-	HX_STACK_LINE(33)
-	this->set_x((Float(-(this->get_width())) / Float(2.0)));
+	HX_STACK_LINE(27)
+	this->actor = ::native::display::Sprite_obj::__new();
+	HX_STACK_LINE(29)
+	this->actor->get_graphics()->beginBitmapFill(::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/baby.png"),null()),null(),false,true);
+	HX_STACK_LINE(32)
+	this->actor->get_graphics()->drawRect((int)0,(int)0,(int)60,(int)60);
 	HX_STACK_LINE(34)
-	this->set_y((Float(-(this->get_height())) / Float(2.0)));
+	this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
+	HX_STACK_LINE(35)
+	this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
+	HX_STACK_LINE(37)
+	this->set_x((Float(::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()) / Float(2.0)));
+	HX_STACK_LINE(38)
+	this->set_y((Float(::nme::Lib_obj::get_current()->get_stage()->get_stageHeight()) / Float(2.0)));
+	HX_STACK_LINE(40)
+	this->addChild(this->actor);
+	HX_STACK_LINE(42)
+	this->jumpFlag = false;
+	HX_STACK_LINE(43)
+	this->jumpBKW = false;
+	HX_STACK_LINE(44)
+	this->jumpFWD = false;
 }
 ;
 	return null();
@@ -98,12 +108,14 @@ Dynamic Actor_obj::__Create(hx::DynamicArray inArgs)
 
 Void Actor_obj::stopMove( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::stopMove","com/velvetArts/v01/Actor.hx",96);
+		HX_STACK_PUSH("Actor::stopMove","com/velvetArts/v01/Actor.hx",105);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(97)
+		HX_STACK_LINE(106)
+		this->jumpFlag = false;
+		HX_STACK_LINE(107)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null());
-		HX_STACK_LINE(98)
+		HX_STACK_LINE(108)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null());
 	}
 return null();
@@ -114,15 +126,13 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,stopMove,(void))
 
 Void Actor_obj::Move( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::Move","com/velvetArts/v01/Actor.hx",87);
+		HX_STACK_PUSH("Actor::Move","com/velvetArts/v01/Actor.hx",97);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(87)
+		HX_STACK_LINE(97)
 		if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-			HX_STACK_LINE(90)
-			this->set_y(e->stageY);
-			HX_STACK_LINE(91)
-			this->set_x(e->stageX);
+			HX_STACK_LINE(99)
+			this->jumpFlag = true;
 		}
 	}
 return null();
@@ -133,14 +143,14 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,Move,(void))
 
 Void Actor_obj::en_Move( ::native::events::MouseEvent e){
 {
-		HX_STACK_PUSH("Actor::en_Move","com/velvetArts/v01/Actor.hx",79);
+		HX_STACK_PUSH("Actor::en_Move","com/velvetArts/v01/Actor.hx",89);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(80)
+		HX_STACK_LINE(90)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_MOVE,this->Move_dyn(),null(),null(),null());
-		HX_STACK_LINE(81)
+		HX_STACK_LINE(91)
 		::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_UP,this->stopMove_dyn(),null(),null(),null());
-		HX_STACK_LINE(83)
+		HX_STACK_LINE(93)
 		e->updateAfterEvent();
 	}
 return null();
@@ -151,12 +161,14 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,en_Move,(void))
 
 Void Actor_obj::stopDragging( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::stopDragging","com/velvetArts/v01/Actor.hx",73);
+		HX_STACK_PUSH("Actor::stopDragging","com/velvetArts/v01/Actor.hx",82);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(74)
+		HX_STACK_LINE(83)
+		this->jumpFlag = false;
+		HX_STACK_LINE(84)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null());
-		HX_STACK_LINE(75)
+		HX_STACK_LINE(85)
 		::nme::Lib_obj::get_current()->get_stage()->removeEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null());
 	}
 return null();
@@ -167,19 +179,17 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,stopDragging,(void))
 
 Void Actor_obj::jump( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::jump","com/velvetArts/v01/Actor.hx",56);
+		HX_STACK_PUSH("Actor::jump","com/velvetArts/v01/Actor.hx",67);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(67)
 		if ((this->IsActive)){
-			HX_STACK_LINE(58)
+			HX_STACK_LINE(69)
 			if (((e->touchPointID == (int)0))){
-				HX_STACK_LINE(60)
+				HX_STACK_LINE(71)
 				if (((bool(((int)30 < e->stageY)) && bool((e->stageY < (::nme::Lib_obj::get_current()->get_stage()->get_stageWidth() - (int)30)))))){
-					HX_STACK_LINE(63)
-					this->set_y(e->stageY);
-					HX_STACK_LINE(64)
-					this->set_x(e->stageX);
+					HX_STACK_LINE(73)
+					this->jumpFlag = true;
 				}
 			}
 		}
@@ -192,14 +202,16 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,jump,(void))
 
 Void Actor_obj::startDragging( ::native::events::TouchEvent e){
 {
-		HX_STACK_PUSH("Actor::startDragging","com/velvetArts/v01/Actor.hx",47);
+		HX_STACK_PUSH("Actor::startDragging","com/velvetArts/v01/Actor.hx",57);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(47)
+		HX_STACK_LINE(57)
 		if ((this->IsActive)){
-			HX_STACK_LINE(50)
+			HX_STACK_LINE(60)
+			this->mouse_X = e->stageX;
+			HX_STACK_LINE(61)
 			::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_END,this->stopDragging_dyn(),null(),null(),null());
-			HX_STACK_LINE(51)
+			HX_STACK_LINE(62)
 			::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_MOVE,this->jump_dyn(),null(),null(),null());
 		}
 	}
@@ -211,13 +223,13 @@ HX_DEFINE_DYNAMIC_FUNC1(Actor_obj,startDragging,(void))
 
 Void Actor_obj::update( ){
 {
-		HX_STACK_PUSH("Actor::update","com/velvetArts/v01/Actor.hx",38);
+		HX_STACK_PUSH("Actor::update","com/velvetArts/v01/Actor.hx",48);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(38)
+		HX_STACK_LINE(48)
 		if ((this->IsActive)){
-			HX_STACK_LINE(41)
+			HX_STACK_LINE(51)
 			::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::TouchEvent_obj::TOUCH_BEGIN,this->startDragging_dyn(),null(),null(),null());
-			HX_STACK_LINE(42)
+			HX_STACK_LINE(52)
 			::nme::Lib_obj::get_current()->get_stage()->addEventListener(::native::events::MouseEvent_obj::MOUSE_DOWN,this->en_Move_dyn(),null(),null(),null());
 		}
 	}
@@ -235,6 +247,11 @@ Actor_obj::Actor_obj()
 void Actor_obj::__Mark(HX_MARK_PARAMS)
 {
 	HX_MARK_BEGIN_CLASS(Actor);
+	HX_MARK_MEMBER_NAME(mouse_X,"mouse_X");
+	HX_MARK_MEMBER_NAME(jumpBKW,"jumpBKW");
+	HX_MARK_MEMBER_NAME(jumpFWD,"jumpFWD");
+	HX_MARK_MEMBER_NAME(jumpFlag,"jumpFlag");
+	HX_MARK_MEMBER_NAME(actor,"actor");
 	HX_MARK_MEMBER_NAME(IsActive,"IsActive");
 	super::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
@@ -242,6 +259,11 @@ void Actor_obj::__Mark(HX_MARK_PARAMS)
 
 void Actor_obj::__Visit(HX_VISIT_PARAMS)
 {
+	HX_VISIT_MEMBER_NAME(mouse_X,"mouse_X");
+	HX_VISIT_MEMBER_NAME(jumpBKW,"jumpBKW");
+	HX_VISIT_MEMBER_NAME(jumpFWD,"jumpFWD");
+	HX_VISIT_MEMBER_NAME(jumpFlag,"jumpFlag");
+	HX_VISIT_MEMBER_NAME(actor,"actor");
 	HX_VISIT_MEMBER_NAME(IsActive,"IsActive");
 	super::__Visit(HX_VISIT_ARG);
 }
@@ -253,14 +275,21 @@ Dynamic Actor_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"Move") ) { return Move_dyn(); }
 		if (HX_FIELD_EQ(inName,"jump") ) { return jump_dyn(); }
 		break;
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { return actor; }
+		break;
 	case 6:
 		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		break;
 	case 7:
 		if (HX_FIELD_EQ(inName,"en_Move") ) { return en_Move_dyn(); }
+		if (HX_FIELD_EQ(inName,"mouse_X") ) { return mouse_X; }
+		if (HX_FIELD_EQ(inName,"jumpBKW") ) { return jumpBKW; }
+		if (HX_FIELD_EQ(inName,"jumpFWD") ) { return jumpFWD; }
 		break;
 	case 8:
 		if (HX_FIELD_EQ(inName,"stopMove") ) { return stopMove_dyn(); }
+		if (HX_FIELD_EQ(inName,"jumpFlag") ) { return jumpFlag; }
 		if (HX_FIELD_EQ(inName,"IsActive") ) { return IsActive; }
 		break;
 	case 12:
@@ -275,7 +304,16 @@ Dynamic Actor_obj::__Field(const ::String &inName,bool inCallProp)
 Dynamic Actor_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool inCallProp)
 {
 	switch(inName.length) {
+	case 5:
+		if (HX_FIELD_EQ(inName,"actor") ) { actor=inValue.Cast< ::native::display::Sprite >(); return inValue; }
+		break;
+	case 7:
+		if (HX_FIELD_EQ(inName,"mouse_X") ) { mouse_X=inValue.Cast< Float >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"jumpBKW") ) { jumpBKW=inValue.Cast< bool >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"jumpFWD") ) { jumpFWD=inValue.Cast< bool >(); return inValue; }
+		break;
 	case 8:
+		if (HX_FIELD_EQ(inName,"jumpFlag") ) { jumpFlag=inValue.Cast< bool >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"IsActive") ) { IsActive=inValue.Cast< bool >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
@@ -283,6 +321,11 @@ Dynamic Actor_obj::__SetField(const ::String &inName,const Dynamic &inValue,bool
 
 void Actor_obj::__GetFields(Array< ::String> &outFields)
 {
+	outFields->push(HX_CSTRING("mouse_X"));
+	outFields->push(HX_CSTRING("jumpBKW"));
+	outFields->push(HX_CSTRING("jumpFWD"));
+	outFields->push(HX_CSTRING("jumpFlag"));
+	outFields->push(HX_CSTRING("actor"));
 	outFields->push(HX_CSTRING("IsActive"));
 	super::__GetFields(outFields);
 };
@@ -298,6 +341,11 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("jump"),
 	HX_CSTRING("startDragging"),
 	HX_CSTRING("update"),
+	HX_CSTRING("mouse_X"),
+	HX_CSTRING("jumpBKW"),
+	HX_CSTRING("jumpFWD"),
+	HX_CSTRING("jumpFlag"),
+	HX_CSTRING("actor"),
 	HX_CSTRING("IsActive"),
 	String(null()) };
 

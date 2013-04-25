@@ -5,8 +5,7 @@
 #include <hxcpp.h>
 #endif
 
-#include <com/velvetArts/v01/Character.h>
-HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
+#include <native/display/Sprite.h>
 HX_DECLARE_CLASS3(com,velvetArts,v01,Clouds)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
@@ -20,9 +19,9 @@ namespace velvetArts{
 namespace v01{
 
 
-class Clouds_obj : public ::com::velvetArts::v01::Character_obj{
+class Clouds_obj : public ::native::display::Sprite_obj{
 	public:
-		typedef ::com::velvetArts::v01::Character_obj super;
+		typedef ::native::display::Sprite_obj super;
 		typedef Clouds_obj OBJ_;
 		Clouds_obj();
 		Void __construct(Float inX,Float inY);
@@ -43,6 +42,7 @@ class Clouds_obj : public ::com::velvetArts::v01::Character_obj{
 		virtual Void update( );
 		Dynamic update_dyn();
 
+		::native::display::Sprite actor; /* REM */ 
 		::native::display::Sprite cloud3; /* REM */ 
 		::native::display::Sprite cloud2; /* REM */ 
 		::native::display::Sprite cloud1; /* REM */ 

@@ -63,6 +63,11 @@ class Actor_obj : public ::native::display::Sprite_obj{
 		virtual Void update( );
 		Dynamic update_dyn();
 
+		Float mouse_X; /* REM */ 
+		bool jumpBKW; /* REM */ 
+		bool jumpFWD; /* REM */ 
+		bool jumpFlag; /* REM */ 
+		::native::display::Sprite actor; /* REM */ 
 		bool IsActive; /* REM */ 
 };
 
