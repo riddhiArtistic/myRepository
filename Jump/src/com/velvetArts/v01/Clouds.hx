@@ -2,10 +2,6 @@ package com.velvetArts.v01;
 
 import nme.Assets;
 import nme.display.Sprite;
-import nme.geom.Matrix;
-import nme.events.Event;
-import nme.events.TouchEvent;
-import nme.events.MouseEvent;
 import nme.Lib;
 
 /**
@@ -13,12 +9,13 @@ import nme.Lib;
  * @author Riddhi
  */
 
-class Clouds extends Character
+class Clouds extends Sprite
 {
 	var frames:Int;
 	var cloud1:Sprite;
 	var cloud2:Sprite;
 	var cloud3:Sprite;
+	var actor: Sprite;
 
 	public function new(inX:Float, inY: Float) : Void
 	{
@@ -31,15 +28,15 @@ class Clouds extends Character
 		cloud1 = new Sprite();
 		cloud2 = new Sprite();
 		cloud3 = new Sprite();
-		matriX = new Matrix();
+	    actor = new Sprite();
 		
-		cloud1.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds1.png"), matriX, false, true);
+		cloud1.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds1.png"), null, false, true);
 		cloud1.graphics.drawRect(0, 0, 70, 20);
 		
-		cloud2.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds2.png"), matriX, false, true);
+		cloud2.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds2.png"), null, false, true);
 		cloud2.graphics.drawRect(0, 0, 70, 20);
 		
-		cloud3.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds3.png"), matriX, false, true);
+		cloud3.graphics.beginBitmapFill(Assets.getBitmapData("img/clouds3.png"), null, false, true);
 		cloud3.graphics.drawRect(0, 0, 70, 20);
 		
 		actor = cloud1;
@@ -47,12 +44,10 @@ class Clouds extends Character
 		actor.x = -(actor.width) / 2.0;
 		actor.y = -(actor.height) / 2.0;
 		
-		//this.addChild(actor);
-		
-		addEventListener(Event.ENTER_FRAME, update);
+		this.addChild(actor);
 	}
 	
-	private function update(e:Event):Void
+	public function update():Void
 	{
 		this.graphics.clear();
 		

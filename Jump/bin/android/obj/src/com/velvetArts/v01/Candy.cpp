@@ -33,9 +33,6 @@
 #ifndef INCLUDED_native_display_Stage
 #include <native/display/Stage.h>
 #endif
-#ifndef INCLUDED_native_events_Event
-#include <native/events/Event.h>
-#endif
 #ifndef INCLUDED_native_events_EventDispatcher
 #include <native/events/EventDispatcher.h>
 #endif
@@ -85,8 +82,6 @@ HX_STACK_PUSH("Candy::new","com/velvetArts/v01/Candy.hx",15);
 	this->set_width((int)36);
 	HX_STACK_LINE(37)
 	this->set_height((int)36);
-	HX_STACK_LINE(39)
-	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
 }
 ;
 	return null();
@@ -105,32 +100,31 @@ Dynamic Candy_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1]);
 	return result;}
 
-Void Candy_obj::update( ::native::events::Event e){
+Void Candy_obj::update( ){
 {
-		HX_STACK_PUSH("Candy::update","com/velvetArts/v01/Candy.hx",43);
+		HX_STACK_PUSH("Candy::update","com/velvetArts/v01/Candy.hx",41);
 		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(44)
+		HX_STACK_LINE(42)
 		if (((this->get_x() > ::nme::Lib_obj::get_current()->get_stage()->get_stageWidth()))){
-			HX_STACK_LINE(45)
+			HX_STACK_LINE(43)
 			this->set_x((int)0);
 		}
 		else{
-			HX_STACK_LINE(47)
+			HX_STACK_LINE(45)
 			::com::velvetArts::v01::Candy _g = hx::ObjectPtr<OBJ_>(this);		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(47)
+			HX_STACK_LINE(45)
 			_g->set_x((_g->get_x() + (int)1));
 		}
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(54)
 		if ((!(this->get_visible()))){
-			HX_STACK_LINE(58)
+			HX_STACK_LINE(56)
 			if (((this->framedelay > (int)180))){
-				HX_STACK_LINE(60)
+				HX_STACK_LINE(58)
 				this->set_visible(true);
-				HX_STACK_LINE(61)
+				HX_STACK_LINE(59)
 				this->framedelay = (int)0;
 			}
-			HX_STACK_LINE(63)
+			HX_STACK_LINE(61)
 			(this->framedelay)++;
 		}
 	}
@@ -138,7 +132,7 @@ return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC1(Candy_obj,update,(void))
+HX_DEFINE_DYNAMIC_FUNC0(Candy_obj,update,(void))
 
 
 Candy_obj::Candy_obj()

@@ -38,7 +38,6 @@ const char *__hxcpp_all_files[] = {
 	"com/velvetArts/v01/GameStates.hx",
 	"com/velvetArts/v01/Main.hx",
 	"com/velvetArts/v01/MovingBG.hx",
-	"com/velvetArts/v01/PixelPerfectCollision.hx",
 	"format/display/FrameLabel.hx",
 	"format/display/MovieClip.hx",
 	"haxe/Timer.hx",

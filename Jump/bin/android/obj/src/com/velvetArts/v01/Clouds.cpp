@@ -33,9 +33,6 @@
 #ifndef INCLUDED_native_display_Stage
 #include <native/display/Stage.h>
 #endif
-#ifndef INCLUDED_native_events_Event
-#include <native/events/Event.h>
-#endif
 #ifndef INCLUDED_native_events_EventDispatcher
 #include <native/events/EventDispatcher.h>
 #endif
@@ -93,8 +90,8 @@ HX_STACK_PUSH("Clouds::new","com/velvetArts/v01/Clouds.hx",24);
 	this->actor->set_x((Float(-(this->actor->get_width())) / Float(2.0)));
 	HX_STACK_LINE(48)
 	this->actor->set_y((Float(-(this->actor->get_height())) / Float(2.0)));
-	HX_STACK_LINE(52)
-	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->update_dyn(),null(),null(),null());
+	HX_STACK_LINE(50)
+	this->addChild(this->actor);
 }
 ;
 	return null();
@@ -113,11 +110,10 @@ Dynamic Clouds_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct(inArgs[0],inArgs[1]);
 	return result;}
 
-Void Clouds_obj::update( ::native::events::Event e){
+Void Clouds_obj::update( ){
 {
 		HX_STACK_PUSH("Clouds::update","com/velvetArts/v01/Clouds.hx",56);
 		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
 		HX_STACK_LINE(57)
 		this->get_graphics()->clear();
 		HX_STACK_LINE(61)
@@ -173,7 +169,7 @@ return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC1(Clouds_obj,update,(void))
+HX_DEFINE_DYNAMIC_FUNC0(Clouds_obj,update,(void))
 
 
 Clouds_obj::Clouds_obj()

@@ -13,7 +13,6 @@ HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(native,display,IBitmapDrawable)
 HX_DECLARE_CLASS2(native,display,InteractiveObject)
 HX_DECLARE_CLASS2(native,display,Sprite)
-HX_DECLARE_CLASS2(native,events,Event)
 HX_DECLARE_CLASS2(native,events,EventDispatcher)
 HX_DECLARE_CLASS2(native,events,IEventDispatcher)
 namespace com{
@@ -41,7 +40,7 @@ class Candy_obj : public ::com::velvetArts::v01::Character_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Candy"); }
 
-		virtual Void update( ::native::events::Event e);
+		virtual Void update( );
 		Dynamic update_dyn();
 
 		int framedelay; /* REM */ 

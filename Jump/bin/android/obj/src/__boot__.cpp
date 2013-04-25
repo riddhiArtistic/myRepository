@@ -86,7 +86,6 @@
 #include <native/display/GradientType.h>
 #include <native/display/CapsStyle.h>
 #include <native/display/BlendMode.h>
-#include <native/display/BitmapDataChannel.h>
 #include <native/display/OptimizedPerlin.h>
 #include <native/display/BitmapData.h>
 #include <native/display/Bitmap.h>
@@ -106,15 +105,14 @@
 #include <cpp/zip/Flush.h>
 #include <cpp/zip/Compress.h>
 #include <cpp/rtti/FieldNumericIntegerLookup.h>
-#include <com/velvetArts/v01/PixelPerfectCollision.h>
 #include <com/velvetArts/v01/MovingBG.h>
 #include <com/velvetArts/v01/Main.h>
 #include <com/velvetArts/v01/GameStates.h>
 #include <com/velvetArts/v01/Game.h>
 #include <com/velvetArts/v01/Clouds.h>
 #include <com/velvetArts/v01/Candy.h>
-#include <com/velvetArts/v01/Actor.h>
 #include <com/velvetArts/v01/Character.h>
+#include <com/velvetArts/v01/Actor.h>
 #include <native/display/Sprite.h>
 #include <native/display/DisplayObjectContainer.h>
 #include <native/display/InteractiveObject.h>
@@ -227,7 +225,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::GradientType_obj::__register();
 ::native::display::CapsStyle_obj::__register();
 ::native::display::BlendMode_obj::__register();
-::native::display::BitmapDataChannel_obj::__register();
 ::native::display::OptimizedPerlin_obj::__register();
 ::native::display::BitmapData_obj::__register();
 ::native::display::Bitmap_obj::__register();
@@ -247,15 +244,14 @@ hx::RegisterResources( hx::GetResources() );
 ::cpp::zip::Flush_obj::__register();
 ::cpp::zip::Compress_obj::__register();
 ::cpp::rtti::FieldNumericIntegerLookup_obj::__register();
-::com::velvetArts::v01::PixelPerfectCollision_obj::__register();
 ::com::velvetArts::v01::MovingBG_obj::__register();
 ::com::velvetArts::v01::Main_obj::__register();
 ::com::velvetArts::v01::GameStates_obj::__register();
 ::com::velvetArts::v01::Game_obj::__register();
 ::com::velvetArts::v01::Clouds_obj::__register();
 ::com::velvetArts::v01::Candy_obj::__register();
-::com::velvetArts::v01::Actor_obj::__register();
 ::com::velvetArts::v01::Character_obj::__register();
+::com::velvetArts::v01::Actor_obj::__register();
 ::native::display::Sprite_obj::__register();
 ::native::display::DisplayObjectContainer_obj::__register();
 ::native::display::InteractiveObject_obj::__register();
@@ -307,15 +303,14 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::InteractiveObject_obj::__boot();
 ::native::display::DisplayObjectContainer_obj::__boot();
 ::native::display::Sprite_obj::__boot();
-::com::velvetArts::v01::Character_obj::__boot();
 ::com::velvetArts::v01::Actor_obj::__boot();
+::com::velvetArts::v01::Character_obj::__boot();
 ::com::velvetArts::v01::Candy_obj::__boot();
 ::com::velvetArts::v01::Clouds_obj::__boot();
 ::com::velvetArts::v01::Game_obj::__boot();
 ::com::velvetArts::v01::GameStates_obj::__boot();
 ::com::velvetArts::v01::Main_obj::__boot();
 ::com::velvetArts::v01::MovingBG_obj::__boot();
-::com::velvetArts::v01::PixelPerfectCollision_obj::__boot();
 ::format::display::FrameLabel_obj::__boot();
 ::format::display::MovieClip_obj::__boot();
 ::haxe::Timer_obj::__boot();
@@ -330,7 +325,6 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::Bitmap_obj::__boot();
 ::native::display::BitmapData_obj::__boot();
 ::native::display::OptimizedPerlin_obj::__boot();
-::native::display::BitmapDataChannel_obj::__boot();
 ::native::display::BlendMode_obj::__boot();
 ::native::display::CapsStyle_obj::__boot();
 ::native::display::GradientType_obj::__boot();

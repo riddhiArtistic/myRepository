@@ -5,9 +5,8 @@
 #include <hxcpp.h>
 #endif
 
-#include <com/velvetArts/v01/Character.h>
+#include <native/display/Sprite.h>
 HX_DECLARE_CLASS3(com,velvetArts,v01,Actor)
-HX_DECLARE_CLASS3(com,velvetArts,v01,Character)
 HX_DECLARE_CLASS2(native,display,DisplayObject)
 HX_DECLARE_CLASS2(native,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(native,display,IBitmapDrawable)
@@ -23,9 +22,9 @@ namespace velvetArts{
 namespace v01{
 
 
-class Actor_obj : public ::com::velvetArts::v01::Character_obj{
+class Actor_obj : public ::native::display::Sprite_obj{
 	public:
-		typedef ::com::velvetArts::v01::Character_obj super;
+		typedef ::native::display::Sprite_obj super;
 		typedef Actor_obj OBJ_;
 		Actor_obj();
 		Void __construct();
@@ -61,7 +60,7 @@ class Actor_obj : public ::com::velvetArts::v01::Character_obj{
 		virtual Void startDragging( ::native::events::TouchEvent e);
 		Dynamic startDragging_dyn();
 
-		virtual Void update( ::native::events::Event e);
+		virtual Void update( );
 		Dynamic update_dyn();
 
 		bool IsActive; /* REM */ 

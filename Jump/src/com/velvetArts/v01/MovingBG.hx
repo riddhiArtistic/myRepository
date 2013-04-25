@@ -28,13 +28,12 @@ class MovingBG extends Sprite
 		Lib.current.stage.addChild(this);
 		
 		addEventListener(Event.RESIZE, resizeHandler);
-		addEventListener(Event.ENTER_FRAME, scrollBG);
 	}
 	
 	private function resize():Void 
 	{
 	    this.x = 0; 
-		this.y = 0; 	
+		this.y = 0; 
 	}
 	
 	private function resizeHandler(e:Event):Void
@@ -42,7 +41,7 @@ class MovingBG extends Sprite
 		resize();
 	}
 	
-	private function scrollBG(e:Event): Void
+	public function update(): Void
 	{
 		matriX.translate( -1, 0);
 		

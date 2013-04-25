@@ -25,7 +25,6 @@ class Game extends Sprite
 	
 	private var rewardHit: Bool = false;
 	private var cloudHit:Bool = false;
-	private var hitPoint:Point;
 	
 	private var mScore: Int;
 	private var topScore: Int;
@@ -77,34 +76,56 @@ class Game extends Sprite
 	{
 		var stgWidth = Lib.current.stage.stageWidth;
 		var stgHeight = Lib.current.stage.stageHeight;
+		bgImg.update();
 		
 		if (states.Active)
 		{
 			baby.IsActive = true;
-			check_Collision();
-		
-			if (!cloudHit)
-			{
-				if (baby.x > stgWidth)
-					baby.x = 0;
-				else
-					baby.x += 0.5;
+			baby.update();
+			for (i in 0...20)
+				mClouds[i].update();
+			for (i in 0...10)
+				mCandies[i].update();
 				
-				if (baby.y > stgHeight)
-				{
-					states.Inactive = true;     //Scope for pausing, not yet implemented
-					states.Active = false;
-					states.Play = false;
-				}
-				baby.y += 2;	
+			if (baby.jumpFlag)
+			{
+				if (cloudHit)
+				  cloudHit = false;
+				if(baby.y > 0)
+					baby.y -= 2;
+				
+				if (baby.jumpFWD)
+					baby.x += 0.5;
+				if (baby.jumpBKW)
+				    baby.x -= 1;					
 			}
 			else
 			{
-				if (baby.x > stgWidth)
-		        baby.x = 0;
+				check_Collision();
+		
+				if (!cloudHit)
+				{
+					if (baby.x > stgWidth)
+						baby.x = 0;
+					else
+						baby.x += 0.5;
+				
+					if (baby.y > stgHeight)
+					{
+						states.Inactive = true;     //Scope for pausing, not yet implemented
+						states.Active = false;
+						states.Play = false;
+					}
+					baby.y += 2;	
+				}
 				else
-		        baby.x += 1;
-				cloudHit = !cloudHit; 
+				{
+					if (baby.x > stgWidth)
+					baby.x = 0;
+					else
+					baby.x += 1;
+					cloudHit = !cloudHit; 
+				}
 			}
 		}
 		else
@@ -132,36 +153,6 @@ class Game extends Sprite
 				addChild(terminalText);
 			}
 		}
-		
-		
-		/*var format:TextFormat =  new TextFormat();
-	    clickToPLay = new TextField();
-		format.font = "Arial";
-		format.bold = true;
-		format.color = 0x008822;
-		format.size = 40;
-		format.align = TextFormatAlign.CENTER;
-		
-		clickToPLay.background = false;
-		clickToPLay.defaultTextFormat = format;
-		clickToPLay.x = 10;
-		clickToPLay.y = (stgHeight / 2) - 25;
-		clickToPLay.width = (stgWidth - 20);
-		clickToPLay.height = 50;
-		
-		if (states.Play)
-		{
-			clickToPLay.text = "Touch to Play";
-			clickToPLay.text = "Click to Play!";
-			clickToPLay.addEventListener(TouchEvent.TOUCH_TAP, startTouchGame);
-			clickToPLay.addEventListener(MouseEvent.MOUSE_DOWN, startClickGame);
-			clickToPLay.visible = true;
-		}
-		else
-		{
-			clickToPLay.visible = false;
-		}
-		addChild(clickToPLay);*/
 		
 		var format:TextFormat =  new TextFormat();
 		var mScoreText:TextField;
@@ -228,12 +219,12 @@ class Game extends Sprite
 		{
 			if (!cloudHit)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mClouds[i], this, true, 0))
+			    if (baby.hitTestObject(mClouds[i]))
 			    {
 					cloudHit = true;
 					baby.x = mClouds[i].x;
-					baby.y = mClouds[i].y - 30;
-					hitPoint = PixelPerfectCollision.getCollisionPoint(baby, mClouds[i], this, true, 0);			        
+					baby.y = mClouds[i].y - 25;
+			        
 				}
 				
 			}
@@ -243,7 +234,7 @@ class Game extends Sprite
 		{
 			if (mCandies[i].visible)
 			{
-			    if (PixelPerfectCollision.IsColliding(baby, mCandies[i], this, true, 0))
+				if(baby.hitTestObject(mCandies[i]))
 			    {
 					//rewardHit = true;
 					mScore += 10;

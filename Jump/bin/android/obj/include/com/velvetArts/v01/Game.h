@@ -23,7 +23,6 @@ HX_DECLARE_CLASS2(native,events,EventDispatcher)
 HX_DECLARE_CLASS2(native,events,IEventDispatcher)
 HX_DECLARE_CLASS2(native,events,MouseEvent)
 HX_DECLARE_CLASS2(native,events,TouchEvent)
-HX_DECLARE_CLASS2(native,geom,Point)
 namespace com{
 namespace velvetArts{
 namespace v01{
@@ -70,7 +69,6 @@ class Game_obj : public ::native::display::Sprite_obj{
 		::com::velvetArts::v01::GameStates states; /* REM */ 
 		int topScore; /* REM */ 
 		int mScore; /* REM */ 
-		::native::geom::Point hitPoint; /* REM */ 
 		bool cloudHit; /* REM */ 
 		bool rewardHit; /* REM */ 
 		Float stgHeight; /* REM */ 
