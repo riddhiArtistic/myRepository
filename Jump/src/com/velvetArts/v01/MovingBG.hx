@@ -46,7 +46,7 @@ class MovingBG extends Sprite
 		matriX.translate( -1, 0);
 		
 		this.graphics.clear();
-		this.graphics.beginBitmapFill(BG.bitmapData, matriX);
+		this.graphics.beginBitmapFill(BG.bitmapData, matriX, true);
 		this.graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 	}
 	

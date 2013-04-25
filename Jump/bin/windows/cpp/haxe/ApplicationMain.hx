@@ -70,7 +70,7 @@ class ApplicationMain
 				}
 			},
 			800, 480, 
-			60, 
+			30, 
 			16777215,
 			(true ? nme.Lib.HARDWARE : 0) |
 			(false ? nme.Lib.ALLOW_SHADERS : 0) |
@@ -108,6 +108,34 @@ class ApplicationMain
 		{
 			
 			return nme.Assets.getBitmapData ("img/baby.png");
+			
+		}
+		
+		if (inName == "img/candy.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/candy.png");
+			
+		}
+		
+		if (inName == "img/clouds1.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds1.png");
+			
+		}
+		
+		if (inName == "img/clouds2.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds2.png");
+			
+		}
+		
+		if (inName == "img/clouds3.png")
+		{
+			
+			return nme.Assets.getBitmapData ("img/clouds3.png");
 			
 		}
 		

@@ -117,26 +117,35 @@
    <depend name="include/native/utils/IDataInput.h"/>
    <depend name="include/native/utils/IMemoryRange.h"/>
   </file>
-  <file name="src/native/ui/MultitouchInputMode.cpp">
-   <depend name="include/native/ui/MultitouchInputMode.h"/>
-  </file>
-  <file name="src/native/ui/Multitouch.cpp">
-   <depend name="include/native/Lib.h"/>
-   <depend name="include/native/Loader.h"/>
-   <depend name="include/native/display/DisplayObject.h"/>
-   <depend name="include/native/display/DisplayObjectContainer.h"/>
-   <depend name="include/native/display/IBitmapDrawable.h"/>
-   <depend name="include/native/display/InteractiveObject.h"/>
-   <depend name="include/native/display/MovieClip.h"/>
-   <depend name="include/native/display/Sprite.h"/>
-   <depend name="include/native/display/Stage.h"/>
-   <depend name="include/native/events/EventDispatcher.h"/>
-   <depend name="include/native/events/IEventDispatcher.h"/>
-   <depend name="include/native/ui/Multitouch.h"/>
-   <depend name="include/native/ui/MultitouchInputMode.h"/>
-  </file>
   <file name="src/native/ui/Keyboard.cpp">
    <depend name="include/native/ui/Keyboard.h"/>
+  </file>
+  <file name="src/native/text/TextFormatAlign.cpp">
+   <depend name="include/native/text/TextFormatAlign.h"/>
+  </file>
+  <file name="src/native/text/TextFormat.cpp">
+   <depend name="include/native/text/TextFormat.h"/>
+  </file>
+  <file name="src/native/text/TextFieldType.cpp">
+   <depend name="include/native/text/TextFieldType.h"/>
+  </file>
+  <file name="src/native/text/TextFieldAutoSize.cpp">
+   <depend name="include/native/text/TextFieldAutoSize.h"/>
+  </file>
+  <file name="src/native/text/TextField.cpp">
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Type.h"/>
+   <depend name="include/native/Loader.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/text/AntiAliasType.h"/>
+   <depend name="include/native/text/TextField.h"/>
+   <depend name="include/native/text/TextFieldAutoSize.h"/>
+   <depend name="include/native/text/TextFieldType.h"/>
+   <depend name="include/native/text/TextFormat.h"/>
   </file>
   <file name="src/native/text/FontType.cpp">
    <depend name="include/native/text/FontType.h"/>
@@ -149,6 +158,9 @@
    <depend name="include/native/text/Font.h"/>
    <depend name="include/native/text/FontStyle.h"/>
    <depend name="include/native/text/FontType.h"/>
+  </file>
+  <file name="src/native/text/AntiAliasType.cpp">
+   <depend name="include/native/text/AntiAliasType.h"/>
   </file>
   <file name="src/native/net/URLVariables.cpp">
    <depend name="include/Reflect.h"/>
@@ -646,9 +658,8 @@
    <depend name="include/nme/installer/Assets.h"/>
   </file>
   <file name="src/com/velvetArts/v01/Main.cpp">
-   <depend name="include/com/velvetArts/v01/Character.h"/>
+   <depend name="include/com/velvetArts/v01/Game.h"/>
    <depend name="include/com/velvetArts/v01/Main.h"/>
-   <depend name="include/com/velvetArts/v01/MovingBG.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
    <depend name="include/native/display/DisplayObjectContainer.h"/>
    <depend name="include/native/display/IBitmapDrawable.h"/>
@@ -663,8 +674,71 @@
    <depend name="include/native/events/IEventDispatcher.h"/>
    <depend name="include/nme/Lib.h"/>
   </file>
-  <file name="src/com/velvetArts/v01/Character.cpp">
-   <depend name="include/com/velvetArts/v01/Character.h"/>
+  <file name="src/com/velvetArts/v01/GameStates.cpp">
+   <depend name="include/com/velvetArts/v01/GameStates.h"/>
+  </file>
+  <file name="src/com/velvetArts/v01/Game.cpp">
+   <depend name="include/com/velvetArts/v01/Actor.h"/>
+   <depend name="include/com/velvetArts/v01/Candy.h"/>
+   <depend name="include/com/velvetArts/v01/Clouds.h"/>
+   <depend name="include/com/velvetArts/v01/Game.h"/>
+   <depend name="include/com/velvetArts/v01/GameStates.h"/>
+   <depend name="include/com/velvetArts/v01/MovingBG.h"/>
+   <depend name="include/haxe/Timer.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/DisplayObjectContainer.h"/>
+   <depend name="include/native/display/Graphics.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/display/MovieClip.h"/>
+   <depend name="include/native/display/Sprite.h"/>
+   <depend name="include/native/display/Stage.h"/>
+   <depend name="include/native/events/Event.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/events/MouseEvent.h"/>
+   <depend name="include/native/events/TouchEvent.h"/>
+   <depend name="include/native/text/TextField.h"/>
+   <depend name="include/native/text/TextFormat.h"/>
+   <depend name="include/native/text/TextFormatAlign.h"/>
+   <depend name="include/nme/Lib.h"/>
+  </file>
+  <file name="src/com/velvetArts/v01/Clouds.cpp">
+   <depend name="include/com/velvetArts/v01/Clouds.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/DisplayObjectContainer.h"/>
+   <depend name="include/native/display/Graphics.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/display/MovieClip.h"/>
+   <depend name="include/native/display/Sprite.h"/>
+   <depend name="include/native/display/Stage.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/geom/Matrix.h"/>
+   <depend name="include/nme/Lib.h"/>
+   <depend name="include/nme/installer/Assets.h"/>
+  </file>
+  <file name="src/com/velvetArts/v01/Candy.cpp">
+   <depend name="include/com/velvetArts/v01/Candy.h"/>
+   <depend name="include/native/display/BitmapData.h"/>
+   <depend name="include/native/display/DisplayObject.h"/>
+   <depend name="include/native/display/DisplayObjectContainer.h"/>
+   <depend name="include/native/display/Graphics.h"/>
+   <depend name="include/native/display/IBitmapDrawable.h"/>
+   <depend name="include/native/display/InteractiveObject.h"/>
+   <depend name="include/native/display/MovieClip.h"/>
+   <depend name="include/native/display/Sprite.h"/>
+   <depend name="include/native/display/Stage.h"/>
+   <depend name="include/native/events/EventDispatcher.h"/>
+   <depend name="include/native/events/IEventDispatcher.h"/>
+   <depend name="include/native/geom/Matrix.h"/>
+   <depend name="include/nme/Lib.h"/>
+   <depend name="include/nme/installer/Assets.h"/>
+  </file>
+  <file name="src/com/velvetArts/v01/Actor.cpp">
+   <depend name="include/com/velvetArts/v01/Actor.h"/>
    <depend name="include/native/display/BitmapData.h"/>
    <depend name="include/native/display/DisplayObject.h"/>
    <depend name="include/native/display/DisplayObjectContainer.h"/>

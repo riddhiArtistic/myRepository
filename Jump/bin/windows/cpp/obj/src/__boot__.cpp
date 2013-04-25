@@ -15,12 +15,16 @@
 #include <native/utils/ByteArray.h>
 #include <native/utils/IDataInput.h>
 #include <native/utils/IMemoryRange.h>
-#include <native/ui/MultitouchInputMode.h>
-#include <native/ui/Multitouch.h>
 #include <native/ui/Keyboard.h>
+#include <native/text/TextFormatAlign.h>
+#include <native/text/TextFormat.h>
+#include <native/text/TextFieldType.h>
+#include <native/text/TextFieldAutoSize.h>
+#include <native/text/TextField.h>
 #include <native/text/FontType.h>
 #include <native/text/FontStyle.h>
 #include <native/text/Font.h>
+#include <native/text/AntiAliasType.h>
 #include <native/net/URLVariables.h>
 #include <native/net/URLRequestMethod.h>
 #include <native/net/URLRequestHeader.h>
@@ -95,7 +99,11 @@
 #include <cpp/rtti/FieldNumericIntegerLookup.h>
 #include <com/velvetArts/v01/MovingBG.h>
 #include <com/velvetArts/v01/Main.h>
-#include <com/velvetArts/v01/Character.h>
+#include <com/velvetArts/v01/GameStates.h>
+#include <com/velvetArts/v01/Game.h>
+#include <com/velvetArts/v01/Clouds.h>
+#include <com/velvetArts/v01/Candy.h>
+#include <com/velvetArts/v01/Actor.h>
 #include <native/display/Sprite.h>
 #include <native/display/DisplayObjectContainer.h>
 #include <native/display/InteractiveObject.h>
@@ -143,12 +151,16 @@ hx::RegisterResources( hx::GetResources() );
 ::native::utils::ByteArray_obj::__register();
 ::native::utils::IDataInput_obj::__register();
 ::native::utils::IMemoryRange_obj::__register();
-::native::ui::MultitouchInputMode_obj::__register();
-::native::ui::Multitouch_obj::__register();
 ::native::ui::Keyboard_obj::__register();
+::native::text::TextFormatAlign_obj::__register();
+::native::text::TextFormat_obj::__register();
+::native::text::TextFieldType_obj::__register();
+::native::text::TextFieldAutoSize_obj::__register();
+::native::text::TextField_obj::__register();
 ::native::text::FontType_obj::__register();
 ::native::text::FontStyle_obj::__register();
 ::native::text::Font_obj::__register();
+::native::text::AntiAliasType_obj::__register();
 ::native::net::URLVariables_obj::__register();
 ::native::net::URLRequestMethod_obj::__register();
 ::native::net::URLRequestHeader_obj::__register();
@@ -223,7 +235,11 @@ hx::RegisterResources( hx::GetResources() );
 ::cpp::rtti::FieldNumericIntegerLookup_obj::__register();
 ::com::velvetArts::v01::MovingBG_obj::__register();
 ::com::velvetArts::v01::Main_obj::__register();
-::com::velvetArts::v01::Character_obj::__register();
+::com::velvetArts::v01::GameStates_obj::__register();
+::com::velvetArts::v01::Game_obj::__register();
+::com::velvetArts::v01::Clouds_obj::__register();
+::com::velvetArts::v01::Candy_obj::__register();
+::com::velvetArts::v01::Actor_obj::__register();
 ::native::display::Sprite_obj::__register();
 ::native::display::DisplayObjectContainer_obj::__register();
 ::native::display::InteractiveObject_obj::__register();
@@ -252,7 +268,6 @@ hx::RegisterResources( hx::GetResources() );
 ::Hash_obj::__register();
 ::Date_obj::__register();
 ::ApplicationMain_obj::__register();
-::native::ui::Multitouch_obj::__init__();
 ::native::utils::ByteArray_obj::__init__();
 ::cpp::Lib_obj::__boot();
 ::cpp::rtti::FieldNumericIntegerLookup_obj::__boot();
@@ -287,7 +302,11 @@ hx::RegisterResources( hx::GetResources() );
 ::native::display::InteractiveObject_obj::__boot();
 ::native::display::DisplayObjectContainer_obj::__boot();
 ::native::display::Sprite_obj::__boot();
-::com::velvetArts::v01::Character_obj::__boot();
+::com::velvetArts::v01::Actor_obj::__boot();
+::com::velvetArts::v01::Candy_obj::__boot();
+::com::velvetArts::v01::Clouds_obj::__boot();
+::com::velvetArts::v01::Game_obj::__boot();
+::com::velvetArts::v01::GameStates_obj::__boot();
 ::com::velvetArts::v01::Main_obj::__boot();
 ::com::velvetArts::v01::MovingBG_obj::__boot();
 ::format::display::FrameLabel_obj::__boot();
@@ -357,12 +376,16 @@ hx::RegisterResources( hx::GetResources() );
 ::native::net::URLRequestHeader_obj::__boot();
 ::native::net::URLRequestMethod_obj::__boot();
 ::native::net::URLVariables_obj::__boot();
+::native::text::AntiAliasType_obj::__boot();
 ::native::text::Font_obj::__boot();
 ::native::text::FontStyle_obj::__boot();
 ::native::text::FontType_obj::__boot();
+::native::text::TextField_obj::__boot();
+::native::text::TextFieldAutoSize_obj::__boot();
+::native::text::TextFieldType_obj::__boot();
+::native::text::TextFormat_obj::__boot();
+::native::text::TextFormatAlign_obj::__boot();
 ::native::ui::Keyboard_obj::__boot();
-::native::ui::Multitouch_obj::__boot();
-::native::ui::MultitouchInputMode_obj::__boot();
 ::native::utils::IMemoryRange_obj::__boot();
 ::native::utils::IDataInput_obj::__boot();
 ::native::utils::ByteArray_obj::__boot();

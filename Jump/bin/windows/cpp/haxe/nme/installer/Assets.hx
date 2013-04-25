@@ -42,6 +42,14 @@ class Assets {
 			
 			resourceNames.set ("img/baby.png", "img/baby.png");
 			resourceTypes.set ("img/baby.png", "image");
+			resourceNames.set ("img/candy.png", "img/candy.png");
+			resourceTypes.set ("img/candy.png", "image");
+			resourceNames.set ("img/clouds1.png", "img/clouds1.png");
+			resourceTypes.set ("img/clouds1.png", "image");
+			resourceNames.set ("img/clouds2.png", "img/clouds2.png");
+			resourceTypes.set ("img/clouds2.png", "image");
+			resourceNames.set ("img/clouds3.png", "img/clouds3.png");
+			resourceTypes.set ("img/clouds3.png", "image");
 			resourceNames.set ("img/movingBG.png", "img/movingBG.png");
 			resourceTypes.set ("img/movingBG.png", "image");
 			

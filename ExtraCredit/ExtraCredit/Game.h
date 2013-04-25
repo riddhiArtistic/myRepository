@@ -28,6 +28,11 @@ public:
 	Dodo dodo;
 	Fox fox;
 
+	int* nActors;
+	int wWidth;
+	int wHeight;
+	SessionData* sData;
+
 private:
 	/* Data */
 	bool isActive;						// Flag indicating whether the game will continue or not

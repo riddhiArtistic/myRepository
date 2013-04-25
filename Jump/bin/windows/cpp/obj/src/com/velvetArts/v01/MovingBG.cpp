@@ -74,8 +74,6 @@ HX_STACK_PUSH("MovingBG::new","com/velvetArts/v01/MovingBG.hx",22);
 	::nme::Lib_obj::get_current()->get_stage()->addChild(hx::ObjectPtr<OBJ_>(this));
 	HX_STACK_LINE(30)
 	this->addEventListener(::native::events::Event_obj::RESIZE,this->resizeHandler_dyn(),null(),null(),null());
-	HX_STACK_LINE(31)
-	this->addEventListener(::native::events::Event_obj::ENTER_FRAME,this->scrollBG_dyn(),null(),null(),null());
 }
 ;
 	return null();
@@ -94,32 +92,31 @@ Dynamic MovingBG_obj::__Create(hx::DynamicArray inArgs)
 	result->__construct();
 	return result;}
 
-Void MovingBG_obj::scrollBG( ::native::events::Event e){
+Void MovingBG_obj::update( ){
 {
-		HX_STACK_PUSH("MovingBG::scrollBG","com/velvetArts/v01/MovingBG.hx",46);
+		HX_STACK_PUSH("MovingBG::update","com/velvetArts/v01/MovingBG.hx",45);
 		HX_STACK_THIS(this);
-		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(47)
+		HX_STACK_LINE(46)
 		this->matriX->translate((int)-1,(int)0);
-		HX_STACK_LINE(49)
+		HX_STACK_LINE(48)
 		this->get_graphics()->clear();
+		HX_STACK_LINE(49)
+		this->get_graphics()->beginBitmapFill(this->BG->bitmapData,this->matriX,true,null());
 		HX_STACK_LINE(50)
-		this->get_graphics()->beginBitmapFill(this->BG->bitmapData,this->matriX,null(),null());
-		HX_STACK_LINE(51)
 		this->get_graphics()->drawRect((int)0,(int)0,::nme::Lib_obj::get_current()->get_stage()->get_stageWidth(),::nme::Lib_obj::get_current()->get_stage()->get_stageHeight());
 	}
 return null();
 }
 
 
-HX_DEFINE_DYNAMIC_FUNC1(MovingBG_obj,scrollBG,(void))
+HX_DEFINE_DYNAMIC_FUNC0(MovingBG_obj,update,(void))
 
 Void MovingBG_obj::resizeHandler( ::native::events::Event e){
 {
-		HX_STACK_PUSH("MovingBG::resizeHandler","com/velvetArts/v01/MovingBG.hx",41);
+		HX_STACK_PUSH("MovingBG::resizeHandler","com/velvetArts/v01/MovingBG.hx",40);
 		HX_STACK_THIS(this);
 		HX_STACK_ARG(e,"e");
-		HX_STACK_LINE(41)
+		HX_STACK_LINE(40)
 		this->resize();
 	}
 return null();
@@ -130,11 +127,11 @@ HX_DEFINE_DYNAMIC_FUNC1(MovingBG_obj,resizeHandler,(void))
 
 Void MovingBG_obj::resize( ){
 {
-		HX_STACK_PUSH("MovingBG::resize","com/velvetArts/v01/MovingBG.hx",35);
+		HX_STACK_PUSH("MovingBG::resize","com/velvetArts/v01/MovingBG.hx",34);
 		HX_STACK_THIS(this);
-		HX_STACK_LINE(36)
+		HX_STACK_LINE(35)
 		this->set_x((int)0);
-		HX_STACK_LINE(37)
+		HX_STACK_LINE(36)
 		this->set_y((int)0);
 	}
 return null();
@@ -171,11 +168,9 @@ Dynamic MovingBG_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"BG") ) { return BG; }
 		break;
 	case 6:
+		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 		if (HX_FIELD_EQ(inName,"resize") ) { return resize_dyn(); }
 		if (HX_FIELD_EQ(inName,"matriX") ) { return matriX; }
-		break;
-	case 8:
-		if (HX_FIELD_EQ(inName,"scrollBG") ) { return scrollBG_dyn(); }
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"resizeHandler") ) { return resizeHandler_dyn(); }
@@ -206,7 +201,7 @@ static ::String sStaticFields[] = {
 	String(null()) };
 
 static ::String sMemberFields[] = {
-	HX_CSTRING("scrollBG"),
+	HX_CSTRING("update"),
 	HX_CSTRING("resizeHandler"),
 	HX_CSTRING("resize"),
 	HX_CSTRING("matriX"),

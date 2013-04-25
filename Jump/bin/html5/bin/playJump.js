@@ -5201,7 +5201,7 @@ com.velvetArts.v01.MovingBG.prototype = $extend(browser.display.Sprite.prototype
 	update: function() {
 		this.matriX.translate(-1,0);
 		this.get_graphics().clear();
-		this.get_graphics().beginBitmapFill(this.BG.bitmapData,this.matriX);
+		this.get_graphics().beginBitmapFill(this.BG.bitmapData,this.matriX,true);
 		this.get_graphics().drawRect(0,0,nme.Lib.get_current().get_stage().get_stageWidth(),nme.Lib.get_current().get_stage().get_stageHeight());
 	}
 	,resizeHandler: function(e) {

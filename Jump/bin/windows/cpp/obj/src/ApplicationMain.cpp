@@ -132,7 +132,7 @@ Void ApplicationMain_obj::main( ){
 		HX_END_LOCAL_FUNC0((void))
 
 		HX_STACK_LINE(39)
-		::nme::Lib_obj::create( Dynamic(new _Function_1_1()),(int)800,(int)480,(int)60,(int)16777215,(int((int((int((int((int((int((int((int((int((int(::nme::Lib_obj::HARDWARE) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::nme::Lib_obj::RESIZABLE))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("playJump"),null());
+		::nme::Lib_obj::create( Dynamic(new _Function_1_1()),(int)800,(int)480,(int)30,(int)16777215,(int((int((int((int((int((int((int((int((int((int(::nme::Lib_obj::HARDWARE) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::nme::Lib_obj::RESIZABLE))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("playJump"),null());
 	}
 return null();
 }
@@ -149,11 +149,31 @@ Dynamic ApplicationMain_obj::getAsset( ::String inName){
 		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/baby.png"),null());
 	}
 	HX_STACK_LINE(114)
-	if (((inName == HX_CSTRING("img/movingBG.png")))){
+	if (((inName == HX_CSTRING("img/candy.png")))){
 		HX_STACK_LINE(115)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/candy.png"),null());
+	}
+	HX_STACK_LINE(121)
+	if (((inName == HX_CSTRING("img/clouds1.png")))){
+		HX_STACK_LINE(122)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds1.png"),null());
+	}
+	HX_STACK_LINE(128)
+	if (((inName == HX_CSTRING("img/clouds2.png")))){
+		HX_STACK_LINE(129)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds2.png"),null());
+	}
+	HX_STACK_LINE(135)
+	if (((inName == HX_CSTRING("img/clouds3.png")))){
+		HX_STACK_LINE(136)
+		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/clouds3.png"),null());
+	}
+	HX_STACK_LINE(142)
+	if (((inName == HX_CSTRING("img/movingBG.png")))){
+		HX_STACK_LINE(143)
 		return ::nme::installer::Assets_obj::getBitmapData(HX_CSTRING("img/movingBG.png"),null());
 	}
-	HX_STACK_LINE(122)
+	HX_STACK_LINE(150)
 	return null();
 }
 

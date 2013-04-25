@@ -4,7 +4,18 @@
 void Game::Setup( SessionData* data )
 {
 	// @TODO: parse information from SessionData for initial game state
-
+	/*if(data->actorCounts != NULL)
+		nActors = data->actorCounts;
+	else
+		nActors = new int[3];
+	if(data->worldWidth > 100)
+		wWidth = data->worldWidth;
+	else
+		wWidth = 500;
+	if(data->worldHeight > 100)
+		wHeight = data->worldHeight;
+	else
+		wHeight = 500;*/
 }
 
 void Game::Execute()
@@ -85,13 +96,18 @@ void Game::HandleFrame()
 			if((actors[1]->getXPosition() == actors[i]->getXPosition()) && (actors[1]->getYPosition() == actors[i]->getYPosition()))
 			{
 				renderable[1] = false;
+				//nActors[1]--;
 			}
 		}
 
 		if(i != 2)
 		{
 			if((actors[2]->getXPosition() == actors[i]->getXPosition()) && (actors[2]->getYPosition() == actors[i]->getYPosition()))
+			{
 				renderable[2] = false;
+				//nActors[2]--;
+			}
+
 		}
 		if(i != 0)
 		{
@@ -123,14 +139,27 @@ void Game::HandleFrame()
 
 	for(int i=0; i<2; i++)
 	{
-		if((actors[2]->getXPosition() - actors[i]->getXPosition()) < 14)
+		int d = sqrt( ( (actors[2]->getXPosition() - actors[i]->getXPosition()) * (actors[2]->getXPosition() - actors[i]->getXPosition()) ) 
+			          + ( (actors[2]->getYPosition() - actors[i]->getYPosition()) * (actors[2]->getYPosition() - actors[i]->getYPosition()) ) );
+		if(d < 25)
 		{
-			f_SpeedX = -f_SpeedX;
-		}
+			if(actors[2]->getXPosition() >= actors[i]->getXPosition())
+			{
+				d_SpeedX = 1;
+			}
+			else
+			{
+				d_SpeedX = -1;
+			}
 
-		if((actors[2]->getYPosition() - actors[i]->getYPosition()) < 14)
-		{
-			f_SpeedY = -f_SpeedY;
+			if(actors[2]->getYPosition() >= actors[i]->getYPosition())
+			{
+				d_SpeedY = 1;
+			}
+			else
+			{
+				d_SpeedY = -1;
+			}
 		}
 	}
 }

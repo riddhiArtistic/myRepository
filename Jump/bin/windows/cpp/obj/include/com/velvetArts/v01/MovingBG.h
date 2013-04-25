@@ -42,8 +42,8 @@ class MovingBG_obj : public ::native::display::Sprite_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("MovingBG"); }
 
-		virtual Void scrollBG( ::native::events::Event e);
-		Dynamic scrollBG_dyn();
+		virtual Void update( );
+		Dynamic update_dyn();
 
 		virtual Void resizeHandler( ::native::events::Event e);
 		Dynamic resizeHandler_dyn();
