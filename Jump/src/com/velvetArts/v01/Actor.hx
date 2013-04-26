@@ -87,6 +87,7 @@ class Actor extends Sprite
 	
 	private function en_Move(e:MouseEvent):Void 
 	{
+		mouse_X = e.stageX;
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, Move);
 		Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, stopMove);
 		
@@ -98,12 +99,24 @@ class Actor extends Sprite
 		if ((30 < e.stageY) && (e.stageY < (Lib.current.stage.stageWidth - 30)))
 		{
 			jumpFlag = true;
+			if (e.stageX - mouse_X > 0)
+			{
+				jumpFWD = true;
+				jumpBKW = false;
+			}
+			else
+			{
+				jumpBKW = true;
+				jumpFWD = false;
+			}
 		}
 	}
 	
 	private function stopMove(e:MouseEvent):Void
 	{
 		jumpFlag = false;
+		jumpBKW = false;
+		jumpFWD = false;
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, Move);
 		Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, en_Move);
 	}

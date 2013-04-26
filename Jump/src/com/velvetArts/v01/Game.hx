@@ -105,6 +105,10 @@ class Game extends Sprite
 				  cloudHit = false;
 				if(baby.y > 0)
 					baby.y -= 2;
+				if (baby.jumpFWD)
+					baby.x += 2;
+				if (baby.jumpBKW)
+					baby.x -= 1.5;
 			}
 			else
 			{
